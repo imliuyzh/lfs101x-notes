@@ -16,7 +16,7 @@ Files are stored in a hierarchical filesystem, with the top node of the system b
 - Boot loader
   - A program that boots the operating system
 - Service
-  - Aprogram that runs as a background process.
+  - A program that runs as a background process
 - Filesystem
   - A method for storing and organizing files in Linux
 - X Window System
