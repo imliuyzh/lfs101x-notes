@@ -1,4 +1,5 @@
 # Linux Basics and System Startup
+
 ![](images/3.1.1.png)
 
 ### BIOS - The First Step

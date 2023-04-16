@@ -1,5 +1,5 @@
 # System Configuration from the Graphical Interface
-## System Settings
+
 The System Settings panel allows you to control most of the basic configuration options and desktop settings, such as specifying the screen resolution, managing network connections, or changing the date and time of the system.
 
 ## Display Settings
