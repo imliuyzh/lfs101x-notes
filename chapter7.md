@@ -80,7 +80,7 @@ When you first log into a system or open a terminal, the default directory shoul
 | Command    | Result |
 | ---------   | -------- |
 | pwd        | Displays the present working directory |
-| cd ~ or cd | Change to your home directory; shortcut name is ~ (tilde) |
+| cd ~ <br /> cd | Change to your home directory; shortcut name is ~ (tilde) |
 | cd ..      | Change to parent directory (..) |
 | cd -       | Change to previous working directory |
 
