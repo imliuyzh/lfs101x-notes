@@ -80,7 +80,7 @@ When you first log into a system or open a terminal, the default directory shoul
 | Command    | Result |
 | ---------   | -------- |
 | pwd        | Displays the present working directory |
-| cd ~ <br /> cd | Change to your home directory; shortcut name is ~ (tilde) |
+| cd ~ <br /> cd | Change to your home directory |
 | cd ..      | Change to parent directory (..) |
 | cd -       | Change to previous working directory |
 
@@ -158,7 +158,7 @@ mkdir is used to create a directory:
 - mkdir /usr/sampdir
   - It creates a sample directory called sampdir under /usr
 - mkdir -p /tmp/somedir/subdir
-  - It creates a sample directory named subdir if somedir/ or tmp/ does not exist
+  - It creates a sample directory named subdir even if somedir/ or tmp/ does not exist
 
 ## Moving, Renaming or Removing a File
 Note that mv does double duty, in that it can:
