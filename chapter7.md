@@ -120,12 +120,7 @@ Hard links are very useful and they save space, but you have to be careful with 
 If you edit one of the files, exactly what happens depends on your editor; most editors, including vi and gedit, will retain the link by default, but it is possible that modifying one of the names may break the link and result in the creation of two objects.
 
 ## Soft Links
-Soft (or Symbolic) links are created with the -s option, as in:
-
-```
-$ ln -s file1 file3
-$ ls -li file1 file3
-```
+Soft (or Symbolic) links are created with the -s option: `$ ln -s file1 file3`.
 
 Notice file3 no longer appears to be a regular file, and it clearly points to file1 and has a different inode number.
 
