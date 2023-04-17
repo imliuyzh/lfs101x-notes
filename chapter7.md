@@ -12,7 +12,7 @@ The command is the name of the program or script you are executing. It may be fo
 However, plenty of commands have no options, no arguments, or neither. In addition, other elements (such as setting environment variables) can also appear on the command line when launching a task.
 
 ### sudo
-All the demonstrations created have a user configured with sudo capabilities to provide the user with administrative (admin) privileges when required. sudo allows users to run programs using the security privileges of another user, generally root (superuser). 
+sudo allows users to run programs using the security privileges of another user, generally root (superuser). 
 
 If your system does not already have sudo set up and enabled:
 
@@ -45,8 +45,6 @@ and restart it (after logging into the console) with:
 
 ## Logging In and Out
 An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
-
-Once your session is started (either by logging into a text terminal or via a graphical terminal program), you can also connect and log into remote systems by using Secure SHell (SSH). For example, by typing `ssh student@remote-server.com`, SSH would connect securely to the remote machine (remote-server.com) and give student a command line terminal window, using either a password (as with regular logins) or cryptographic key to sign in without providing a password to verify the identity.
 
 ## Rebooting and Shutting Down
 The preferred method to shut down or reboot the system is to use the shutdown command. This sends a warning message, and then prevents further users from logging in. The init process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
@@ -100,7 +98,7 @@ For example, suppose you are currently working in /home/fred and wish to move to
 | Command | Usage |
 | --------- | -------- |
 | ls | List the contents of the present working directory |
-| ls –a | List all files, including hidden files and directories (those whose name start with . ) |
+| ls -a | List all files, including hidden files and directories (those whose name start with . ) |
 | df -h | Report file system disk space usage with sizes in powers of 1024 |
 
 ## Navigating the Directory History
@@ -161,16 +159,16 @@ mkdir is used to create a directory:
   - It creates a sample directory named subdir even if somedir/ or tmp/ does not exist
 
 ## Moving, Renaming or Removing a File
-Note that mv does double duty, in that it can:
+Note that mv can:
 - Simply rename a file
-- Move a file to another location, while possibly changing its name at the same time.
+- Move a file to another location, while possibly changing its name at the same time
 
 | Command | Usage |
 | --------- | -------- |
 | mv | Rename a file |
 | rm | Remove a file |
-| rm –f | Forcefully remove a file |
-| rm –i | Interactively remove a file |
+| rm -f | Forcefully remove a file |
+| rm -i | Interactively remove a file |
 
 ## Renaming or Removing a Directory
 rmdir works only on empty directories; otherwise you get an error. 
