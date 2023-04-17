@@ -1,6 +1,6 @@
-# Linux Basics and System Startup
-
 ![](images/3.1.1.png)
+
+# Linux Basics and System Startup
 
 ### BIOS - The First Step
 While Linux runs on many kinds of hardware, we will concentrate on the x86 family. When the computer is powered on, the Basic Input/Output System (BIOS) initializes the hardware, including the screen and keyboard, and tests the main memory. This process is also called POST (Power On Self Test).
