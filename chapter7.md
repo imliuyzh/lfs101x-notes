@@ -201,8 +201,8 @@ In Linux, all open files are represented internally by what are called file desc
 | standard output | stdout | 1 |
 | standard error | stderr | 2 |
 
-## I/O Redirection
-Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, instead of from our keyboard, and we can write output and errors to files or use them to provide input for subsequent commands.
+### I/O Redirection
+Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, and we can write output and errors to files or use them to provide input for subsequent commands.
 
 If we have a program called do_something that reads from stdin and writes to stdout and stderr, we can change its input source by using the less-than sign (<) followed by the name of the file to be consumed for input data: `$ do_something < input-file`. If you want to send the output to a file, use the greater-than sign (>) as in: `$ do_something > output-file`. In fact, you can do both at the same time as in: `$ do_something < input-file > output-file`.
 
@@ -210,7 +210,7 @@ Because stderr is not the same as stdout, error messages will still be seen on t
 
 bash permits an easier syntax for the above: `$ do_something >& all-output-file`.
 
-## Pipes
+### Pipes
 The UNIX/Linux philosophy is to have many simple and short programs (or commands) cooperate together to produce quite complex results, rather than have one complex program with many possible options and modes of operation. In order to accomplish this, extensive use of pipes is made. You can pipe the output of one command or program into another as its input.
 
 In order to do this, we use the vertical-bar, pipe symbol (|), between commands as in: `$ command1 | command2 | command3`.
@@ -251,7 +251,7 @@ Searching only for regular files named gcc: `$ find /usr -type f -name gcc`.
 
 Another good use of find is being able to run commands on the files that match your search criteria. The -exec option is used for this purpose.
 
-To find and remove all files that end with .swp: `$ find -name "*.swp" -exec rm {} ’;’`. The {} (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the preceding command will be run on each one individually. Please note that you have to end the command with either ‘;’ (including the single-quotes) or \;.
+To find and remove all files that end with .swp: `$ find -name "*.swp" -exec rm {} ’;’`. The {} (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the preceding command will be run on each one individually. Please note that you have to end the command with either ‘;’ (including the single-quotes) or \\;.
 
 One can also use the -ok option, which behaves the same as -exec, except that find will prompt you for permission before executing the command. This makes it a good way to test your results before blindly executing any potentially dangerous commands.
 
@@ -264,7 +264,7 @@ To find files based on sizes: `$ find / -size 0`. Note the size here is in 512-b
 ## Package Management Systems on Linux
 The core parts of a Linux distribution and most of its add-on software are installed via the Package Management System. Each package contains the files and other instructions needed to make one software component work well and cooperate with the other components that comprise the entire system. Packages can depend on each other. For example, a package for a web-based application written in Python will require the appropriate Python packages to be installed first.
 
-## Package Managers: Two Levels
+### Package Managers: Two Levels
 There are two broad families of package managers widely deployed: those based on Debian and those which use RPM as their low-level package manager. The two systems are incompatible but, broadly speaking, provide the same essential features and satisfy the same needs.
 
 Both package management systems operate on two distinct levels: a low-level tool (such as dpkg or rpm) takes care of the details of unpacking individual packages, running scripts, getting the software installed correctly, while a high-level tool (such as apt, dnf, or zypper) works with groups of packages, downloads packages from the vendor, and figures out dependencies.
@@ -273,7 +273,7 @@ Most of the time users need to work only with the high-level tool, which will ta
 
 ![](./images/7.5.1.png)
 
-## Working With Different Package Management Systems
+### Working With Different Package Management Systems
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
 
 dnf is the open source command-line package-management utility for the RPM-compatible Linux systems that belong to the Red Hat family. 
