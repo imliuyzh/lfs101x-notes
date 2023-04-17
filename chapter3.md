@@ -33,8 +33,6 @@ init handles the mounting and pivoting over to the final real root filesystem. I
 ### Text-Mode Login
 Near the end of the boot process, init starts a number of text-mode login prompts. These enable you to type your username, followed by your password, and to eventually get a command shell. However, if you are running a system with a graphical login interface, you will not see these at first. The terminals which run the command shells can be accessed using the ALT key plus a function key. Most distributions start six text terminals and one graphics terminal starting with F1 or F2. Within a graphical environment, switching to a text console requires pressing CTRL-ALT + the appropriate function key (with F7 or F1 leading to the GUI).
 
-![](images/3.1.5.png)
-
 ## Kernel, init and Services
 
 ### The Linux Kernel
