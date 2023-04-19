@@ -25,7 +25,7 @@ If your system does not already have sudo set up and enabled:
     ```
     # echo "student ALL=(ALL) ALL" > /etc/sudoers.d/student
     ```
-   - Some Linux distributions will complain if you do not also change permissions on the file by doing: `# chmod 440 /etc/sudoers.d/student`
+   - Some Linux distributions will complain if you do not also change permissions on the file by doing `# chmod 440 /etc/sudoers.d/student`
 
 ## Virtual Terminals
 Virtual Terminals (VT) are console sessions that use the entire display and keyboard outside of a graphical environment. Such terminals are considered "virtual" because, although there can be multiple active terminals, only one terminal remains visible at a time. A VT is not the same as a command line terminal window; you can have many of those visible simultaneously on a graphical desktop.
@@ -37,11 +37,11 @@ To switch between VTs, press CTRL-ALT-function key for the VT. For example, pres
 ## Turning Off the Graphical Desktop
 Linux distributions can start and stop the graphical desktop in various ways. The exact method differs among distributions and between versions. For the newer system-based distributions, the display manager is run as a service, and you can stop the GUI desktop with the systemctl utility. In addition, most distributions will also work with the telinit command, as in:
 
-`$ sudo systemctl stop gdm (or sudo telinit 3)`
+`$ sudo systemctl stop gdm # or sudo telinit 3`
 
 and restart it (after logging into the console) with:
 
-`$ sudo systemctl start gdm (or sudo telinit 5)`
+`$ sudo systemctl start gdm # or sudo telinit 5`
 
 ## Logging In and Out
 An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
