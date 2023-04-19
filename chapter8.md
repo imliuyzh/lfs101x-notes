@@ -44,10 +44,9 @@ Items function like browser links and are identified by an asterisk (*) at the b
 |  p  | Go to previous node |
 |  u  | Move one node up in the index |
 
-## The --help Option
+## The --help Option and help Command
 Most commands have an available short description which can be viewed using the --help or the -h option along with the command or application. For example, to learn more about the man command, you can type: `$ man --help`.
 
-## The help Command
 When run within a bash command shell, some popular commands actually run especially built-in bash versions of the commands rather than the usual binaries found on the file system, say under /bin or /usr/bin. It is more efficient to do so as execution is faster because fewer resources are used. To view a synopsis of these built-in commands, you can simply type help. 
 
 ## Other Documentation Sources
