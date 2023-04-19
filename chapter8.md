@@ -29,7 +29,7 @@ Functionally, info resembles man in many ways. However, topics are connected usi
 ### Using info from the Command Line
 Typing info with no arguments in a terminal window displays an index of available topics. You can browse through the topic list using the regular movement keys: arrows, Page Up, and Page Down.
 
-You can view help for a particular topic by typing info <topic name>. The system then searches for the topic in all available info files.
+You can view help for a particular topic by typing info \<topic name\>. The system then searches for the topic in all available info files.
 
 Some useful keys are: q to quit, h for help, and Enter to select a menu item.
 
