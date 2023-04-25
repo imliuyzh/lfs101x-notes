@@ -130,9 +130,7 @@ Line mode commands (those following :) require the ENTER key to be pressed after
 | p | Paste at the current position the yanked line or lines from the buffer |
 
 ### Using External Commands in vi
-Typing sh command opens an external command shell. When you exit the shell, you will resume your editing session.
-
-Typing ! executes a command from within vi. This technique is best suited for non-interactive commands, such as : ! wc %. Typing this will run the wc (word count) command on the file; the character % represents the file currently being edited.
+Typing ! executes a command from within vi. This technique is best suited for non-interactive commands, such as :! wc %. Typing this will run the wc (word count) command on the file; the character % represents the file currently being edited.
 
 ![](./images/12.2.2.png)
 
