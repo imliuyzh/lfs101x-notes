@@ -8,3 +8,4 @@ Some contents are omitted due to insufficient material.
 - [Chapter 5: System Configuration from the Graphical Interface](./chapter5.md)
 - [Chapter 7: Command Line Operations](./chapter7.md)
 - [Chapter 8: Finding Linux Documentation](./chapter8.md)
+- [Chapter 11: Text Editors](./chapter11.md)
