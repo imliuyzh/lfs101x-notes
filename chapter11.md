@@ -1,7 +1,5 @@
 # Text Editors
 ## Creating Files Without Using an Editor
-Sometimes, you may want to create a short file and not want to bother invoking a full text editor. Furthermore, doing so can be quite useful when used from within scripts, even when creating longer files.
-
 If you want to create a file without using an editor, there are two standard ways to create one from the command line and fill it with content.
 
 The first is to use echo repeatedly:
@@ -27,11 +25,11 @@ $
 
 In this example, the string used to show the beginning and end of the process need not be EOF; it could be STOP or any other string not used in the content itself. Both techniques produce a file with the following lines in it:
 
+```
 line one
 line two
 line three
-
-and are extremely useful when employed by scripts.
+```
 
 ## nano
 nano is easy to use, and requires very little effort to learn. To open a file, type `nano <filename>` and press Enter. If the file does not exist, it will be created.
