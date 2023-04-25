@@ -192,6 +192,4 @@ The emacs tutorial is a good place to start learning basic commands. It is avail
 | CTRL-y | Insert at current cursor location whatever was most recently deleted |
 
 ## vi vs. emacs
-Developers and administrators experienced in working on UNIX-like systems almost always use one of the two venerable editing options: vi and emacs. Both are present or easily available on all distributions and are completely compatible with the versions available on other operating systems. Both have a basic, purely text-based form that can run in a non-graphical environment. They also have one or more graphical interface forms with extended capabilities.
-
-You need to be aware that fights among seasoned users over which editor is better can be quite intense and are often described as a holy war. It is clear, however, that there are many more users of vi than there are of emacs. Both editing programs are here to stay no matter what.
+Be aware that fights among seasoned users over which editor is better can be quite intense and are often described as a holy war. It is clear, however, that there are many more users of vi than there are of emacs. Both editing programs are here to stay no matter what.
