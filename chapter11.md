@@ -32,7 +32,7 @@ line three
 ```
 
 ## nano
-nano is easy to use, and requires very little effort to learn. To open a file, type `nano <filename>` and press Enter. If the file does not exist, it will be created.
+To open a file, type `nano <filename>` and press Enter. If the file does not exist, it will be created.
 
 nano provides a two line shortcut bar at the bottom of the screen that lists the available commands. Some of these commands are:
 
@@ -50,9 +50,9 @@ gedit (pronounced 'g-edit') is a simple-to-use graphical editor that can only be
 ![](./images/12.1.2.png)
 
 ## vi
-Usually, the actual program installed on your system is vim, which stands for Vi IMproved and is aliased to the name vi. The name is pronounced as “vee-eye”. When using vi, all commands are entered through the keyboard. You do not need to keep moving your hands to use a pointer device such as a mouse or touchpad.
+Usually, the actual program installed on your system is vim, which stands for Vi IMproved and is aliased to the name vi. The name is pronounced as “vee-eye”. When using vi, all commands are entered through the keyboard. 
 
-Typing vimtutor launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user, because it covers a large number of commands.
+Typing vimtutor launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user.
 
 ![](./images/12.2.1.png)
 
