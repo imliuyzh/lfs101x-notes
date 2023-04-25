@@ -284,7 +284,7 @@ zypper is the package management system for the SUSE/openSUSE family and is also
 | --------- | -------- | -------- |
 | Install package | rpm -i foo.rpm | dpkg --install foo.deb |
 | Install package, dependencies | dnf install foo | apt install foo |
-| Remove package | rpm -e foo.rpm  | dpkg --remove foo.deb |
+| Remove package | rpm -e foo.rpm | dpkg --remove foo.deb |
 | Remove package, dependencies | dnf remove foo | apt autoremove foo |
 | Update package | rpm -U foo.rpm | dpkg --install foo.deb |
 | Update package, dependencies | dnf update foo | apt install foo |
