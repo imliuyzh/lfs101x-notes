@@ -147,6 +147,7 @@ Each line in the process list of the top output displays information about a pro
 | k | Kill a specific process |
 | f | Enter the top configuration screen |
 | o | Interactively select a new sort order in the process list |
+| 1 | Show CPU usage for every core |
 
 ## Scheduling Future Processes Using at
 Suppose you need to perform a task on a specific day sometime in the future. You can use the at utility program to execute any non-interactive command at a specified time, as illustrated in the screenshot below:
