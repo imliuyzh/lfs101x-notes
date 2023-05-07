@@ -271,7 +271,7 @@ gzip has historically been the most widely used Linux compression utility.
 | - | - |
 | gzip * | Compresses all files in the current directory; each file is compressed and renamed with a .gz extension. |
 | gzip -r projectX | Compresses all files in the projectX directory, along with all files in all of the directories under projectX. |
-| gunzip foo | De-compresses foo found in foo.gz. Under the hood, the gunzip command is actually the same as gzip –d. |
+| gunzip foo | De-compresses foo found in foo.gz. Under the hood, the gunzip command is actually the same as gzip -d. |
 
 ### Compressing Data Using bzip2
 bzip2 has a syntax that is similar to gzip but it uses a different compression algorithm and produces significantly smaller files, at the price of taking a longer time to do its work. 
