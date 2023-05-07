@@ -84,3 +84,58 @@ In Linux, command line print job management commands allow you to monitor the jo
 | lpstat -a | To check the status of all connected printers, including job numbers |
 | cancel job-id <br> lprm job-id | To cancel a print job |
 | lpmove job-id newprinter | To move a print job to new printer |
+
+## Working with PostScript and PDF
+PostScript is a standard page description language. It effectively manages scaling of fonts and vector graphics to provide quality printouts. It is purely a text format that contains the data fed to a PostScript interpreter. The format itself is a language that Adobe developed in the early 1980s to enable the transfer of data to printers.
+
+Postscript has been, for the most part, superseded by the PDF format (Portable Document Format), which produces far smaller files in a compressed format for which support has been integrated into many applications. 
+
+From time to time, you may need to convert files from one format to the other, and there are very simple utilities for accomplishing that task. ps2pdf and pdf2ps are part of the ghostscript package installed on or available on all Linux distributions. As an alternative, there are pstopdf and pdftops which are usually part of the poppler package, which may need to be added through your package manager. Unless you are doing a lot of conversions or need some of the fancier options (which you can read about in the man pages for these utilities), it really does not matter which ones you use.
+
+Another possibility is to use the very powerful convert program, which is part of the ImageMagick package. Some newer distributions have replaced this with Graphics Magick, and the command to use is gm convert.
+
+| Command | Usage |
+| - | - |
+| pdf2ps file.pdf | Converts file.pdf to file.ps |
+| ps2pdf file.ps | Converts file.ps to file.pdf |
+| pstopdf input.ps output.pdf | Converts input.ps to output.pdf |
+| pdftops input.pdf output.ps | Converts input.pdf to output.ps |
+| convert input.ps output.pdf | Converts input.ps to output.pdf |
+| convert input.pdf output.ps | Converts input.pdf to output.ps |
+
+## Manipulating PDFs
+At times, you may want to merge, split, or rotate PDF files; not all of these operations can be achieved while using a PDF viewer. In order to accomplish these tasks, there are several programs available: qpdf, pdftk, and ghostscript.
+
+qpdf is widely available on Linux distributions and is very full-featured. pdftk was once very popular but depended on an obsolete unmaintained package (libgcj), and a number of distributions dropped it. However, it has now been reimplemented in Java and is available again on most distributions under the name pdftk-java. Ghostscript (often invoked using gs) is widely available and well-maintained. However, its usage is a little complex.
+
+### Using qpdf
+| Command | Usage |
+| - | - |
+| qpdf --empty --pages 1.pdf 2.pdf -- 12.pdf | Merge the two documents 1.pdf and 2.pdf and save to 12.pdf. |
+| qpdf --empty --pages 1.pdf 1-2 -- new.pdf | Write only pages 1 and 2 of 1.pdf and save to new.pdf. |
+| qpdf --rotate=+90:1 1.pdf 1r.pdf | Rotate page 1 of 1.pdf 90 degrees clockwise and save to 1r.pdf. |
+| qpdf --rotate=+90:1-z 1.pdf 1r-all.pdf | Rotate all pages of 1.pdf 90 degrees clockwise and save to 1r-all.pdf |
+| qpdf --encrypt mypw mypw 128 -- public.pdf private.pdf | Encrypt with 128 bits public.pdf using as the passwd mypw with output as private.pdf. |
+| qpdf --decrypt --password=mypw private.pdf file-decrypted.pdf | Decrypt private.pdf with output as file-decrypted.pdf. |
+
+### Using pdftk
+As mentioned earlier, Marc Vinyals has developed and maintained a port to Java for pdftk which can be found on GitLab. Some distributions, such as Ubuntu, may install this version only. 
+
+| Command | Usage |
+| - | - |
+| pdftk 1.pdf 2.pdf cat output 12.pdf | Merge the two documents 1.pdf and 2.pdf. The output will be saved to 12.pdf. |
+| pdftk A=1.pdf cat A1-2 output new.pdf | Write only pages 1 and 2 of 1.pdf. The output will be saved to new.pdf. |
+| pdftk A=1.pdf cat A1-endright output new.pdf | Rotate all pages of 1.pdf 90 degrees clockwise and save result in new.pdf. |
+
+If you’re working with PDF files that contain confidential information and you want to ensure that only certain people can view the PDF file, you can apply a password to it using the user_pw option: `$ pdftk public.pdf output private.pdf user_pw PROMPT`.
+
+### Using Ghostscript
+Ghostscript is widely available as an interpreter for the Postscript and PDF languages. The executable program associated with it is abbreviated to gs. Use is somewhat complicated by the rather long nature of the options. For example:
+- Combine three PDF files into one
+  ```
+  $ gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite  -sOutputFile=all.pdf file1.pdf file2.pdf file3.pdf
+  ```
+- Split pages 10 to 20 out of a PDF file
+  ```
+  $ gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dDOPDFMARKS=false -dFirstPage=10 -dLastPage=20 -sOutputFile=split.pdf file.pdf
+  ```
