@@ -229,3 +229,105 @@ In Linux, a file's extension does not, by default, categorize its nature the way
 The real nature of a file can be ascertained by using the file utility. For the file names given as arguments, it examines the contents and certain characteristics to determine whether the files are plain text, shared libraries, executable programs, scripts, or something else.
 
 ![](./images/10.3.1.png)
+
+## Backing Up Data
+There are many ways you can back up data or even your entire system. Basic ways to do so include the use of simple copying with cp and use of the more robust rsync.
+
+Both can be used to synchronize entire directory trees. However, rsync is more efficient, because it checks if the file being copied already exists. If the file exists and there is no change in size or modification time, rsync will avoid an unnecessary copy and save time. Furthermore, because rsync copies only the parts of files that have actually changed, it can be very fast.
+
+cp can only copy files to and from destinations on the local machine (unless you are copying to or from a filesystem mounted using NFS), but rsync can also be used to copy files from one machine to another. Locations are designated in the target:path form, where target can be in the form of someone@host. The someone@ part is optional and used if the remote user is different from the local user.
+
+### Using rsync
+rsync is a very powerful utility. For example, a very useful way to back up a project directory might be to use the following command:
+
+```
+$ rsync -r project-X archive-machine:archives/project-X
+```
+
+Note that rsync can be very destructive! Accidental misuse can do a lot of harm to data and programs, by inadvertently copying changes to where they are not wanted. Take care to specify the correct options and paths. It is highly recommended that you first test your rsync command using the -dry-run option to ensure that it provides the results that you want.
+
+To use rsync at the command prompt, type `rsync <sourcefile> <destinationfile>`, where either file can be on the local machine or on a networked machine; The contents of sourcefile will be copied to destinationfile.
+
+A good combination of options is shown in:
+
+```
+$ rsync --progress -avrxH --delete sourcedir destdir
+```
+
+## Compressing Data
+| Command | Usage |
+| - | - |
+| gzip | The most frequently used Linux compression utility |
+| bzip2 | Produces files significantly smaller than those produced by gzip |
+| xz | The most space-efficient compression utility used in Linux |
+| zip | Often required to examine and decompress archives from other operating systems |
+
+These techniques vary in the efficiency of the compression and in how long they take to compress; generally, the more efficient techniques take longer. Decompression time does not vary as much across different methods. 
+
+### Compressing Data Using gzip
+gzip has historically been the most widely used Linux compression utility. 
+
+| Command | Usage |
+| - | - |
+| gzip * | Compresses all files in the current directory; each file is compressed and renamed with a .gz extension. |
+| gzip -r projectX | Compresses all files in the projectX directory, along with all files in all of the directories under projectX. |
+| gunzip foo | De-compresses foo found in foo.gz. Under the hood, the gunzip command is actually the same as gzip –d. |
+
+### Compressing Data Using bzip2
+bzip2 has a syntax that is similar to gzip but it uses a different compression algorithm and produces significantly smaller files, at the price of taking a longer time to do its work. 
+
+| Command | Usage |
+| - | - |
+| bzip2 * | Compresses all of the files in the current directory and replaces each file with a file renamed with a .bz2 extension. |
+| bunzip2 *.bz2 | Decompresses all of the files with an extension of .bz2 in the current directory. Under the hood, bunzip2 is the same as calling bzip2 -d. |
+
+*NOTE: bzip2 has lately become deprecated due to lack of maintenance and the superior compression ratios of xz which is actively maintained. While it should no longer be used for compressing files, you are likely to still need it to decompress files you encounter with the bz2 extension.*
+
+### Compressing Data Using xz
+xz is the most space-efficient compression utility frequently used in Linux and is the choice for distributing and storing archives of the Linux kernel. Once again, it trades a slower compression speed for an even higher compression ratio. It is gradually becoming the dominant compression method, especially for large files which may need to be downloaded from the Internet.
+
+| Command | Usage |
+| - | - |
+| xz * | Compresses all of the files in the current directory and replaces each file with one with a .xz extension. |
+| xz foo | Compresses foo into foo.xz using the default compression level (-6), and removes foo if compression succeeds. |
+| xz -dk bar.xz | Decompresses bar.xz into bar and does not remove bar.xz even if decompression is successful. |
+| xz -dcf a.txt b.txt.xz > abcd.txt | Decompresses a mix of compressed and uncompressed files to standard output, using a single command. |
+| xz -d *.xz | Decompresses the files compressed using xz. |
+
+### Handling Files Using zip
+While, the zip program is rarely used to compress files in Linux, it may be needed to examine and decompress archives from other operating systems. It is a legacy program neither fast nor efficient.
+
+| Command | Usage |
+| - | - |
+| zip backup * | Compresses all files in the current directory and places them in the backup.zip. |
+| zip -r backup.zip ~ | Archives your login directory (~) and all files and directories under it in backup.zip. |
+| unzip backup.zip | Extracts all files in backup.zip and places them in the current directory. |
+
+### Archiving and Compressing Data Using tar
+Historically, tar stood for "tape archive" and was used to archive files to a magnetic tape. It allows you to create or extract files from an archive file, often called a tarball. At the same time, you can optionally compress while creating the archive, and decompress while extracting its contents.
+
+| Command | Usage |
+| - | - |
+| tar xvf mydir.tar | Extract all the files in mydir.tar into the mydir directory. |
+| tar zcvf mydir.tar.gz mydir | Create the archive and compress with gzip. |
+| tar jcvf mydir.tar.bz2 mydir | Create the archive and compress with bz2. |
+| tar Jcvf mydir.tar.xz mydir | Create the archive and compress with xz. |
+| tar xvf mydir.tar.gz | Extract all the files in mydir.tar.gz into the mydir directory. |
+
+Use of a dash ("-") before options is often done, although it is usually unnecessary, as in `tar -xvf mydir.tar`.
+
+You can separate out the archiving and compression stages:
+
+```
+$ tar cvf mydir.tar mydir ; gzip mydir.tar
+$ gunzip mydir.tar.gz ; tar xvf mydir.tar
+```
+
+but this is slower and wastes space by creating an unneeded intermediary .tar file.
+
+## Disk-to-Disk Copying (dd)
+The dd program is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR) (the first 512-byte sector on the disk that contains a table describing the partitions on that disk), you might type `dd if=/dev/sda of=sda.mbr bs=512 count=1`.
+
+(*Do not experiment with this command*) `dd if=/dev/sda of=/dev/sdb` will make a copy of one disk onto another and delete everything that previously existed on the second disk. An exact copy of the first disk device is created on the second disk device.
+
+Exactly what the name dd stands for is an often-argued item. "Data definition" is the most popular theory and has roots in early IBM history. Often, people joke that it means disk destroyer and other variants such as delete data!
