@@ -1,6 +1,4 @@
 # Printing
-
-## Printing on Linux
 To manage printers and print either directly from a local computer or across a networked environment, you need to know how to configure and install a printer. Printing itself requires software that converts information from the application you are using to a language your printer can understand. The Linux standard for printing software is the Common UNIX Printing System (CUPS).
 
 ## CUPS Overview
@@ -53,3 +51,36 @@ Some pages require a username and password to perform certain actions, for examp
 
 ![](./images/17.1.3.png)
 
+## Printing from the Command-Line Interface
+CUPS provides two command-line interfaces, descended from the System V and BSD flavors of UNIX. This means that you can use either lp (System V) or lpr (BSD) to print. 
+
+lp is just a command line front-end to the lpr utility that passes input to lpr. In the example shown here, the task is to print $HOME/.emacs.
+
+![](./images/17.2.1.png)
+
+### Using lp
+lp and lpr accept command line options that help you perform all operations that the GUI can accomplish. lp is typically used with a file name as an argument.
+
+lpoptions can be used to set printer options and defaults. Each printer has a set of tags associated with it, such as the default number of copies and authentication requirements. You can type lpoptions help to obtain a list of supported options. lpoptions can also be used to set system-wide values, such as the default printer.
+
+| Command | Usage |
+| - | - |
+| lp filename | To print the file to default printer |
+| lp -d printer filename | To print to a specific printer |
+| program \| lp <br> echo string \| lp | To print the output of a program |
+| lp -n number filename | To print multiple copies |
+| lpoptions -d printer | To set the default printer |
+| lpq -a | To show the queue status |
+| lpadmin | To configure printer queues |
+
+### Managing Print Jobs
+You send a file to the shared printer. But when you go there to collect the printout, you discover another user has just started a 200 page job that is not time sensitive. Your file cannot be printed until this print job is complete. What do you do now?
+
+In Linux, command line print job management commands allow you to monitor the job state as well as managing the listing of all printers and checking their status, and canceling or moving print jobs to another printer.
+
+| Command | Usage |
+| - | - |
+| lpstat -p -d | To get a list of available printers, along with their status |
+| lpstat -a | To check the status of all connected printers, including job numbers |
+| cancel job-id <br> lprm job-id | To cancel a print job |
+| lpmove job-id newprinter | To move a print job to new printer |
