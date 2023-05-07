@@ -15,7 +15,7 @@ Typically, a range of IP addresses are requested from your Internet Service Prov
 
 You can assign IP addresses to computers over a network either manually or dynamically. Manual assignment adds static (never changing) addresses to the network. Dynamically assigned addresses can change every time you reboot or even more often; the Dynamic Host Configuration Protocol (DHCP) is used to assign IP addresses.
 
-## Name Resolution
+### Name Resolution
 Name Resolution is used to convert numerical IP address values into a human-readable format known as the hostname. 
 
 The special hostname localhost is associated with the IP address 127.0.0.1 and describes the machine you are currently on (which normally has additional network-related IP addresses).
