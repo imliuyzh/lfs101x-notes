@@ -42,19 +42,19 @@ nano provides a two line shortcut bar at the bottom of the screen that lists the
 - CTRL-R: Insert contents from another file to the current buffer
 - CTRL-C: Show cursor position
 
-![](./images/12.1.1.png)
+![](./images/11.1.1.png)
 
 ## gedit
 gedit (pronounced 'g-edit') is a simple-to-use graphical editor that can only be run within a Graphical Desktop environment. To open a new file find the program in your desktop's menu system, or from the command line type `gedit <filename>`. If the file does not exist, it will be created.
 
-![](./images/12.1.2.png)
+![](./images/11.1.2.png)
 
 ## vi
 Usually, the actual program installed on your system is vim, which stands for Vi IMproved and is aliased to the name vi. The name is pronounced as “vee-eye”. When using vi, all commands are entered through the keyboard. 
 
 Typing vimtutor launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user.
 
-![](./images/12.2.1.png)
+![](./images/11.2.1.png)
 
 ### vi Modes
 | Mode | Feature |
@@ -132,14 +132,14 @@ Line mode commands (those following :) require the ENTER key to be pressed after
 ### Using External Commands in vi
 Typing ! executes a command from within vi. This technique is best suited for non-interactive commands, such as :! wc %. Typing this will run the wc (word count) command on the file; the character % represents the file currently being edited.
 
-![](./images/12.2.2.png)
+![](./images/11.2.2.png)
 
 ## emacs
 The emacs editor is a popular competitor for vi. Rather than having different modes for command and insert, like vi, emacs uses the CTRL and Meta (Alt or Esc) keys for special commands.
 
 The emacs tutorial is a good place to start learning basic commands. It is available any time when in emacs by simply typing CTRL-h (for help) and then the letter t for tutorial.
 
-![](./images/12.3.1.png)
+![](./images/11.3.1.png)
 
 ### Working with emacs
 | Key | Usage |
