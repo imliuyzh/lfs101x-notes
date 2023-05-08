@@ -41,7 +41,7 @@ Control of group membership is administered through the /etc/group file, which s
 
 Users also have one or more group IDs (gid), including a default one that is the same as the user ID. These numbers are associated with names through the files /etc/passwd and /etc/group. 
 
-For example, /etc/passwd might contain john:x:1002:1002:John Garfield:/home/john:/bin/bash, and /etc/group might contain john:x:1002.
+For example, /etc/passwd might contain `john:x:1002:1002:John Garfield:/home/john:/bin/bash`, and /etc/group might contain `john:x:1002`.
 
 ![](./images/12.1.2.png)
 
@@ -260,8 +260,8 @@ $
 ### Keyboard Shortcuts
 You can use keyboard shortcuts to perform different tasks quickly. The table lists some of these keyboard shortcuts and their uses. Note the case of the "hotkey" does not matter, e.g. doing CTRL-a is the same as doing CTRL-A .
 
-| Keyboard | Shortcut | Task |
-| - | - | - |
+Shortcut | Task |
+| - | - |
 | CTRL-L | Clears the screen |
 | CTRL-S | Temporarily halt output to the terminal window |
 | CTRL-Q | Resume output to the terminal window |
