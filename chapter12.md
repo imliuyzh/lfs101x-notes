@@ -46,7 +46,7 @@ For example, /etc/passwd might contain john:x:1002:1002:John Garfield:/home/john
 ![](./images/12.1.2.png)
 
 ### Adding and Removing Users
-Adding a new user is done with useradd and removing an existing user is done with userdel. In the simplest form, an account for the new user bjmoose would be done with `$ sudo useradd bjmoose`, which, by default, sets the home directory to /home/bjmoose, populates it with some basic files (copied from /etc/skel) and adds a line to /etc/passwd such as bjmoose:x:1002:1002::/home/bjmoose:/bin/bash and sets the default shell to /bin/bash.
+Adding a new user is done with useradd and removing an existing user is done with userdel. In the simplest form, an account for the new user bjmoose would be done with `$ sudo useradd bjmoose`, which, by default, sets the home directory to /home/bjmoose, populates it with some basic files (copied from /etc/skel) and adds a line to /etc/passwd such as `bjmoose:x:1002:1002::/home/bjmoose:/bin/bash` and sets the default shell to /bin/bash.
 
 Removing a user account is as easy as typing userdel bjmoose. However, this will leave the /home/bjmoose directory intact. This might be useful if it is a temporary inactivation. To remove the home directory while removing the account one needs to use the -r option to userdel.
 
