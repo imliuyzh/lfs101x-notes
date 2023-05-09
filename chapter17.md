@@ -1,4 +1,5 @@
 # Printing
+
 To manage printers and print either directly from a local computer or across a networked environment, you need to know how to configure and install a printer. Printing itself requires software that converts information from the application you are using to a language your printer can understand. The Linux standard for printing software is the Common UNIX Printing System (CUPS).
 
 ## CUPS Overview

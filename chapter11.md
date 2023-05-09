@@ -1,4 +1,5 @@
 # Text Editors
+
 ## Creating Files Without Using an Editor
 If you want to create a file without using an editor, there are two standard ways to create one from the command line and fill it with content.
 
