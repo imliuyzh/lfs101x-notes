@@ -12,6 +12,7 @@ Some contents are omitted due to insufficient material.
 - [Chapter 10: File Operations](./chapter10.md)
 - [Chapter 11: Text Editors](./chapter11.md)
 - [Chapter 12: User Environment](./chapter12.md)
+- [Chapter 13: Manipulating Text](./chapter13.md)
 - [Chapter 14: Network Operations](./chapter14.md)
 - [Chapter 17: Printing](./chapter17.md)
 - [Chapter 18: Local Security Principles](./chapter18.md)
