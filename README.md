@@ -14,5 +14,7 @@ Some contents are omitted due to insufficient material.
 - [Chapter 12: User Environment](./chapter12.md)
 - [Chapter 13: Manipulating Text](./chapter13.md)
 - [Chapter 14: Network Operations](./chapter14.md)
+- [Chapter 15: The Bash Shell and Basic Scripting](./chapter15.md)
+- [Chapter 16: More on Bash Shell Scripting](./chapter16.md)
 - [Chapter 17: Printing](./chapter17.md)
 - [Chapter 18: Local Security Principles](./chapter18.md)
