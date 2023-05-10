@@ -101,3 +101,74 @@ The > character is used to write output to a file. For example, the following co
 
 Two > characters (>>) will append output to a file if it exists, and act just like > if the file does not already exist.\
 
+## Input Redirection
+Just as the output can be redirected to a file, the input of a command can be read from a file. The process of reading input from a file is called input redirection and uses the < character.
+
+The following three commands (using wc to count the number of lines, words and characters in a file) are entirely equivalent and involve input redirection, and a command operating on the contents of a file:
+
+```bash
+# 49  105 2678 /etc/passwd
+# 49  105 2678 /etcpasswd
+# 49  105 2678
+$ wc < /etc/passwd
+$ wc /etc/passwd
+$ cat /etc/passwd | wc
+```
+
+## Script Parameters
+Users often need to pass parameter values to a script, such as a filename, date, etc. Scripts will take different paths or arrive at different results according to the parameters (command arguments) that are passed to them.
+
+```bash
+$ ./script.sh /tmp
+$ ./script.sh 100 200
+```
+
+Within a script, the parameter or an argument is represented with a $ and a number or special character:
+| Parameter | Meaning |
+| - | - |
+| $0 | Script name |
+| $1 | First parameter |
+| $2, $3, etc. | Second, third parameter, etc. |
+| $* | All parameters |
+| $# | Number of arguments |
+
+![](./images/15.2.1.png)
+
+## Command Substitution
+At times, you may need to substitute the result of a command as a portion of another command. It can be done in two ways:
+- By enclosing the inner command in $( )
+- By enclosing the inner command with backticks (`)
+
+The second form using backticks is deprecated, and its use should be avoided in new scripts and commands. No matter which method is used, the specified command will be executed in a newly launched shell environment, and the standard output of the shell will be inserted where the command substitution is done.
+
+![](./images/15.2.2.png)
+
+## Environment Variables
+Most scripts use variables containing a value, which can be used anywhere in the script. These variables can either be user or system-defined. Many applications use such environment variables (already covered in some detail in the User Environment chapter) for supplying inputs, validation, and controlling behavior.
+
+When referenced, environment variables must be prefixed with the $ symbol, as in $HOME. You can view and set the value of environment variables. However, no prefix is required when setting or modifying the variable value: `MYCOLOR=blue`.
+
+By default, the variables created within a script are available only to the subsequent steps of that script. Any child processes (sub-shells) do not have automatic access to the values of these variables. To make them available to child processes, they must be promoted to environment variables using the export statement: `export VAR=value`.
+
+While child processes are allowed to modify the value of exported variables, the parent will not see any changes; exported variables are not shared, they are only copied and inherited.
+
+Typing export with no arguments will give a list of all currently exported environment variables.
+
+![](./images/15.2.3.png)
+
+## Functions
+A function is a code block that implements a set of operations. Functions are useful for executing procedures multiple times, perhaps with varying input variables. Functions are also often called subroutines. Using functions in scripts requires two steps:
+- Declaring a function
+- Calling a function
+
+For example, the following function is named display:
+
+```bash
+display () {
+   echo "This is a sample function that just displays a string"
+}
+```
+
+The function can be as long as desired and have many statements. Once defined, the function can be called later as many times as necessary. In the full example shown in the figure, we are also showing an often-used refinement: how to pass an argument to the function. The first argument can be referred to as $1, the second as $2, etc.
+
+![](./images/15.2.4.png)
