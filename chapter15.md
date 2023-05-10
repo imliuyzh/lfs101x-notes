@@ -172,3 +172,133 @@ display () {
 The function can be as long as desired and have many statements. Once defined, the function can be called later as many times as necessary. In the full example shown in the figure, we are also showing an often-used refinement: how to pass an argument to the function. The first argument can be referred to as $1, the second as $2, etc.
 
 ![](./images/15.2.4.png)
+
+## The if Statement
+When an if statement is used, the ensuing actions depend on the evaluation of specified conditions, such as:
+- Numerical or string comparisons
+- Return value of a command (0 for success)
+- File existence or permissions
+
+A general definition is:
+
+```
+if condition
+then
+       statements
+else
+       statements
+fi
+```
+
+In the following example, an if statement checks to see if a certain file exists, and if the file is found, it displays a message indicating success or failure:
+
+```bash
+if [ -f "$1" ]
+then
+    echo file "$1" exists 
+else
+    echo file "$1" does not exist
+fi
+```
+
+Notice the use of the square brackets ([]) to delineate the test condition. 
+
+In modern scripts, you may see doubled brackets as in [[ -f /etc/passwd ]]. This is not an error. It is never wrong to do so and it avoids some subtle problems, such as referring to an empty environment variable without surrounding it in double quotes.
+
+## The elif Statement
+You can use the elif statement to perform more complicated tests, and take action appropriate actions. The basic syntax is:
+
+```
+if [ sometest ] ; then
+    echo Passed test1 
+elif [ someothertest ] ; then
+    echo Passed test2 
+fi
+```
+
+![](./images/15.3.1.png)
+
+## Testing for Files
+bash provides a set of file conditionals, that can be used with the if statement. You can use the if statement to test for file attributes, such as:
+- File or directory existence
+- Read or write permission
+- Executable permission.
+
+For example, in the following example:
+
+```
+if [ -x /etc/passwd ] ; then
+  ACTION
+fi
+```
+
+the if statement checks if the file /etc/passwd is executable, which it is not. Note the very common practice of putting then on the same line as the if statement.
+
+You can view the full list of file conditions with `man 1 test`.
+
+| Condition | Meaning |
+| - | - |
+| -e file | Checks if the file exists |
+| -d file | Checks if the file is a directory |
+| -f file | Checks if the file is a regular file (i.e., not a symbolic link, device node, directory, etc.) |
+| -s file | Checks if the file is of non-zero size |
+| -g file | Checks if the file has sgid set |
+| -u file | Checks if the file has suid set |
+| -r file | Checks if the file is readable |
+| -w file | Checks if the file is writable |
+| -x file | Checks if the file is executable |
+
+## Testing for Numbers
+| Operator | Meaning |
+| - | - |
+| -eq | Equal to |
+| -ne | Not equal to |
+| -gt | Greater than |
+| -lt | Less than |
+| -ge | Greater than or equal to |
+| -le | Less than or equal to |
+
+## Boolean Expressions
+| Operator | Operation |
+| - | - |
+| && | AND |
+| \|\| | OR |
+| ! | NOT |
+
+### Example of Testing of Strings
+You can use the if statement to compare strings using the operator == (two equal signs). The syntax is as follows:
+
+```
+if [ string1 == string2 ] ; then
+  ACTION
+fi
+```
+
+Note that using one = sign will also work, but some consider it deprecated usage. 
+
+![](./images/15.3.2.png)
+
+### Example of Testing for Numbers
+
+![](./images/15.3.3.png)
+
+## Arithmetic Expressions
+Arithmetic expressions can be evaluated in the following three ways (spaces are important!):
+- Using the expr utility
+  - expr is a standard but somewhat deprecated program
+    ```
+    expr 8 + 8
+    echo $(expr 8 + 8)
+    ```
+
+  - Using the $((...)) syntax, the built-in shell format
+    ```
+    echo $((x+1))
+    ```
+
+  - Using the built-in shell command let
+    ```
+    let x=( 1 + 2 ); echo $x
+    ```
+
+In modern shell scripts, the use of expr is better replaced with var=$((...)).
