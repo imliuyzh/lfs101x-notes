@@ -53,20 +53,20 @@ gedit (pronounced 'g-edit') is a simple-to-use graphical editor that can only be
 ## vi
 Usually, the actual program installed on your system is vim, which stands for Vi IMproved and is aliased to the name vi. The name is pronounced as “vee-eye”. When using vi, all commands are entered through the keyboard. 
 
-Typing vimtutor launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user.
+Typing `vimtutor` launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user.
 
 ![](./images/11.2.1.png)
 
 ### vi Modes
 | Mode | Feature |
-| --------- | -------- |
+| - | - |
 | Command | - By default, vi starts in Command mode. <br> - Each key is an editor command. <br> - Keyboard strokes are interpreted as commands that can modify file contents. |
 | Insert | - Type i to switch to Insert mode from Command mode. <br> - Used to enter (insert) text into a file. <br> - Indicated by an “? INSERT ?” indicator at the bottom of the screen. <br> - Press Esc to exit Insert mode and return to Command mode. |
 | Line | - Type : to switch to the Line mode from Command mode. <br> - Each key is an external command, including operations such as writing the file contents to disk or exiting. <br> - Press Esc to exit Line mode and return to Command mode. |
 
 ### Working with Files in vi
 | Command | Usage |
-| ------- | ----- |
+| - | - |
 | vi myfile | Start the editor and edit myfile |
 | vi -r myfile | Start and edit myfile in recovery mode from a system crash |
 | :r file2 | Read in file2 and insert at current position |
@@ -81,7 +81,7 @@ Typing vimtutor launches a short but very comprehensive tutorial for those who w
 Line mode commands (those following :) require the ENTER key to be pressed after the command is typed.
 
 | Key | Usage |
-| --- | ----- |
+| - | - |
 | arrow keys | To move up, down, left and right |
 | j <br> Enter | To move one line down |
 | k | To move one line up |
@@ -99,18 +99,18 @@ Line mode commands (those following :) require the ENTER key to be pressed after
 
 ### Searching for Text in vi
 | Command | Usage |
-| ------- | ----- |
+| - | - |
 | /pattern | Search forward for pattern |
 | ?pattern | Search backward for pattern |
 
 | Key | Usage |
-| --- | ----- |
+| - | - |
 | n | Move to next occurrence of search pattern |
 | N | Move to previous occurrence of search pattern |
 
 ### Working with Text in vi
 | Key | Usage |
-| --- | ----- |
+| - | - |
 | a | Append text after cursor; stop upon Escape key |
 | A | Append text at end of current line; stop upon Escape key |
 | i | Insert text before cursor; stop upon Escape key |
