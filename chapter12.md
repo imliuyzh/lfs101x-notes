@@ -2,31 +2,31 @@
 
 ## Identifying the Current User
 Linux is a multi-user operating system, meaning more than one user can log on at the same time.
-- To identify the current user, type whoami.
-- To list the currently logged-on users, type who.
-- To see more detailed information, type who -a.
+- To identify the current user, type `whoami`
+- To list the currently logged-on users, type `who`
+- To see more detailed information, type `who -a`
 
 ## User Startup Files
-In Linux, the command shell program uses one or more startup files to configure the user environment. Files in /etc define global settings for all users, while initialization files in the user's home directory can include and/or override the global settings.
+In Linux, the command shell program uses one or more startup files to configure the user environment. Files in `/etc` define global settings for all users, while initialization files in the user's home directory can include and/or override the global settings.
 
 ## Order of the Startup Files
-The standard prescription is that when you first login to Linux, /etc/profile is read and evaluated, after which the following files are searched (if they exist) in the listed order:
-1. ~/.bash_profile
-2. ~/.bash_login
-3. ~/.profile
+The standard prescription is that when you first login to Linux, `/etc/profile` is read and evaluated, after which the following files are searched (if they exist) in the listed order:
+1. `~/.bash_profile`
+2. `~/.bash_login`
+3. `~/.profile`
 
-The Linux login shell evaluates whatever startup file that it comes across first and ignores the rest. This means that if it finds ~/.bash_profile, it ignores ~/.bash_login and ~/.profile. Different distributions may use different startup files.
+The Linux login shell evaluates whatever startup file that it comes across first and ignores the rest. This means that if it finds `~/.bash_profile`, it ignores `~/.bash_login` and `~/.profile`. Different distributions may use different startup files.
 
-However, every time you create a new shell, or terminal window, etc., you do not perform a full system login; only a file named ~/.bashrc file is read and evaluated. Although this file is not read and evaluated along with the login shell, most distributions and/or users include the ~/.bashrc file from within one of the three user-owned startup files.
+However, every time you create a new shell, or terminal window, etc., you do not perform a full system login; only a file named `~/.bashrc` file is read and evaluated. Although this file is not read and evaluated along with the login shell, most distributions and/or users include the `~/.bashrc` file from within one of the three user-owned startup files.
 
-Most commonly, users only fiddle with ~/.bashrc, as it is invoked every time a new command line shell initiates, or another program is launched from a terminal window, while the other files are read and executed only when the user first logs onto the system.
+Most commonly, users only fiddle with `~/.bashrc`, as it is invoked every time a new command line shell initiates, or another program is launched from a terminal window, while the other files are read and executed only when the user first logs onto the system.
 
-Recent distributions sometimes do not even have .bash_profile and/or .bash_login, and some just do little more than include .bashrc.
+Recent distributions sometimes do not even have `~/.bash_profile` and/or `~/.bash_login`, and some just do little more than include `~/.bashrc`.
 
 ## Creating Aliases
-You can create customized commands or modify the behavior of already existing ones by creating aliases. Most often, these aliases are placed in your ~/.bashrc file so they are available to any command shells you create. unalias removes an alias.
+You can create customized commands or modify the behavior of already existing ones by creating aliases. Most often, these aliases are placed in your `~/.bashrc` file so they are available to any command shells you create.
 
-Typing alias with no arguments will list currently defined aliases.
+`alias` lists currently defined aliases. `unalias` removes an alias. 
 
 Please note there should not be any spaces on either side of the equal sign and the alias definition needs to be placed within either single or double quotes if it contains any spaces.
 
@@ -318,8 +318,6 @@ $ ls -l somefile
 -rwxr--r-x 1 student student 1601 Mar 9 15:04 somefile
 ```
 
-where u stands for user (owner), o stands for other (world), and g stands for group.
-
 This kind of syntax can be difficult to type and remember, so one often uses a shorthand which lets you set all the permissions in one step. This is done with a simple algorithm, and a single digit suffices to specify all three permission bits for each entity. This digit is the sum of:
 - 4 if read permission is desired
 - 2 if write permission is desired
@@ -327,4 +325,4 @@ This kind of syntax can be difficult to type and remember, so one often uses a s
 
 Thus, 7 means read/write/execute, 6 means read/write, and 5 means read/execute.
 
-When you apply this to the chmod command, you have to give three digits for each degree of freedom, such as in: `$ chmod 755 somefile`.
+When you apply this to the chmod command, you have to give three digits for each degree of freedom, such as in: `chmod 755 somefile`.
