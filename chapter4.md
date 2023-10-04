@@ -17,5 +17,5 @@ GNOME is a popular desktop environment with an easy-to-use graphical user interf
 
 Another common desktop environment very important in the history of Linux and also widely used is KDE, which has often been used in conjunction with SUSE and openSUSE. Other alternatives for a desktop environment include Unity (present on older Ubuntu but still based on GNOME), XFCE, and LXDE.
 
-## gnome-tweaks
+## `gnome-tweaks`
 There are many settings which many users would like to modify which are not thereby accessible. Fortunately, `gnome-tweaks` exposes many more setting options. It also permits you to easily install extensions by external parties. Not all Linux distributions install this tool by default, but it is always available (older distributions used `gnome-tweak-tool`). Some recent distributions have taken most of the functionality out of this tool and placed it in a new one called `gnome-extensions-app`.
