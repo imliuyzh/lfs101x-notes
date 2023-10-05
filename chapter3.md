@@ -42,11 +42,11 @@ Near the end of the boot process, `init` starts a number of text-mode login prom
 
 The boot loader loads both the kernel and an initial RAM–based file system (initramfs) into memory, so it can be used directly by the kernel. When the kernel is loaded in RAM, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system. The kernel also loads some necessary user space applications.
 
-### `/sbin/init` and Services
+## `/sbin/init` and Services
 
-Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs /sbin/init. This then becomes the initial process, which then starts other processes to get the system running. Most other processes on the system trace their origin ultimately to init; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
+Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs `/sbin/init`. This then becomes the initial process, which then starts other processes to get the system running. Most other processes on the system trace their origin ultimately to `init`; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
 
-Besides starting the system, init is responsible for keeping the system running and for shutting it down cleanly. One of its responsibilities is to act when necessary as a manager for all non-kernel processes; it cleans up after them upon completion, and restarts user login services as needed when users log in and out, and does the same for other background system services.
+Besides starting the system, `init` is responsible for keeping the system running and for shutting it down cleanly. One of its responsibilities is to act when necessary as a manager for all non-kernel processes; it cleans up after them upon completion, and restarts user login services as needed when users log in and out, and does the same for other background system services.
 
 Traditionally, this process startup was done using conventions that date back to the 1980s and the System V variety of UNIX. This serial process (called SysVinit) had the system pass through a sequence of runlevels containing collections of scripts that start and stop services. Each runlevel supported a different mode of running the system. Within each runlevel, individual services could be set to run, or to be shut down if running.
 
@@ -54,7 +54,7 @@ However, all major distributions have moved away from this sequential method of 
 
 ![](images/3.2.2.png)
 
-## Startup Alternatives
+### Startup Alternatives
 
 SysVinit viewed things as a serial process, divided into a series of sequential stages. Each stage required completion before the next could proceed. Thus, startup did not easily take advantage of the parallel processing that could be done with the multiple processors or cores found on modern systems.
 
@@ -63,18 +63,18 @@ Furthermore, starting up and rebooting were seen as relatively rare events; exac
 - Upstart
   - Developed by Ubuntu and first included in 2006
   - Adopted in Fedora 9 (in 2008) and in RHEL 6 and its clones
-- systemd
+- `systemd`
   - Adopted by Fedora first (in 2011)
   - Adopted by RHEL 7 and SUSE
   - Replaced Upstart in Ubuntu 16.04
 
-While the migration to systemd was rather controversial, it has been adopted by all major distributions, and so we will not discuss the older System V method or Upstart, which has become a dead end. Regardless of how one feels about the controversies or the technical methods of systemd, almost universal adoption has made learning how to work on Linux systems simpler, as there are fewer differences among distributions.
+While the migration to `systemd` was rather controversial, it has been adopted by all major distributions, and so we will not discuss the older System V method or Upstart, which has become a dead end. Regardless of how one feels about the controversies or the technical methods of `systemd`, almost universal adoption has made learning how to work on Linux systems simpler, as there are fewer differences among distributions.
 
 ### `systemd` Features
 
-Systems with systemd start up faster than those with earlier init methods. This is largely because it replaces a serialized set of steps with aggressive parallelization techniques, which permits multiple services to be initiated simultaneously.
+Systems with `systemd` start up faster than those with earlier `init` methods. This is largely because it replaces a serialized set of steps with aggressive parallelization techniques, which permits multiple services to be initiated simultaneously.
 
-Complicated startup shell scripts are replaced with simpler configuration files, which enumerate what has to be done before a service is started, how to execute service startup, and what conditions the service should indicate have been accomplished when startup is finished. One thing to note is that /sbin/init now just points to /lib/systemd/systemd.
+Complicated startup shell scripts are replaced with simpler configuration files, which enumerate what has to be done before a service is started, how to execute service startup, and what conditions the service should indicate have been accomplished when startup is finished. One thing to note is that `/sbin/init` now just points to `/lib/systemd/systemd`.
 
 - Starting, stopping, restarting a service on a currently running system
   - `sudo systemctl start|stop|restart service`
@@ -89,10 +89,10 @@ A partition is a dedicated subsection of physical storage media. Historically th
 
 ### The Filesystem Hierarchy Standard
 
-Linux systems store their important files according to a standard layout called the Filesystem Hierarchy Standard (FHS). It uses / to separate paths and does not have drive letters. Multiple drives and/or partitions are mounted as directories in the single filesystem. Removable media such as USB drives and CDs, and DVDs will show up as mounted at /run/media/yourusername/disklabel for recent Linux systems or under /media for older distributions.
+Linux systems store their important files according to a standard layout called the Filesystem Hierarchy Standard (FHS). It uses `/` to separate paths and does not have drive letters. Multiple drives and/or partitions are mounted as directories in the single filesystem. Removable media such as USB drives and CDs, and DVDs will show up as mounted at `/run/media/yourusername/disklabel` for recent Linux systems or under `/media` for older distributions.
 
-All Linux filesystem names are case-sensitive, so /boot, /Boot, and /BOOT represent three different directories (or folders). Many distributions distinguish between core utilities needed for proper system operation and other programs, and place the latter in directories under /usr.
+All Linux filesystem names are case-sensitive, so `/boot`, `/Boot`, and `/BOOT` represent three different directories (or folders). Many distributions distinguish between core utilities needed for proper system operation and other programs, and place the latter in directories under `/usr`.
 
-Nearly all Linux distribution installers provide a reasonable default layout, with either all space dedicated to normal files on one big partition and a smaller swap partition or with separate partitions for some space-sensitive areas like /home and /var. You may need to override the defaults and do something different if you have special needs or if you want to use more than one disk.
+Nearly all Linux distribution installers provide a reasonable default layout, with either all space dedicated to normal files on one big partition and a smaller swap partition or with separate partitions for some space-sensitive areas like `/home` and `/var`. You may need to override the defaults and do something different if you have special needs or if you want to use more than one disk.
 
 ![](images/3.3.1.jpg)
