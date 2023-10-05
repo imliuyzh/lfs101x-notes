@@ -1,33 +1,35 @@
 # Command Line Operations
 
-A terminal emulator program emulates (simulates) a standalone terminal within a window on the desktop. By this, we mean it behaves essentially as if you were logging into the machine at a pure text terminal with no running graphical interface. Most terminal emulator programs support multiple terminal sessions by opening additional tabs or windows.
-
-By default, on GNOME desktop environments, the gnome-terminal application is used to emulate a text-mode terminal in a window. 
+A terminal emulator simulates a standalone terminal within a window on the desktop. It behaves essentially as if you were logging into the machine at a pure text terminal with no running graphical interface.
 
 ## The Command Line
+
 Most input lines entered at the shell prompt have three basic elements: command, options, and arguments.
 
-The command is the name of the program or script you are executing. It may be followed by one or more options (or switches) that modify what the command may do. Options usually start with one or two dashes, for example, -p or --print, in order to differentiate them from arguments, which represent what the command operates on.
+The command is the name of the program or script you are executing. It may be followed by one or more options that modify what the command may do. Options usually start with one or two dashes, for example, `-p` or `--print`, in order to differentiate them from arguments, which represent what the command operates on.
 
-However, plenty of commands have no options, no arguments, or neither. In addition, other elements (such as setting environment variables) can also appear on the command line when launching a task.
+### `sudo`
 
-### sudo
-sudo allows users to run programs using the security privileges of another user, generally root (superuser). 
+`sudo` allows users to run programs using the security privileges of another user, generally root. 
 
-If your system does not already have sudo set up and enabled:
+If your system does not already have `sudo` set up and enabled:
 
-1. You will need to make modifications as the administrative, or superuser, root. While sudo will become the preferred method of doing this, we do not have it set up yet, so we will need to use su instead. At the command line prompt, type su and press Enter. You will then be prompted for the root password, so enter it and press Enter. You will notice that nothing is printed; this is so others cannot see the password on the screen. You should end up with a different looking prompt, often ending with ‘#’.
+1. You will need to make modifications as the administrative, or superuser, root. While `sudo` will become the preferred method of doing this, we do not have it set up yet, so we will need to use `su` instead. At the command line prompt, type `su` and press Enter. You will then be prompted for the root password, so enter it and press Enter. You will notice that nothing is printed; this is so others cannot see the password on the screen. You should end up with a different looking prompt, often ending with `#`.
+
     ```
     $ su Password:
     #
     ```
-2. Now, you need to create a configuration file to enable your user account to use sudo. Typically, this file is created in the /etc/sudoers.d/ directory with the name of the file the same as your username. For example, for this demo, let’s say your username is student. After doing step 1, you would then create the configuration file for student by doing this:
+2. Now, you need to create a configuration file to enable your user account to use `sudo`. Typically, this file is created in the `/etc/sudoers.d/` directory with the name of the file the same as your username. For example, for this demo, let's say your username is student. You would then create the configuration file for student by doing this:
+
     ```
     # echo "student ALL=(ALL) ALL" > /etc/sudoers.d/student
     ```
-   - Some Linux distributions will complain if you do not also change permissions on the file by doing `# chmod 440 /etc/sudoers.d/student`
+
+   - Some Linux distributions will complain if you do not also change permissions on the file by doing `chmod 440 /etc/sudoers.d/student`
 
 ## Virtual Terminals
+
 Virtual Terminals (VT) are console sessions that use the entire display and keyboard outside of a graphical environment. Such terminals are considered "virtual" because, although there can be multiple active terminals, only one terminal remains visible at a time. A VT is not the same as a command line terminal window; you can have many of those visible simultaneously on a graphical desktop.
 
 One virtual terminal (usually VT 1 or VT 7) is reserved for the graphical environment, and text logins are enabled on the unused VTs. 
@@ -35,6 +37,7 @@ One virtual terminal (usually VT 1 or VT 7) is reserved for the graphical enviro
 To switch between VTs, press CTRL-ALT-function key for the VT. For example, press CTRL-ALT-F6 for VT 6. Actually, you only have to press the ALT-F6 key combination if you are in a VT and want to switch to another VT.
 
 ## Turning Off the Graphical Desktop
+
 Linux distributions can start and stop the graphical desktop in various ways. The exact method differs among distributions and between versions. For the newer system-based distributions, the display manager is run as a service, and you can stop the GUI desktop with the systemctl utility. In addition, most distributions will also work with the telinit command, as in:
 
 `$ sudo systemctl stop gdm # or sudo telinit 3`
@@ -44,9 +47,11 @@ and restart it (after logging into the console) with:
 `$ sudo systemctl start gdm # or sudo telinit 5`
 
 ## Logging In and Out
+
 An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
 
 ## Rebooting and Shutting Down
+
 The preferred method to shut down or reboot the system is to use the shutdown command. This sends a warning message, and then prevents further users from logging in. The init process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
 
 The halt and poweroff commands issue shutdown -h to halt the system; reboot issues shutdown -r and causes the machine to reboot instead of just shutting down. Both rebooting and shutting down from the command line requires superuser (root) access.
@@ -54,6 +59,7 @@ The halt and poweroff commands issue shutdown -h to halt the system; reboot issu
 When administering a multi-user system, you have the option of notifying all users prior to shutdown: `$ sudo shutdown -h 10:00 "Shutting down for scheduled maintenance."`
 
 ## Locating Applications
+
 Depending on the specifics of your particular distribution's policy, programs and software packages can be installed in various directories. In general, executable programs and scripts should live in the /bin, /usr/bin, /sbin, /usr/sbin directories, or somewhere under /opt. They can also appear in /usr/local/bin and /usr/local/sbin, or in a directory in a user's account space, such as /home/student/bin.
 
 One way to locate programs is to employ the which utility. For example, to find out exactly where the diff program resides on the filesystem:
@@ -73,6 +79,7 @@ diff: /usr/bin/diff /usr/share/man/man1/diff.1.gz /usr/share/man/man1p/diff.1p.g
 as well as locating source and man files packaged with the program.
 
 ## Accessing Directories
+
 When you first log into a system or open a terminal, the default directory should be your home directory. You can see the exact location by typing echo $HOME. However, most Linux distributions open new graphical terminals in $HOME/Desktop instead.
 
 | Command | Usage |
@@ -83,6 +90,7 @@ When you first log into a system or open a terminal, the default directory shoul
 | cd - | Change to previous working directory |
 
 ## Understanding Absolute and Relative Paths
+
 An absolute pathname begins with the root directory (/) and follows the tree, branch by branch, until it reaches the desired directory or file. Absolute paths always start with /. A relative pathname starts from the present working directory. Relative paths never start with /.
 
 Multiple slashes (/) between directories and files are allowed, but all but one slash between elements in the pathname is ignored by the system. While ////usr//bin is valid, it is seen as just /usr/bin by the system.
@@ -95,6 +103,7 @@ For example, suppose you are currently working in /home/fred and wish to move to
 ![](images/7.2.1.png)
 
 ## Exploring the Filesystem
+
 | Command | Usage |
 | --------- | -------- |
 | ls | List the contents of the present working directory |
@@ -102,11 +111,13 @@ For example, suppose you are currently working in /home/fred and wish to move to
 | df -h | Report file system disk space usage with sizes in powers of 1024 |
 
 ## Navigating the Directory History
+
 The cd command remembers where you were last, and lets you get back there with cd -. For remembering more than just the last directory visited, use pushd to change the directory instead of cd; this pushes your starting directory onto a list. Using popd will then send you back to those directories, walking in reverse order (the most recent directory will be the first one retrieved with popd). The entire list is displayed with the dirs command.
 
 ![](images/7.2.2.png)
 
 ## Hard Links
+
 The ln utility is used to create hard links and soft links, also known as symbolic links or symlinks. 
 
 Suppose that file1 already exists. A hard link, called file2, is created with the command: `$ ln file1 file2`
@@ -120,6 +131,7 @@ Hard links are very useful and they save space, but you have to be careful with 
 If you edit one of the files, exactly what happens depends on your editor; most editors, including vi and gedit, will retain the link by default, but it is possible that modifying one of the names may break the link and result in the creation of two objects.
 
 ## Soft Links
+
 Soft (or Symbolic) links are created with the -s option: `$ ln -s file1 file3`.
 
 Notice file3 no longer appears to be a regular file, and it clearly points to file1 and has a different inode number.
@@ -131,6 +143,7 @@ Symbolic links take no extra space on the filesystem (unless their names are ver
 Unlike hard links, soft links can point to objects even on different filesystems, partitions, and/or disks and other media, which may or may not be currently available or even exist. In the case where the link does not point to a currently available or existing object, you obtain a dangling link.
 
 ## Viewing Files
+
 | Command | Usage |
 | --------- | -------- |
 | cat | Used for viewing files that are not very long; it does not provide any scroll-back |
@@ -139,22 +152,25 @@ Unlike hard links, soft links can point to objects even on different filesystems
 | tail | Used to print the last 10 lines of a file by default. You can change the number of lines by doing -n 15 or just -15 if you wanted to look at the last 15 lines instead of the default |
 | head | The opposite of tail; by default, it prints the first 10 lines of a file |
 
-## touch
-touch is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time. However, you can also create an empty file using touch: `$ touch <filename>`.
+## `touch`
 
-touch provides several useful options. For example, the -t option allows you to set the date and timestamp of the file to a specific value: `$ touch -t 12091600 myfile`. This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
+`touch` is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time. However, you can also create an empty file using `touch`: `$ touch <filename>`.
 
-## mkdir
-mkdir is used to create a directory:
-- mkdir sampdir
+`touch` provides several useful options. For example, the -t option allows you to set the date and timestamp of the file to a specific value: `$ touch -t 12091600 myfile`. This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
+
+## `mkdir`
+
+`mkdir` is used to create a directory:
+- `mkdir sampdir`
   - It creates a sample directory named sampdir under the current directory
-- mkdir /usr/sampdir
+- `mkdir /usr/sampdir`
   - It creates a sample directory called sampdir under /usr
-- mkdir -p /tmp/somedir/subdir
+- `mkdir -p /tmp/somedir/subdir`
   - It creates a sample directory named subdir even if somedir/ or tmp/ does not exist
 
 ## Moving, Renaming or Removing a File
-Note that mv can:
+
+Note that `mv` can:
 - Simply rename a file
 - Move a file to another location, while possibly changing its name at the same time
 
@@ -166,7 +182,8 @@ Note that mv can:
 | rm -i | Interactively remove a file |
 
 ## Renaming or Removing a Directory
-rmdir works only on empty directories; otherwise you get an error. 
+
+`rmdir` works only on empty directories; otherwise you get an error. 
 
 | Command | Usage |
 | --------- | -------- |
@@ -175,6 +192,7 @@ rmdir works only on empty directories; otherwise you get an error.
 | rm -rf | Forcefully remove a directory recursively |
 
 ## Modifying the Command Line Prompt
+
 The PS1 variable is the character string that is displayed as the prompt on the command line. Some system administrators require the user and the host system name to show up on the command line as in: `student@r9 $`. This could prove useful if you are working in multiple roles and want to be always reminded of who you are and what machine you are on.
 
 ```
@@ -189,6 +207,7 @@ student@r9 $
 By convention, most systems are set up so that the root user has a pound sign (#) as their prompt.
 
 ## Standard File Streams
+
 When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or stdin), standard output (standard out or stdout) and standard error (or stderr).
 
 Usually, stdin is your keyboard, and stdout and stderr are printed on your terminal. stderr is often redirected to an error logging file, while stdin is supplied by directing input to come from a file or from the output of a previous command through a pipe. stdout is also often redirected into a file. Since stderr is where error messages (and warning) are written, usually nothing will go there.
@@ -202,6 +221,7 @@ In Linux, all open files are represented internally by what are called file desc
 | standard error | stderr | 2 |
 
 ### I/O Redirection
+
 Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, and we can write output and errors to files or use them to provide input for subsequent commands.
 
 If we have a program called do_something that reads from stdin and writes to stdout and stderr, we can change its input source by using the less-than sign (<) followed by the name of the file to be consumed for input data: `$ do_something < input-file`. If you want to send the output to a file, use the greater-than sign (>) as in: `$ do_something > output-file`. In fact, you can do both at the same time as in: `$ do_something < input-file > output-file`.
@@ -211,6 +231,7 @@ Because stderr is not the same as stdout, error messages will still be seen on t
 bash permits an easier syntax for the above: `$ do_something >& all-output-file`.
 
 ### Pipes
+
 The UNIX/Linux philosophy is to have many simple and short programs (or commands) cooperate together to produce quite complex results, rather than have one complex program with many possible options and modes of operation. In order to accomplish this, extensive use of pipes is made. You can pipe the output of one command or program into another as its input.
 
 In order to do this, we use the vertical-bar, pipe symbol (|), between commands as in: `$ command1 | command2 | command3`.
@@ -218,6 +239,7 @@ In order to do this, we use the vertical-bar, pipe symbol (|), between commands 
 The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because command2 and command3 do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams; on multiple CPU or core systems, the available computing power is much better utilized and things get done quicker.
 
 ## Wildcards and Matching File Names
+
 | Wildcard | Result |
 | --------- | -------- |
 | ? | Matches any single character |
@@ -225,7 +247,8 @@ The above represents what we often call a pipeline, and allows Linux to combine 
 | [set] | Matches any character in the set of characters |
 | [!set] | Matches any character not in the set of characters |
 
-## locate
+## `locate`
+
 The locate utility program performs a search while taking advantage of a previously constructed database of files and directories on your system, matching all entries that contain a specified character string. This can sometimes result in a very long list.
 
 To get a shorter (and possibly more relevant) list, we can use the grep program as a filter. grep will print only the lines that contain one or more specified strings, as in: 
@@ -238,7 +261,8 @@ which will list all the files and directories with both zip and bin in their nam
 
 locate utilizes a database created by a related utility, updatedb. Most Linux systems run this automatically once a day. However, you can update it at any time by just running updatedb from the command line as the root user.
 
-## find
+## `find`
+
 find recurses down the filesystem tree from any particular directory (or set of directories) and locates files that match specified conditions. The default pathname is always the present working directory.
 
 When no arguments are given, find lists all files in the current directory and all of its subdirectories. Commonly used options to shorten the list include -name (only list files with a certain pattern in their name), -iname (also ignore the case of file names), and -type (which will restrict the results to files of a certain specified type, such as d for directory, l for symbolic link, or f for a regular file, etc.). 
@@ -262,9 +286,11 @@ To find files based on time: `$ find / -ctime 3`. Here, -ctime is when the inode
 To find files based on sizes: `$ find / -size 0`. Note the size here is in 512-byte blocks, by default; you can also specify bytes (c), kilobytes (k), megabytes (M), gigabytes (G), etc. As with the time numbers above, file sizes can also be exact numbers (n), +n or -n. For example, to find files greater than 10 MB in size and running a command on those files: `$ find / -size +10M -exec command {} ’;’`.
 
 ## Package Management Systems on Linux
+
 The core parts of a Linux distribution and most of its add-on software are installed via the Package Management System. Each package contains the files and other instructions needed to make one software component work well and cooperate with the other components that comprise the entire system. Packages can depend on each other. For example, a package for a web-based application written in Python will require the appropriate Python packages to be installed first.
 
 ### Package Managers: Two Levels
+
 There are two broad families of package managers widely deployed: those based on Debian and those which use RPM as their low-level package manager. The two systems are incompatible but, broadly speaking, provide the same essential features and satisfy the same needs.
 
 Both package management systems operate on two distinct levels: a low-level tool (such as dpkg or rpm) takes care of the details of unpacking individual packages, running scripts, getting the software installed correctly, while a high-level tool (such as apt, dnf, or zypper) works with groups of packages, downloads packages from the vendor, and figures out dependencies.
@@ -274,6 +300,7 @@ Most of the time users need to work only with the high-level tool, which will ta
 ![](./images/7.5.1.png)
 
 ### Working With Different Package Management Systems
+
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
 
 dnf is the open source command-line package-management utility for the RPM-compatible Linux systems that belong to the Red Hat family. 
@@ -282,15 +309,15 @@ zypper is the package management system for the SUSE/openSUSE family and is also
 
 | Operation | rpm | deb |
 | --------- | -------- | -------- |
-| Install package | rpm -i foo.rpm | dpkg --install foo.deb |
-| Install package, dependencies | dnf install foo | apt install foo |
-| Remove package | rpm -e foo.rpm | dpkg --remove foo.deb |
-| Remove package, dependencies | dnf remove foo | apt autoremove foo |
-| Update package | rpm -U foo.rpm | dpkg --install foo.deb |
-| Update package, dependencies | dnf update foo | apt install foo |
-| Update entire system | dnf update | apt dist-upgrade |
-| Show all installed packages | rpm -qa <br> dnf list installed | dpkg --list |
-| Get information on package | rpm -qil foo | dpkg --listfiles foo |
-| Show packages named foo | dnf list "foo" | apt-cache search foo |
-| Show all available packages | dnf list  | apt-cache dumpavail foo |
-| What package is file part of? | rpm -qf file | dpkg --search file |
+| Install package | `rpm -i foo.rpm` | `dpkg --install foo.deb` |
+| Install package, dependencies | `dnf install foo` | `apt install foo` |
+| Remove package | `rpm -e foo.rpm` | `dpkg --remove foo.deb` |
+| Remove package, dependencies | `dnf remove foo` | `apt autoremove foo` |
+| Update package | `rpm -U foo.rpm` | `dpkg --install foo.deb` |
+| Update package, dependencies | `dnf update foo` | `apt install foo` |
+| Update entire system | `dnf update` | `apt dist-upgrade` |
+| Show all installed packages | `rpm -qa <br> dnf list installed` | `dpkg --list` |
+| Get information on package | `rpm -qil foo` | `dpkg --listfiles foo` |
+| Show packages named foo | `dnf list "foo"` | `apt-cache search foo` |
+| Show all available packages | `dnf list`  | `apt-cache dumpavail foo` |
+| What package is file part of? | `rpm -qf file` | `dpkg --search file` |
