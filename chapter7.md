@@ -83,8 +83,6 @@ $ whereis diff
 diff: /usr/bin/diff /usr/share/man/man1/diff.1.gz /usr/share/man/man1p/diff.1p.gz
 ```
 
-as well as locating source and man files packaged with the program.
-
 ## Accessing Directories
 
 When you first log into a system or open a terminal, the default directory should be your home directory. You can see the exact location by typing echo $HOME. However, most Linux distributions open new graphical terminals in $HOME/Desktop instead.
