@@ -96,11 +96,11 @@ When you first log into a system or open a terminal, the default directory shoul
 
 ## Understanding Absolute and Relative Paths
 
-An absolute pathname begins with the root directory (/) and follows the tree, branch by branch, until it reaches the desired directory or file. Absolute paths always start with /. A relative pathname starts from the present working directory. Relative paths never start with /.
+An absolute pathname begins with the root directory (`/`) and follows the tree, branch by branch, until it reaches the desired directory or file. A relative pathname starts from the present working directory. Relative paths never start with `/`.
 
-Multiple slashes (/) between directories and files are allowed, but all but one slash between elements in the pathname is ignored by the system. While ////usr//bin is valid, it is seen as just /usr/bin by the system.
+Multiple slashes (`/`) between directories and files are allowed, but all but one slash between elements in the pathname is ignored by the system. For example, `////usr//bin` is seen as just `/usr/bin` by the system.
 
-For example, suppose you are currently working in /home/fred and wish to move to the /usr/bin directory:
+For example, suppose you are currently working in `/home/fred` and wish to move to the `/usr/bin` directory:
 
 - Absolute pathname method: `$ cd /usr/bin`
 - Relative pathname method: `$ cd ../../usr/bin`
@@ -111,9 +111,9 @@ For example, suppose you are currently working in /home/fred and wish to move to
 
 | Command | Usage |
 | --------- | -------- |
-| ls | List the contents of the present working directory |
-| ls -a | List all files, including hidden files and directories (those whose name start with . ) |
-| df -h | Report file system disk space usage with sizes in powers of 1024 |
+| `ls` | List the contents of the present working directory |
+| `ls -a` | List all files, including hidden files and directories (those whose name start with `.`) |
+| `df -h` | Report file system disk space usage with sizes in powers of 1024 |
 
 ## Navigating the Directory History
 
