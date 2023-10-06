@@ -98,7 +98,7 @@ When you first log into a system or open a terminal, the default directory shoul
 
 An absolute pathname begins with the root directory (`/`) and follows the tree, branch by branch, until it reaches the desired directory or file. A relative pathname starts from the present working directory. Relative paths never start with `/`.
 
-Multiple slashes (`/`) between directories and files are allowed, all but one slash between elements in the pathname is ignored by the system. For example, `////usr//bin` is seen as just `/usr/bin` by the system.
+Multiple slashes (`/`) between directories and files are allowed, all but one slash between elements in the pathname are ignored by the system. For example, `////usr//bin` is seen as just `/usr/bin` by the system.
 
 For example, suppose you are currently working in `/home/fred` and wish to move to the `/usr/bin` directory:
 
@@ -117,7 +117,7 @@ For example, suppose you are currently working in `/home/fred` and wish to move 
 
 ## Navigating the Directory History
 
-The cd command remembers where you were last, and lets you get back there with cd -. For remembering more than just the last directory visited, use pushd to change the directory instead of cd; this pushes your starting directory onto a list. Using popd will then send you back to those directories, walking in reverse order (the most recent directory will be the first one retrieved with popd). The entire list is displayed with the dirs command.
+For remembering more than just the last directory visited, use `pushd` to change the directory instead of `cd`; this pushes your starting directory onto a list. Using `popd` will then send you back to those directories, walking in reverse order (the most recent directory will be the first one retrieved). The entire list is displayed with the `dirs` command.
 
 ![](images/7.2.2.png)
 
