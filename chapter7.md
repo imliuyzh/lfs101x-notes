@@ -227,9 +227,9 @@ In Linux, all open files are represented internally by what are called file desc
 
 Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, and we can write output and errors to files or use them to provide input for subsequent commands.
 
-If we have a program called do_something that reads from stdin and writes to stdout and stderr, we can change its input source by using the less-than sign (<) followed by the name of the file to be consumed for input data: `$ do_something < input-file`. If you want to send the output to a file, use the greater-than sign (>) as in: `$ do_something > output-file`. In fact, you can do both at the same time as in: `$ do_something < input-file > output-file`.
+If we have a program called do_something that reads from stdin and writes to stdout and stderr, we can change its input source by using the less-than sign (`<`) followed by the name of the file to be consumed for input data: `$ do_something < input-file`. If you want to send the output to a file, use the greater-than sign (`>`) as in: `$ do_something > output-file`. In fact, you can do both at the same time as in: `$ do_something < input-file > output-file`.
 
-Because stderr is not the same as stdout, error messages will still be seen on the terminal windows in the above example. If you want to redirect stderr to a separate file, you use stderr’s file descriptor number (2), the greater-than sign (>), followed by the name of the file you want to receive everything the running command writes to stderr: `$ do_something 2> error-file`. Note that a special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): 2>&1: `$ do_something > all-output-file 2>&1`.
+Because stderr is not the same as stdout, error messages will still be seen on the terminal windows in the above example. If you want to redirect stderr to a separate file, you use stderr's file descriptor number (2), the greater-than sign (`>`), followed by the name of the file you want to receive everything the running command writes to stderr: `$ do_something 2> error-file`. Note that a special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): `$ do_something > all-output-file 2>&1`.
 
 bash permits an easier syntax for the above: `$ do_something >& all-output-file`.
 
@@ -237,18 +237,18 @@ bash permits an easier syntax for the above: `$ do_something >& all-output-file`
 
 The UNIX/Linux philosophy is to have many simple and short programs (or commands) cooperate together to produce quite complex results, rather than have one complex program with many possible options and modes of operation. In order to accomplish this, extensive use of pipes is made. You can pipe the output of one command or program into another as its input.
 
-In order to do this, we use the vertical-bar, pipe symbol (|), between commands as in: `$ command1 | command2 | command3`.
+In order to do this, we use the vertical-bar, pipe symbol (`|`), between commands as in: `$ command1 | command2 | command3`.
 
-The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because command2 and command3 do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams; on multiple CPU or core systems, the available computing power is much better utilized and things get done quicker.
+The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because `command2` and `command3` do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams; on multiple CPU or core systems, the available computing power is much better utilized and things get done quicker.
 
 ## Wildcards and Matching File Names
 
 | Wildcard | Result |
 | --------- | -------- |
-| ? | Matches any single character |
-| * | Matches any string of characters |
-| [set] | Matches any character in the set of characters |
-| [!set] | Matches any character not in the set of characters |
+| `?` | Matches any single character |
+| `*` | Matches any string of characters |
+| `[set]` | Matches any character in the set of characters |
+| `[!set]` | Matches any character not in the set of characters |
 
 ## `locate`
 
