@@ -135,13 +135,13 @@ If you edit one of the files, exactly what happens depends on your editor; most 
 
 ## Soft Links
 
-Soft (or Symbolic) links are created with the -s option: `$ ln -s file1 file3`.
+Soft (or Symbolic) links are created with the `-s` option: `$ ln -s file1 file3`.
 
-Notice file3 no longer appears to be a regular file, and it clearly points to file1 and has a different inode number.
+Notice `file3` no longer appears to be a regular file, and it clearly points to `file1` and has a different inode number.
 
 ![](images/7.2.4.png)
 
-Symbolic links take no extra space on the filesystem (unless their names are very long). They are extremely convenient, as they can easily be modified to point to different places. An easy way to create a shortcut from your home directory to long pathnames is to create a symbolic link.
+Symbolic links take no extra space on the filesystem (unless their names are very long). They are extremely convenient, as they can easily be modified to point to different places.
 
 Unlike hard links, soft links can point to objects even on different filesystems, partitions, and/or disks and other media, which may or may not be currently available or even exist. In the case where the link does not point to a currently available or existing object, you obtain a dangling link.
 
