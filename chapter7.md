@@ -121,6 +121,15 @@ For remembering more than just the last directory visited, use `pushd` to change
 
 ![](images/7.2.2.png)
 
+## Wildcards and Matching File Names
+
+| Wildcard | Result |
+| --------- | -------- |
+| `?` | Matches any single character |
+| `*` | Matches any string of characters |
+| `[set]` | Matches any character in the set of characters |
+| `[!set]` | Matches any character not in the set of characters |
+
 ## Hard Links
 
 Suppose that `file1` already exists. A hard link, called `file2`, is created with the command: `$ ln file1 file2`
@@ -240,15 +249,6 @@ The UNIX/Linux philosophy is to have many simple and short programs (or commands
 In order to do this, we use the vertical-bar, pipe symbol (`|`), between commands as in: `$ command1 | command2 | command3`.
 
 The above represents what we often call a pipeline, and allows Linux to combine the actions of several commands into one. This is extraordinarily efficient because `command2` and `command3` do not have to wait for the previous pipeline commands to complete before they can begin processing at the data in their input streams; on multiple CPU or core systems, the available computing power is much better utilized and things get done quicker.
-
-## Wildcards and Matching File Names
-
-| Wildcard | Result |
-| --------- | -------- |
-| `?` | Matches any single character |
-| `*` | Matches any string of characters |
-| `[set]` | Matches any character in the set of characters |
-| `[!set]` | Matches any character not in the set of characters |
 
 ## `locate`
 
