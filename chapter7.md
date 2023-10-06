@@ -167,24 +167,25 @@ Unlike hard links, soft links can point to objects even on different filesystems
 
 `mkdir` is used to create a directory:
 - `mkdir sampdir`
-  - It creates a sample directory named sampdir under the current directory
+  - It creates a sample directory named `sampdir` under the current directory
 - `mkdir /usr/sampdir`
-  - It creates a sample directory called sampdir under /usr
+  - It creates a sample directory called `sampdir` under `/usr`
 - `mkdir -p /tmp/somedir/subdir`
-  - It creates a sample directory named subdir even if somedir/ or tmp/ does not exist
+  - It creates a sample directory named `subdir` even if `somedir/` or `tmp/` does not exist
 
 ## Moving, Renaming or Removing a File
 
 Note that `mv` can:
+
 - Simply rename a file
 - Move a file to another location, while possibly changing its name at the same time
 
 | Command | Usage |
 | --------- | -------- |
-| mv | Rename a file |
-| rm | Remove a file |
-| rm -f | Forcefully remove a file |
-| rm -i | Interactively remove a file |
+| `mv` | Rename a file |
+| `rm` | Remove a file |
+| `rm -f` | Forcefully remove a file |
+| `rm -i` | Interactively remove a file |
 
 ## Renaming or Removing a Directory
 
@@ -192,9 +193,9 @@ Note that `mv` can:
 
 | Command | Usage |
 | --------- | -------- |
-| mv | Rename a directory |
-| rmdir | Remove an empty directory |
-| rm -rf | Forcefully remove a directory recursively |
+| `mv` | Rename a directory |
+| `rmdir` | Remove an empty directory |
+| `rm -rf` | Forcefully remove a directory recursively |
 
 ## Modifying the Command Line Prompt
 
