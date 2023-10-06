@@ -166,6 +166,7 @@ Unlike hard links, soft links can point to objects even on different filesystems
 ## `mkdir`
 
 `mkdir` is used to create a directory:
+
 - `mkdir sampdir`
   - It creates a sample directory named `sampdir` under the current directory
 - `mkdir /usr/sampdir`
@@ -307,7 +308,7 @@ Most of the time users need to work only with the high-level tool, which will ta
 
 ### Working With Different Package Management Systems
 
-The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include apt (or apt-get) and apt-cache.
+The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line, with programs that include `apt` (or `apt-get`) and `apt-cache`.
 
 dnf is the open source command-line package-management utility for the RPM-compatible Linux systems that belong to the Red Hat family. 
 
