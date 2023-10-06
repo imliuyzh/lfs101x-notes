@@ -20,13 +20,14 @@ If your system does not already have `sudo` set up and enabled:
     $ su Password:
     #
     ```
+
 2. Now, you need to create a configuration file to enable your user account to use `sudo`. Typically, this file is created in the `/etc/sudoers.d/` directory with the name of the file the same as your username. For example, for this demo, let's say your username is student. You would then create the configuration file for student by doing this:
 
     ```
     # echo "student ALL=(ALL) ALL" > /etc/sudoers.d/student
     ```
 
-   - Some Linux distributions will complain if you do not also change permissions on the file by doing `chmod 440 /etc/sudoers.d/student`
+   - Some Linux distributions will complain if you do not also change permissions on the file by doing `chmod 440 /etc/sudoers.d/student`.
 
 ## Virtual Terminals
 
@@ -34,7 +35,7 @@ Virtual Terminals (VT) are console sessions that use the entire display and keyb
 
 One virtual terminal (usually VT 1 or VT 7) is reserved for the graphical environment, and text logins are enabled on the unused VTs. 
 
-To switch between VTs, press CTRL-ALT-function key for the VT. For example, press CTRL-ALT-F6 for VT 6. Actually, you only have to press the ALT-F6 key combination if you are in a VT and want to switch to another VT.
+To switch between VTs, press `CTRL-ALT-function key` for the VT. For example, press `CTRL-ALT-F6` for VT 6. If you are in a VT already and want to switch to another VT, you only have to press `ALT-function key`.
 
 ## Turning Off the Graphical Desktop
 
