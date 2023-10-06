@@ -151,17 +151,17 @@ Unlike hard links, soft links can point to objects even on different filesystems
 
 | Command | Usage |
 | --------- | -------- |
-| cat | Used for viewing files that are not very long; it does not provide any scroll-back |
-| tac | Used to look at a file backwards, starting with the last line |
-| less | Used to view larger files - it pauses at each screen full of text, provides scroll-back capabilities, and lets you search and navigate within the file |
-| tail | Used to print the last 10 lines of a file by default. You can change the number of lines by doing -n 15 or just -15 if you wanted to look at the last 15 lines instead of the default |
-| head | The opposite of tail; by default, it prints the first 10 lines of a file |
+| `cat` | Used for viewing files that are not very long; it does not provide any scroll-back |
+| `tac` | Used to look at a file backwards, starting with the last line |
+| `less` | Used to view larger files - it pauses at each screen full of text, provides scroll-back capabilities, and lets you search and navigate within the file |
+| `tail` | Used to print the last 10 lines of a file by default. You can change the number of lines by doing `-n 15` or just `-15` if you wanted to look at the last 15 lines instead of the default |
+| `head` | The opposite of `tail`; by default, it prints the first 10 lines of a file |
 
 ## `touch`
 
-`touch` is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time. However, you can also create an empty file using `touch`: `$ touch <filename>`.
+`touch` is often used to set or update the access, change, and modify times of files. By default, it resets a file's timestamp to match the current time. However, you can also create an empty file: `$ touch <filename>`.
 
-`touch` provides several useful options. For example, the -t option allows you to set the date and timestamp of the file to a specific value: `$ touch -t 12091600 myfile`. This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
+`touch` provides several useful options. For example, the `-t` option allows you to set the date and timestamp of the file to a specific value: `$ touch -t 12091600 myfile`. This sets the myfile file's timestamp to 4 p.m., December 9th (12 09 1600).
 
 ## `mkdir`
 
