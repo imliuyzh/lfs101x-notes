@@ -125,7 +125,7 @@ For remembering more than just the last directory visited, use `pushd` to change
 
 Suppose that `file1` already exists. A hard link, called `file2`, is created with the command: `$ ln file1 file2`
 
-Note that two files now appear to exist. However, a closer inspection of the file listing shows that this is not quite true: `$ ls -li file1 file2`. The -i option prints out the inode number in the first column, which is a unique quantity for each file object. What is really going on here is that it is only one file, but it has more than one name associated with it, as is indicated by the 2 that appears in the output.
+Note that two files now appear to exist. However, a closer inspection of the file listing shows that this is not quite true: `$ ls -li file1 file2`. The `-i` option prints out the inode number in the first column, which is a unique quantity for each file object. What is really going on here is that it is only one file, but it has more than one name associated with it, as is indicated by the 2 that appears in the output.
 
 ![](images/7.2.3.png)
 
