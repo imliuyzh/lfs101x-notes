@@ -39,23 +39,31 @@ To switch between VTs, press `CTRL-ALT-function key` for the VT. For example, pr
 
 ## Turning Off the Graphical Desktop
 
-Linux distributions can start and stop the graphical desktop in various ways. The exact method differs among distributions and between versions. For the newer system-based distributions, the display manager is run as a service, and you can stop the GUI desktop with the systemctl utility. In addition, most distributions will also work with the telinit command, as in:
+Linux distributions can start and stop the graphical desktop in various ways. For the newer system-based distributions, you can stop the GUI desktop with `systemctl` or the `telinit` command:
 
-`$ sudo systemctl stop gdm # or sudo telinit 3`
+```
+$ sudo systemctl stop gdm
+```
 
-and restart it (after logging into the console) with:
+```
+$ sudo telinit 3
+```
 
-`$ sudo systemctl start gdm # or sudo telinit 5`
+You can restart it (after logging into the console) with:
 
-## Logging In and Out
+```
+$ sudo systemctl start gdm
+```
 
-An available text terminal will prompt for a username (with the string login:) and password. When typing your password, nothing is displayed on the terminal (not even a * to indicate that you typed in something), to prevent others from seeing your password. After you have logged into the system, you can perform basic operations.
+```
+$ sudo telinit 5
+```
 
 ## Rebooting and Shutting Down
 
-The preferred method to shut down or reboot the system is to use the shutdown command. This sends a warning message, and then prevents further users from logging in. The init process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
+The preferred method to shut down or reboot the system is to use the `shutdown` command. This sends a warning message, and then prevents further users from logging in. The `init` process will then control shutting down or rebooting the system. It is important to always shut down properly; failure to do so can result in damage to the system and/or loss of data.
 
-The halt and poweroff commands issue shutdown -h to halt the system; reboot issues shutdown -r and causes the machine to reboot instead of just shutting down. Both rebooting and shutting down from the command line requires superuser (root) access.
+The `halt` and `poweroff` commands issue `shutdown -h` to halt the system; reboot issues `shutdown -r` and causes the machine to reboot instead of just shutting down. Both rebooting and shutting down from the command line requires superuser (root) access.
 
 When administering a multi-user system, you have the option of notifying all users prior to shutdown: `$ sudo shutdown -h 10:00 "Shutting down for scheduled maintenance."`
 
