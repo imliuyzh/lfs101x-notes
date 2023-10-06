@@ -123,17 +123,15 @@ For remembering more than just the last directory visited, use `pushd` to change
 
 ## Hard Links
 
-The ln utility is used to create hard links and soft links, also known as symbolic links or symlinks. 
+Suppose that `file1` already exists. A hard link, called `file2`, is created with the command: `$ ln file1 file2`
 
-Suppose that file1 already exists. A hard link, called file2, is created with the command: `$ ln file1 file2`
-
-Note that two files now appear to exist. However, a closer inspection of the file listing shows that this is not quite true: `$ ls -li file1 file2`. The -i option to ls prints out in the first column the inode number, which is a unique quantity for each file object. This field is the same for both of these files; what is really going on here is that it is only one file, but it has more than one name associated with it, as is indicated by the 2 that appears in the ls output. Thus, there was already another object linked to file1 before the command was executed.
+Note that two files now appear to exist. However, a closer inspection of the file listing shows that this is not quite true: `$ ls -li file1 file2`. The -i option prints out the inode number in the first column, which is a unique quantity for each file object. What is really going on here is that it is only one file, but it has more than one name associated with it, as is indicated by the 2 that appears in the output.
 
 ![](images/7.2.3.png)
 
-Hard links are very useful and they save space, but you have to be careful with their use, sometimes in subtle ways. For one thing, if you remove either file1 or file2 in the example, the inode object (and the remaining file name) will remain, which might be undesirable, as it may lead to subtle errors later if you recreate a file of that name.
+Hard links are very useful and they save space, but you have to be careful with their use, sometimes in subtle ways. For one thing, if you remove either `file1` or `file2` in the example, the inode object (and the remaining file name) will remain, which might be undesirable, as it may lead to subtle errors later if you recreate a file of that name.
 
-If you edit one of the files, exactly what happens depends on your editor; most editors, including vi and gedit, will retain the link by default, but it is possible that modifying one of the names may break the link and result in the creation of two objects.
+If you edit one of the files, exactly what happens depends on your editor; most editors will retain the link by default, but it is possible that modifying one of the names may break the link and result in the creation of two objects.
 
 ## Soft Links
 
