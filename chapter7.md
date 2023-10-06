@@ -85,14 +85,14 @@ diff: /usr/bin/diff /usr/share/man/man1/diff.1.gz /usr/share/man/man1p/diff.1p.g
 
 ## Accessing Directories
 
-When you first log into a system or open a terminal, the default directory should be your home directory. You can see the exact location by typing echo $HOME. However, most Linux distributions open new graphical terminals in $HOME/Desktop instead.
+When you first log into a system or open a terminal, the default directory should be your home directory. You can see the exact location by typing `echo $HOME`.
 
 | Command | Usage |
 | --------- | -------- |
-| pwd | Displays the present working directory |
-| cd ~ <br /> cd | Change to your home directory |
-| cd .. | Change to parent directory (..) |
-| cd - | Change to previous working directory |
+| `pwd` | Displays the present working directory |
+| `cd ~` <br /> `cd` | Change to your home directory |
+| `cd ..` | Change to parent directory (..) |
+| `cd -` | Change to previous working directory |
 
 ## Understanding Absolute and Relative Paths
 
