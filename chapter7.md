@@ -276,9 +276,9 @@ Searching only for directories named `gcc`: `$ find /usr -type d -name gcc`.
 
 Searching only for regular files named `gcc`: `$ find /usr -type f -name gcc`.
 
-Another good use of find is being able to run commands on the files that match your search criteria with the `-exec` option.
+Another good use is being able to run commands on the files that match your search criteria with the `-exec` option.
 
-To find and remove all files that end with .swp: `$ find -name "*.swp" -exec rm {} ';'`. The `{}` (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the preceding command will be run on each one individually. Please note that you have to end the command with either `';'` (including the single-quotes) or `\\;`.
+To find and remove all files that end with `.swp`: `$ find -name "*.swp" -exec rm {} ';'`. The `{}` (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the command will be run on each one individually. Please note that you have to end the command with either `';'` (including the single-quotes) or `\\;`.
 
 It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size.
 
