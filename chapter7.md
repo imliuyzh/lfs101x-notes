@@ -266,27 +266,25 @@ The database is created by a related utility `updatedb`. Most Linux systems run 
 
 ## `find`
 
-find recurses down the filesystem tree from any particular directory (or set of directories) and locates files that match specified conditions. The default pathname is always the present working directory.
+`find` recurses down the filesystem tree from any particular directory (or set of directories) and locates files that match specified conditions. The default pathname is always the present working directory.
 
-When no arguments are given, find lists all files in the current directory and all of its subdirectories. Commonly used options to shorten the list include -name (only list files with a certain pattern in their name), -iname (also ignore the case of file names), and -type (which will restrict the results to files of a certain specified type, such as d for directory, l for symbolic link, or f for a regular file, etc.). 
+When no arguments are given, `find` lists all files in the current directory and all of its subdirectories. Commonly used options to shorten the list include `-name` (only list files with a certain pattern in their name), `-iname` (ignore the case of file names), and `-type` (which will restrict the results to files of a certain specified type, such as `d` for directory, `l` for symbolic link, or `f` for a regular file, etc.). 
 
-Searching for files and directories named gcc: `$ find /usr -name gcc`.
+Searching for files and directories named `gcc`: `$ find /usr -name gcc`.
 
-Searching only for directories named gcc: `$ find /usr -type d -name gcc`.
+Searching only for directories named `gcc`: `$ find /usr -type d -name gcc`.
 
-Searching only for regular files named gcc: `$ find /usr -type f -name gcc`.
+Searching only for regular files named `gcc`: `$ find /usr -type f -name gcc`.
 
-Another good use of find is being able to run commands on the files that match your search criteria. The -exec option is used for this purpose.
+Another good use of find is being able to run commands on the files that match your search criteria with the `-exec` option.
 
-To find and remove all files that end with .swp: `$ find -name "*.swp" -exec rm {} ’;’`. The {} (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the preceding command will be run on each one individually. Please note that you have to end the command with either ‘;’ (including the single-quotes) or \\;.
+To find and remove all files that end with .swp: `$ find -name "*.swp" -exec rm {} ';'`. The `{}` (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the preceding command will be run on each one individually. Please note that you have to end the command with either `';'` (including the single-quotes) or `\\;`.
 
-One can also use the -ok option, which behaves the same as -exec, except that find will prompt you for permission before executing the command. This makes it a good way to test your results before blindly executing any potentially dangerous commands.
+It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size.
 
-It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size. It is easy to perform such searches.
+To find files based on time: `$ find / -ctime 3`. Here, `-ctime` is when the inode metadata last changed; it is often, but not necessarily, when the file was first created. You can also search for accessed/last read (`-atime`) or modified/last written (`-mtime`) times. The number is the number of days and can be expressed as either a number (`n`) that means exactly that value, `+n`, which means greater than that number, or `-n`, which means less than that number. There are similar options for times in minutes (as in `-cmin`, `-amin`, and `-mmin`).
 
-To find files based on time: `$ find / -ctime 3`. Here, -ctime is when the inode metadata last changed; it is often, but not necessarily, when the file was first created. You can also search for accessed/last read (-atime) or modified/last written (-mtime) times. The number is the number of days and can be expressed as either a number (n) that means exactly that value, +n, which means greater than that number, or -n, which means less than that number. There are similar options for times in minutes (as in -cmin, -amin, and -mmin).
-
-To find files based on sizes: `$ find / -size 0`. Note the size here is in 512-byte blocks, by default; you can also specify bytes (c), kilobytes (k), megabytes (M), gigabytes (G), etc. As with the time numbers above, file sizes can also be exact numbers (n), +n or -n. For example, to find files greater than 10 MB in size and running a command on those files: `$ find / -size +10M -exec command {} ’;’`.
+To find files based on sizes: `$ find / -size 0`. Note the size here is in 512-byte blocks, by default; you can also specify bytes (`c`), kilobytes (`k`), megabytes (`M`), gigabytes (`G`), etc. As with the time numbers above, file sizes can also be exact numbers (`n`), `+n` or `-n`. For example, to find files greater than 10 MB in size and running a command on those files: `$ find / -size +10M -exec command {} ';'`.
 
 ## Package Management Systems on Linux
 
@@ -311,6 +309,6 @@ zypper is the package management system for the SUSE/openSUSE family and is also
 | Update entire system | `dnf update` | `apt dist-upgrade` |
 | Show all installed packages | `rpm -qa <br> dnf list installed` | `dpkg --list` |
 | Get information on package | `rpm -qil foo` | `dpkg --listfiles foo` |
-| Show packages named foo | `dnf list "foo"` | `apt-cache search foo` |
+| Show packages named `foo` | `dnf list "foo"` | `apt-cache search foo` |
 | Show all available packages | `dnf list`  | `apt-cache dumpavail foo` |
 | What package is file part of? | `rpm -qf file` | `dpkg --search file` |
