@@ -252,9 +252,9 @@ The above represents what we often call a pipeline, and allows Linux to combine 
 
 ## `locate`
 
-The locate utility program performs a search while taking advantage of a previously constructed database of files and directories on your system, matching all entries that contain a specified character string. This can sometimes result in a very long list.
+The `locate` utility program performs a search while taking advantage of a previously constructed database of files and directories on your system, matching all entries that contain a specified character string.
 
-To get a shorter (and possibly more relevant) list, we can use the grep program as a filter. grep will print only the lines that contain one or more specified strings, as in: 
+To get a shorter (and possibly more relevant) list, we can use the `grep` program as a filter. `grep` will print only the lines that contain one or more specified strings, as in: 
 
 ```
 $ locate zip | grep bin
@@ -262,7 +262,7 @@ $ locate zip | grep bin
 
 which will list all the files and directories with both zip and bin in their name. 
 
-locate utilizes a database created by a related utility, updatedb. Most Linux systems run this automatically once a day. However, you can update it at any time by just running updatedb from the command line as the root user.
+The database is created by a related utility `updatedb`. Most Linux systems run this automatically once a day. However, you can update it at any time by just running `updatedb` from the command line as the root user.
 
 ## `find`
 
