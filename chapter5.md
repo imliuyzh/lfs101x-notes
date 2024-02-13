@@ -36,7 +36,7 @@ All systems have a lower-level utility that handles the details of unpacking a p
 
 dpkg is a package manager. It can install, remove, and build packages. Unlike higher-level package management systems, it does not automatically download and install packages and satisfy their dependencies.
 
-For Debian-based systems, the higher-level package management system is the Advanced Package Tool (APT) system of utilities. Generally, while each distribution within the Debian family uses APT, it creates its own utilities on top of it. Although apt repositories are generally compatible with each other, the software they contain generally is not. Therefore, most repositories target a particular distribution (like Ubuntu), and often software distributors ship with multiple repositories to support multiple distributions. 
+For Debian-based systems, the higher-level package management system is the Advanced Package Tool (APT) system of utilities. Generally, while each distribution within the Debian family uses APT, it creates its own utilities on top of it. However, the software in apt repositories is not compatible with multiple distributions. Therefore, software distributors often ship with multiple repositories to support multiple distributions. 
 
 ![](images/5.3.1.png)
 
