@@ -183,11 +183,6 @@ Unlike hard links, soft links can point to objects even on different filesystems
 
 ## Moving, Renaming or Removing a File
 
-Note that `mv` can:
-
-- Simply rename a file
-- Move a file to another location, while possibly changing its name at the same time
-
 | Command | Usage |
 | --------- | -------- |
 | `mv` | Rename a file |
@@ -197,7 +192,10 @@ Note that `mv` can:
 
 ## Renaming or Removing a Directory
 
-`rmdir` works only on empty directories; otherwise you get an error. 
+Note that `mv` can:
+
+- Simply rename a file
+- Move a file to another location, while possibly changing its name at the same time
 
 | Command | Usage |
 | --------- | -------- |
