@@ -183,6 +183,11 @@ Unlike hard links, soft links can point to objects even on different filesystems
 
 ## Moving, Renaming or Removing a File
 
+Note that `mv` can:
+
+- Simply rename a file
+- Move a file to another location, while possibly changing its name at the same time
+
 | Command | Usage |
 | --------- | -------- |
 | `mv` | Rename a file |
@@ -191,11 +196,6 @@ Unlike hard links, soft links can point to objects even on different filesystems
 | `rm -i` | Interactively remove a file |
 
 ## Renaming or Removing a Directory
-
-Note that `mv` can:
-
-- Simply rename a file
-- Move a file to another location, while possibly changing its name at the same time
 
 | Command | Usage |
 | --------- | -------- |
