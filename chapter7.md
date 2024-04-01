@@ -1,6 +1,6 @@
 # Command Line Operations
 
-A terminal emulator simulates a standalone terminal within a window on the desktop. It behaves essentially as if you were logging into the machine at a pure text terminal with no running graphical interface.
+A terminal emulator simulates a standalone terminal within a window on the desktop. It behaves essentially as if you were logging into the machine at a pure text terminal with no graphical interface.
 
 ## The Command Line
 
