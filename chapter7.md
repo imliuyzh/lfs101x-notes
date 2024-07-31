@@ -305,7 +305,7 @@ zypper is the package management system for the SUSE/openSUSE family and is also
 | Update package | `rpm -U foo.rpm` | `dpkg --install foo.deb` |
 | Update package, dependencies | `dnf update foo` | `apt install foo` |
 | Update entire system | `dnf update` | `apt dist-upgrade` |
-| Show all installed packages | `rpm -qa <br> dnf list installed` | `dpkg --list` |
+| Show all installed packages | `rpm -qa` <br> `dnf list installed` | `dpkg --list` |
 | Get information on package | `rpm -qil foo` | `dpkg --listfiles foo` |
 | Show packages named `foo` | `dnf list "foo"` | `apt-cache search foo` |
 | Show all available packages | `dnf list`  | `apt-cache dumpavail foo` |
