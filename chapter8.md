@@ -26,8 +26,6 @@ With the `-a` parameter, `man` will display all pages with the given name in all
 
 This is the GNU project's standard documentation format, which it prefers as an alternative to `man`. The Info System is basically free-form, and supports linked subsections.
 
-Functionally, `info` resembles `man` in many ways. However, topics are connected using links (even though its design predates the World Wide Web). Information can be viewed through either a command line interface, a graphical help utility, printed or viewed online.
-
 ### Using `info` from the Command Line
 
 Typing `info` with no arguments in a terminal window displays an index of available topics. You can browse through the topic list using the regular movement keys: arrows, Page Up, and Page Down.
