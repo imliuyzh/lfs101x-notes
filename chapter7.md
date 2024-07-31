@@ -218,25 +218,25 @@ student@r9 $
 
 ## Standard File Streams
 
-When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or stdin), standard output (standard out or stdout) and standard error (or stderr).
+When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or `stdin`), standard output (standard out or `stdout`) and standard error (or `stderr`).
 
-Usually, stdin is your keyboard, and stdout and stderr are printed on your terminal. stderr is often redirected to an error logging file, while stdin is supplied by directing input to come from a file or from the output of a previous command through a pipe. stdout is also often redirected into a file. Since stderr is where error messages (and warning) are written, usually nothing will go there.
+Usually, `stdin` is your keyboard, and `stdout` and `stderr` are printed on your terminal. `stderr` is often redirected to an error logging file, while `stdin` is supplied by directing input to come from a file or from the output of a previous command through a pipe. `stdout` is also often redirected into a file. Since `stderr` is where error messages (and warning) are written, usually nothing will go there.
 
-In Linux, all open files are represented internally by what are called file descriptors. Simply put, these are represented by numbers starting at zero. stdin is file descriptor 0, stdout is file descriptor 1, and stderr is file descriptor 2. Typically, if other files are opened in addition to these three, which are opened by default, they will start at file descriptor 3 and increase from there.
+In Linux, all open files are represented internally by what are called file descriptors. Simply put, these are represented by numbers starting at zero. `stdin` is file descriptor 0, `stdout` is file descriptor 1, and `stderr` is file descriptor 2. Typically, if other files are opened in addition to these three, which are opened by default, they will start at file descriptor 3 and increase from there.
 
 | Name | Symbolic Name | Value |
 | --------- | -------- | -------- |
-| standard input | stdin | 0 |
-| standard output | stdout | 1 |
-| standard error | stderr | 2 |
+| standard input | `stdin` | 0 |
+| standard output | `stdout` | 1 |
+| standard error | `stderr` | 2 |
 
 ### I/O Redirection
 
 Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, and we can write output and errors to files or use them to provide input for subsequent commands.
 
-If we have a program called do_something that reads from stdin and writes to stdout and stderr, we can change its input source by using the less-than sign (`<`) followed by the name of the file to be consumed for input data: `$ do_something < input-file`. If you want to send the output to a file, use the greater-than sign (`>`) as in: `$ do_something > output-file`. In fact, you can do both at the same time as in: `$ do_something < input-file > output-file`.
+If we have a program called `do_something` that reads from `stdin` and writes to `stdout` and `stderr`, we can change its input source by using the less-than sign (`<`) followed by the name of the file to be consumed for input data: `$ do_something < input-file`. If you want to send the output to a file, use the greater-than sign (`>`) as in: `$ do_something > output-file`. In fact, you can do both at the same time as in: `$ do_something < input-file > output-file`.
 
-Because stderr is not the same as stdout, error messages will still be seen on the terminal windows in the above example. If you want to redirect stderr to a separate file, you use stderr's file descriptor number (2), the greater-than sign (`>`), followed by the name of the file you want to receive everything the running command writes to stderr: `$ do_something 2> error-file`. Note that a special shorthand notation can send anything written to file descriptor 2 (stderr) to the same place as file descriptor 1 (stdout): `$ do_something > all-output-file 2>&1`.
+Because `stderr` is not the same as stdout, error messages will still be seen on the terminal windows in the above example. If you want to redirect `stderr` to a separate file, you use `stderr`'s file descriptor number (2), the greater-than sign (`>`), followed by the name of the file you want to receive everything the running command writes to `stderr`: `$ do_something 2> error-file`. Note that a special shorthand notation can send anything written to file descriptor 2 (`stderr`) to the same place as file descriptor 1 (`stdout`): `$ do_something > all-output-file 2>&1`.
 
 bash permits an easier syntax for the above: `$ do_something >& all-output-file`.
 
@@ -274,21 +274,13 @@ Searching only for directories named `gcc`: `$ find /usr -type d -name gcc`.
 
 Searching only for regular files named `gcc`: `$ find /usr -type f -name gcc`.
 
-Another good use is being able to run commands on the files that match your search criteria with the `-exec` option.
-
 To find and remove all files that end with `.swp`: `$ find -name "*.swp" -exec rm {} ';'`. The `{}` (squiggly brackets) is a placeholder that will be filled with all the file names that result from the find expression, and the command will be run on each one individually. Please note that you have to end the command with either `';'` (including the single-quotes) or `\\;`.
-
-It is sometimes the case that you wish to find files according to attributes, such as when they were created, last used, etc., or based on their size.
 
 To find files based on time: `$ find / -ctime 3`. Here, `-ctime` is when the inode metadata last changed; it is often, but not necessarily, when the file was first created. You can also search for accessed/last read (`-atime`) or modified/last written (`-mtime`) times. The number is the number of days and can be expressed as either a number (`n`) that means exactly that value, `+n`, which means greater than that number, or `-n`, which means less than that number. There are similar options for times in minutes (as in `-cmin`, `-amin`, and `-mmin`).
 
 To find files based on sizes: `$ find / -size 0`. Note the size here is in 512-byte blocks, by default; you can also specify bytes (`c`), kilobytes (`k`), megabytes (`M`), gigabytes (`G`), etc. As with the time numbers above, file sizes can also be exact numbers (`n`), `+n` or `-n`. For example, to find files greater than 10 MB in size and running a command on those files: `$ find / -size +10M -exec command {} ';'`.
 
 ## Package Management Systems on Linux
-
-The core parts of a Linux distribution and most of its add-on software are installed via the Package Management System. Each package contains the files and other instructions needed to make one software component work well and cooperate with the other components that comprise the entire system. Packages can depend on each other. For example, a package for a web-based application written in Python will require the appropriate Python packages to be installed first.
-
-### Working With Different Package Management Systems
 
 The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line.
 
