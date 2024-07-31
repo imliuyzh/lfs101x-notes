@@ -152,7 +152,7 @@ Notice `file3` no longer appears to be a regular file, and it clearly points to 
 
 Symbolic links take no extra space on the filesystem (unless their names are very long). They are extremely convenient, as they can easily be modified to point to different places.
 
-Unlike hard links, soft links can point to objects even on different filesystems, partitions, and/or disks and other media, which may or may not be currently available or even exist. In the case where the link does not point to a currently available or existing object, you obtain a dangling link.
+Unlike hard links, soft links can point to objects even on different filesystems, partitions, and/or disks and other media. In the case where the link does not point to a currently available or existing object, you obtain a dangling link.
 
 ## Viewing Files
 
