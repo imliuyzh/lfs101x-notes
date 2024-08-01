@@ -133,8 +133,8 @@ Each line in the process list of the top output displays information about a pro
 | Command | Output |
 | - | - |
 | `h` <br> `?` | Display available interactive keys and their function |
-| `t` | Display or hide summary information (rows 2 and 3) |
-| `m` | Display or hide memory information (rows 4 and 5) |
+| `t` | Display or hide rows 2 and 3 |
+| `m` | Display or hide rows 4 and 5 |
 | `l` | Show information for each CPU and not just totals |
 | `d` | Change display update interval |
 | `A` | Sort the process list by top resource consumers |
