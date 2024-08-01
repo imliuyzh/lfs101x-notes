@@ -129,7 +129,6 @@ Each line in the process list of the top output displays information about a pro
 
 ![](images/9.3.4.png)
 
-### Interactive Keys
 | Command | Output |
 | - | - |
 | `h` <br> `?` | Display available interactive keys and their function |
