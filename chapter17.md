@@ -46,11 +46,7 @@ CUPS comes with its own web server, which makes a configuration interface availa
 ![](./images/17.1.3.png)
 
 ## Printing from the Command-Line Interface
-CUPS provides two command-line interfaces, descended from the System V and BSD flavors of UNIX. This means that you can use either `lp` (System V) or `lpr` (BSD) to print. 
-
-`lp` is just a command line front-end to the `lpr` utility that passes input to `lpr`. In the example shown here, the task is to print `$HOME/.emacs`.
-
-![](./images/17.2.1.png)
+CUPS provides two command-line interfaces, `lp` and `lpr`, descended from the System V and BSD flavors of UNIX. `lp` is just a command line front-end to the `lpr` utility.
 
 ### Using lp
 `lp` is typically used with a file name as an argument. `lpoptions` can be used to set printer options and defaults. Each printer has a set of tags associated with it, such as the default number of copies and authentication requirements. You can type `lpoptions help` to obtain a list of supported options.
