@@ -88,7 +88,7 @@ The jobs utility displays all jobs running in background. `jobs -l` provides the
 
 ## `ps`
 
-`ps` (process status) provides information about currently running processes keyed by PID. If you want a periodic update of this status, you can use `top` or other commonly installed variants from the command line, or invoke your distribution's graphical system monitor application.
+`ps` (process status) provides information about currently running processes keyed by PID. If you want a periodic update of this status, you can use `top` or other variants from the command line, or invoke your distribution's graphical system monitor application.
 
 ### System V Style
 
@@ -102,7 +102,7 @@ Without options, `ps` will display all processes running under the current shell
 ![](images/9.3.2.png)
 
 ## The Process Tree
-pstree displays the processes running on the system in the form of a tree diagram showing the relationship between a process and its parent process and any other processes that it created. Repeated entries of a process are not displayed, and threads are displayed in curly braces.
+`pstree` displays the processes running on the system in the form of a tree diagram showing the relationship between a process and its parent process and any other processes that it created. Repeated entries of a process are not displayed, and threads are displayed in curly braces.
 
 ![](images/9.3.3.png)
 
@@ -146,17 +146,17 @@ Each line in the process list of the top output displays information about a pro
 | o | Interactively select a new sort order in the process list |
 | 1 | Show CPU usage for every core |
 
-## Scheduling Future Processes Using at
-Suppose you need to perform a task on a specific day sometime in the future. You can use the at utility program to execute any non-interactive command at a specified time, as illustrated in the screenshot below:
+## `at`
+Suppose you need to perform a task on a specific day sometime in the future. You can use the `at` utility program to execute any non-interactive command at a specified time:
 
 ![](images/9.4.1.png)
 
-## sleep
-sleep suspends execution for at least the specified period of time, which can be given as the number of seconds (the default), minutes, hours, or days. After that time has passed (or an interrupting signal has been received), execution will resume.
+## `sleep`
+`sleep` suspends execution for at least the specified period of time. After that time has passed (or an interrupting signal has been received), execution will resume.
 
 The syntax is:
 
-sleep NUMBER[SUFFIX]...
+```sleep NUMBER[SUFFIX]...```
 
 where SUFFIX may be:
 - s for seconds (the default)
@@ -164,12 +164,10 @@ where SUFFIX may be:
 - h for hours
 - d for days
 
-sleep and at are quite different; sleep delays execution for a specific period, while at starts execution at a specific designated later time.
+## `cron`
+`cron` is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an ongoing basis. `cron` is driven by a configuration file called /etc/crontab (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
 
-## cron
-cron is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an ongoing basis. cron is driven by a configuration file called /etc/crontab (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
-
-Typing crontab -e will open the crontab editor to edit existing jobs or to create new jobs. Each line of the crontab file will contain 6 fields:
+Typing `crontab -e` will open the crontab editor to edit existing jobs or to create new jobs. Each line of the crontab file will contain 6 fields:
 
 | Field | Description | Values |
 | - | - | - |
