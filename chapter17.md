@@ -53,7 +53,7 @@ CUPS provides two command-line interfaces, `lp` and `lpr`, descended from the Sy
 
 | Command | Usage |
 | - | - |
-| `lp filename `| To print the file to default printer |
+| `lp filename` | To print the file to default printer |
 | `lp -d printer filename` | To print to a specific printer |
 | `program \| lp` <br> `echo string \| lp` | To print the output of a program |
 | `lp -n number filename` | To print multiple copies |
