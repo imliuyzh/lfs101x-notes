@@ -7,9 +7,6 @@ Processes use many system resources, such as memory, CPU cycles, and peripheral 
 
 ![](images/9.1.1.png)
 
-## Process Types
-A terminal window (one kind of command shell) is a process that runs as long as needed. It allows users to execute programs and access resources in an interactive environment. You can also run programs in the background, which means they become detached from the shell.
-
 | Process Type | Description | Examples |
 | - | - | - |
 Interactive Processes | Need to be started by a user, either at a command line or through a graphical interface. | bash, firefox, top, Slack, Libreoffice
