@@ -39,7 +39,7 @@ To terminate a process, you can type `kill -SIGKILL <pid>` or `kill -9 <pid>`. N
 The name kill is historical and somewhat misleading, it can be used to send any kind of signal to a process, not just a termination one.
 
 ## User and Group IDs
-Many users can access a system simultaneously, and each user can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
+Many users can access simultaneously and each can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
 
 The user who determines the access rights for the users is identified by the Effective UID (EUID). 
 
@@ -52,13 +52,10 @@ At any given time, many processes are running on the system. However, a CPU can 
 
 The priority for a process can be set by specifying a nice value, or niceness. The lower the nice value, the higher the priority. Low values are assigned to important processes, while high values are assigned to processes that can wait longer. A process with a high nice value simply allows other processes to be executed first. In Linux, a nice value of -20 represents the highest priority and +19 represents the lowest. While this may sound backwards, this convention (the nicer the process, the lower the priority) goes back to the earliest days of UNIX.
 
-You can also assign a so-called real-time priority to time-sensitive tasks, such as controlling machines through a computer or collecting incoming data. This is just a very high priority and is not to be confused with what is called hard real-time, which is conceptually different and has more to do with making sure a job gets completed within a very well-defined time window.
-
-## Using renice to Set Priorities
 | Command | Effect |
 | - | - |
-| renice +5 3077 | Change process 3077 and its child processes to have a nice value of 5. |
-| renice -5 3077 | Change process 3077 and its child processes to have a nice value of -5. |
+| `renice +5 3077` | Change process 3077 and its child processes to have a nice value of 5. |
+| `renice -5 3077` | Change process 3077 and its child processes to have a nice value of -5. |
 
 ## Load Averages
 The load average is the average of the load number for a given period of time. It takes into account processes that are actively running on a CPU, considered runnable, or sleeping.
