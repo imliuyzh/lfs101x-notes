@@ -118,14 +118,14 @@ The third line of the top output indicates how the CPU time is being divided bet
 The fourth and fifth lines of the top output indicate memory usage, which is divided in two categories: physical memory (RAM) and swap space. Once the physical memory is exhausted, the system starts using swap space (temporary storage space on the hard drive) as an extended memory pool, and since accessing disk is much slower than accessing memory, this will negatively affect system performance.
 
 Each line in the process list of the top output displays information about a process. By default, processes are ordered by highest CPU usage. The following information about each process is displayed:
-- Process Identification Number (PID)
-- Process owner (USER)
-- Priority (PR) and nice values (NI)
-- Virtual (VIRT), physical (RES), and shared memory (SHR)
-- Status (S)
-- Percentage of CPU (%CPU) and memory (%MEM) used
-- Execution time (TIME+)
-- Command (COMMAND)
+- Process Identification Number (`PID`)
+- Process owner (`USER`)
+- Priority (`PR`) and nice values (`NI`)
+- Virtual (`VIRT`), physical (`RES`), and shared memory (`SHR`)
+- Status (`S`)
+- Percentage of CPU (`%CPU`) and memory (`%MEM`) used
+- Execution time (`TIME+`)
+- Command (`COMMAND`)
 
 ![](images/9.3.4.png)
 
