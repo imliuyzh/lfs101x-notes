@@ -79,22 +79,25 @@ Short-term increases are usually not a problem. A high peak you see is likely a 
 ## Background and Foreground Processes
 Linux supports background and foreground job processing. A job in this context is just a command launched from a terminal window. Foreground jobs run directly from the shell, and when one foreground job is running, other jobs need to wait for shell access (at least in that terminal window if using the GUI) until it is completed. But this can have an adverse effect if the current job is going to take a long time (even several hours) to complete.
 
-In such cases, you can run the job in the background and free the shell for other tasks. The background job will be executed at lower priority, which, in turn, will allow smooth execution of the interactive tasks. By default, all jobs are executed in the foreground. You can put a job in the background by suffixing & to the command, for example: updatedb &.
+In such cases, you can run the job in the background and free the shell for other tasks. The background job will be executed at lower priority, which, in turn, will allow smooth execution of the interactive tasks. By default, all jobs are executed in the foreground. You can put a job in the background by suffixing `&` to the command, for example: `updatedb &`.
 
-You can use CTRL-Z to suspend a foreground job (i.e., put it in background) and CTRL-C to terminate it. You can always use the bg command to run a suspended process in the background, or the fg command to run a background process in the foreground.
+You can use CTRL-Z to suspend a foreground job (i.e., put it in background) and CTRL-C to terminate it. You can always use the `bg` command to run a suspended process in the background, or the `fg` command to run a background process in the foreground.
 
 ### Managing Jobs
 The jobs utility displays all jobs running in background. `jobs -l` provides the same information as jobs, and adds the PID of the background jobs. The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
 
-## The ps Command (System V Style)
-ps (process status) provides information about currently running processes keyed by PID. If you want a periodic update of this status, you can use top or other commonly installed variants (such as htop, atop, or btop) from the command line, or invoke your distribution's graphical system monitor application (such as gnome-system-monitor or ksysguard).
+## `ps`
 
-Without options, ps will display all processes running under the current shell. You can use the -u option to display information of processes for a specified username. The command ps -ef displays all the processes in the system in full detail. The command ps -eLf goes one step further and displays one line of information for every thread (remember, a process can contain multiple threads).
+`ps` (process status) provides information about currently running processes keyed by PID. If you want a periodic update of this status, you can use `top` or other commonly installed variants from the command line, or invoke your distribution's graphical system monitor application.
+
+### System V Style
+
+Without options, `ps` will display all processes running under the current shell. You can use the `-u` option to display information of processes for a specified username. The command `ps -ef` displays all the processes in the system in full detail. The command `ps -eLf` goes one step further and displays one line of information for every thread (remember, a process can contain multiple threads).
 
 ![](images/9.3.1.png)
 
-## The ps Command (BSD Style)
-ps has another style of option specification, which stems from the BSD variety of UNIX, where options are specified without preceding dashes. For example, the command ps aux displays all processes of all users. The command ps axo allows you to specify which attributes you want to view.
+### BSD Style
+`ps` has another style of option specification, which stems from the BSD variety of UNIX, where options are specified without preceding dashes. For example, the command `ps aux` displays all processes of all users. The command `ps axo` allows you to specify which attributes you want to view.
 
 ![](images/9.3.2.png)
 
@@ -148,6 +151,21 @@ Suppose you need to perform a task on a specific day sometime in the future. You
 
 ![](images/9.4.1.png)
 
+## sleep
+sleep suspends execution for at least the specified period of time, which can be given as the number of seconds (the default), minutes, hours, or days. After that time has passed (or an interrupting signal has been received), execution will resume.
+
+The syntax is:
+
+sleep NUMBER[SUFFIX]...
+
+where SUFFIX may be:
+- s for seconds (the default)
+- m for minutes
+- h for hours
+- d for days
+
+sleep and at are quite different; sleep delays execution for a specific period, while at starts execution at a specific designated later time.
+
 ## cron
 cron is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an ongoing basis. cron is driven by a configuration file called /etc/crontab (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
 
@@ -178,18 +196,3 @@ The key configuration file is /etc/anacrontab:
 ![](images/9.4.2.png)
 
 Note that anacron still makes use of the cron infrastructure for submitting jobs on a daily, weekly, and monthly basis, but it defers running them until opportune times when the system is actually alive.
-
-## sleep
-sleep suspends execution for at least the specified period of time, which can be given as the number of seconds (the default), minutes, hours, or days. After that time has passed (or an interrupting signal has been received), execution will resume.
-
-The syntax is:
-
-sleep NUMBER[SUFFIX]...
-
-where SUFFIX may be:
-- s for seconds (the default)
-- m for minutes
-- h for hours
-- d for days
-
-sleep and at are quite different; sleep delays execution for a specific period, while at starts execution at a specific designated later time.
