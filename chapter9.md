@@ -193,4 +193,4 @@ The key configuration file is `/etc/anacrontab`:
 
 ![](images/9.4.2.png)
 
-Note that anacron still makes use of the cron infrastructure for submitting jobs on a daily, weekly, and monthly basis, but it defers running them until opportune times when the system is actually alive.
+Note that `anacron` still makes use of the cron infrastructure for submitting jobs on a daily, weekly, and monthly basis, but it defers running them until opportune times when the system is actually alive.
