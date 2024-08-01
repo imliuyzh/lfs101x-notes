@@ -34,9 +34,9 @@ Parent Process ID (PPID) | Process (Parent) that started this process. If the pa
 Thread ID (TID) | Thread ID number. This is the same as the PID for single-threaded processes. For a multi-threaded process, each thread shares the same PID, but has a unique TID.
 
 ## Terminating a Process
-To terminate a process, you can type `kill -SIGKILL <pid>` or `kill -9 <pid>`.
+To terminate a process, you can type `kill -SIGKILL <pid>` or `kill -9 <pid>`. Note you can only kill your own processes; those belonging to another user are off-limits unless you are root.
 
-Note you can only kill your own processes; those belonging to another user are off-limits unless you are root (the name kill is historical and somewhat misleading; the command can be used to send any kind of signal to a process, not just a termination one).
+The name kill is historical and somewhat misleading, it can be used to send any kind of signal to a process, not just a termination one.
 
 ## User and Group IDs
 Many users can access a system simultaneously, and each user can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
