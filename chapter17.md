@@ -85,21 +85,3 @@ In Linux, command line print job management commands allow you to monitor the jo
 | lpstat -a | To check the status of all connected printers, including job numbers |
 | cancel job-id <br> lprm job-id | To cancel a print job |
 | lpmove job-id newprinter | To move a print job to new printer |
-
-## Working with PostScript and PDF
-PostScript is a standard page description language. It effectively manages scaling of fonts and vector graphics to provide quality printouts. It is purely a text format that contains the data fed to a PostScript interpreter. The format itself is a language that Adobe developed in the early 1980s to enable the transfer of data to printers.
-
-Postscript has been, for the most part, superseded by the PDF format (Portable Document Format), which produces far smaller files in a compressed format for which support has been integrated into many applications. 
-
-From time to time, you may need to convert files from one format to the other, and there are very simple utilities for accomplishing that task. ps2pdf and pdf2ps are part of the ghostscript package installed on or available on all Linux distributions. As an alternative, there are pstopdf and pdftops which are usually part of the poppler package, which may need to be added through your package manager. Unless you are doing a lot of conversions or need some of the fancier options (which you can read about in the man pages for these utilities), it really does not matter which ones you use.
-
-Another possibility is to use the very powerful convert program, which is part of the ImageMagick package. Some newer distributions have replaced this with Graphics Magick, and the command to use is gm convert.
-
-| Command | Usage |
-| - | - |
-| pdf2ps file.pdf | Converts file.pdf to file.ps |
-| ps2pdf file.ps | Converts file.ps to file.pdf |
-| pstopdf input.ps output.pdf | Converts input.ps to output.pdf |
-| pdftops input.pdf output.ps | Converts input.pdf to output.ps |
-| convert input.ps output.pdf | Converts input.ps to output.pdf |
-| convert input.pdf output.ps | Converts input.pdf to output.ps |
