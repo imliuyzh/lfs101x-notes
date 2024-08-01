@@ -106,16 +106,14 @@ Without options, `ps` will display all processes running under the current shell
 
 ![](images/9.3.3.png)
 
-## top
-While a static view of what the system is doing is useful, monitoring the system performance live over time is also valuable. One option is to use top to get constant real-time updates (every two seconds by default) until you exit by typing q. top clearly highlights which processes are consuming the most CPU cycles and memory (using appropriate commands from within top).
+## `top`
+While a static view of what the system is doing is useful, monitoring the system performance live over time is also valuable. One option is to use `top` to get constant real-time updates (every two seconds by default) until you exit by typing `q`. 
 
 The first line of the top output displays a quick summary of what is happening in the system. The load average determines how busy the system is. A load average of 1.00 per CPU indicates a fully subscribed, but not overloaded, system. If the load average goes above this value, it indicates that processes are competing for CPU time. If the load average is very high, it might indicate that the system is having a problem, such as a runaway process (a process in a non-responding state).
 
 The second line of the top output displays the total number of processes, the number of running, sleeping, stopped, and zombie processes. Comparing the number of running processes with the load average helps determine if the system has reached its capacity or perhaps a particular user is running too many processes. The stopped processes should be examined to see if everything is running correctly.
 
-The third line of the top output indicates how the CPU time is being divided between the users (us) and the kernel (sy) by displaying the percentage of CPU time used for each.
-
-The percentage of user jobs running at a lower priority (niceness - ni) is then listed. Idle mode (id) should be low if the load average is high, and vice versa. The percentage of jobs waiting (wa) for I/O is listed. Interrupts include the percentage of hardware (hi) vs. software interrupts (si). Steal time (st) is generally used with virtual machines, which has some of its idle CPU time taken for other uses.
+The third line of the top output indicates how the CPU time is being divided between the users (`us`) and the kernel (`sy`) by displaying the percentage of CPU time used for each. The percentage of user jobs running at a lower priority (`ni` - niceness) is then listed. Idle mode (`id`) should be low if the load average is high, and vice versa. The percentage of jobs waiting (`wa`) for I/O is listed. Interrupts include the percentage of hardware (`hi`) vs. software interrupts (`si`). Steal time (`st`) is generally used with virtual machines, which has some of its idle CPU time taken for other uses.
 
 The fourth and fifth lines of the top output indicate memory usage, which is divided in two categories: physical memory (RAM) and swap space. Once the physical memory is exhausted, the system starts using swap space (temporary storage space on the hard drive) as an extended memory pool, and since accessing disk is much slower than accessing memory, this will negatively affect system performance.
 
@@ -134,17 +132,17 @@ Each line in the process list of the top output displays information about a pro
 ### Interactive Keys
 | Command | Output |
 | - | - |
-| h <br> ? | Display available interactive keys and their function |
-| t | Display or hide summary information (rows 2 and 3) |
-| m | Display or hide memory information (rows 4 and 5) |
-| l | Show information for each CPU and not just totals |
-| d | Change display update interval |
-| A | Sort the process list by top resource consumers |
-| r | Renice (change the priority of) a specific processes |
-| k | Kill a specific process |
-| f | Enter the top configuration screen |
-| o | Interactively select a new sort order in the process list |
-| 1 | Show CPU usage for every core |
+| `h` <br> `?` | Display available interactive keys and their function |
+| `t` | Display or hide summary information (rows 2 and 3) |
+| `m` | Display or hide memory information (rows 4 and 5) |
+| `l` | Show information for each CPU and not just totals |
+| `d` | Change display update interval |
+| `A` | Sort the process list by top resource consumers |
+| `r` | Renice (change the priority of) a specific processes |
+| `k` | Kill a specific process |
+| `f` | Enter the top configuration screen |
+| `o` | Interactively select a new sort order in the process list |
+| `1` | Show CPU usage for every core |
 
 ## `at`
 Suppose you need to perform a task on a specific day sometime in the future. You can use the `at` utility program to execute any non-interactive command at a specified time:
@@ -177,7 +175,7 @@ Typing `crontab -e` will open the crontab editor to edit existing jobs or to cre
 | `HOUR` | Hour field | 0 to 23 |
 | `DOM` | Day of Month | 1-31 |
 | `MON` | Month field | 1-12 |
-| `DOW` | Day Of Week | 0-6 (0 = Sunday) |
+| `DOW` | Day of Week | 0-6 (0 = Sunday) |
 | `CMD` | Command | Any command to be executed |
 
 ```
