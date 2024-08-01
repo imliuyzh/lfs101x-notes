@@ -159,39 +159,40 @@ The syntax is:
 ```sleep NUMBER[SUFFIX]...```
 
 where SUFFIX may be:
-- s for seconds (the default)
-- m for minutes
-- h for hours
-- d for days
+- `s` for seconds (the default)
+- `m` for minutes
+- `h` for hours
+- `d` for days
 
 Note the sum of durations will be applied if multiple time ranges are provided.
 
 ## `cron`
-`cron` is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an ongoing basis. `cron` is driven by a configuration file called /etc/crontab (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
+`cron` is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an ongoing basis. `cron` is driven by a configuration file called `/etc/crontab` (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
 
 Typing `crontab -e` will open the crontab editor to edit existing jobs or to create new jobs. Each line of the crontab file will contain 6 fields:
 
 | Field | Description | Values |
 | - | - | - |
-| MIN | Minutes | 0 to 59
-| HOUR | Hour field | 0 to 23
-| DOM | Day of Month | 1-31
-| MON | Month field | 1-12
-| DOW | Day Of Week | 0-6 (0 = Sunday)
-| CMD | Command | Any command to be executed
+| `MIN` | Minutes | 0 to 59 |
+| `HOUR` | Hour field | 0 to 23 |
+| `DOM` | Day of Month | 1-31 |
+| `MON` | Month field | 1-12 |
+| `DOW` | Day Of Week | 0-6 (0 = Sunday) |
+| `CMD` | Command | Any command to be executed |
 
 ```
-# Schedule a job to execute script.sh every minute of every hour of every day of the month, and every month and every day in the week.
+# Schedule a job to execute script.sh every minute of every hour of every day of the month,
+# and every month and every day in the week.
 * * * * * /usr/local/bin/execute/this/script.sh
 
 # Schedule a full-backup at 8.30 a.m., 10-June, irrespective of the day of the week
 30 08 10 06 * /home/sysadmin/full-backup
 ```
 
-### anacron
-While cron has been used in UNIX-like operating systems for decades, modern Linux distributions have moved over to a newer facility: anacron. This was because cron implicitly assumed the machine was always running. However, If the machine was powered off, scheduled jobs would not run. anacron will run the necessary jobs in a controlled and staggered manner when the system is up and running.
+### `anacron`
+While `cron` has been used in UNIX-like operating systems for decades, modern Linux distributions have moved over to `anacron`. This was because `cron` implicitly assumed the machine was always running. However, If the machine was powered off, scheduled jobs would not run. `anacron` will run the necessary jobs in a controlled and staggered manner when the system is up and running.
 
-The key configuration file is /etc/anacrontab:
+The key configuration file is `/etc/anacrontab`:
 
 ![](images/9.4.2.png)
 
