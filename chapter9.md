@@ -164,6 +164,8 @@ where SUFFIX may be:
 - h for hours
 - d for days
 
+Note the sum of durations will be applied if multiple time ranges are provided.
+
 ## `cron`
 `cron` is a time-based scheduling utility program. It can launch routine background jobs at specific times and/or days on an ongoing basis. `cron` is driven by a configuration file called /etc/crontab (cron table), which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
 
