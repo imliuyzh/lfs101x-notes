@@ -203,19 +203,6 @@ Note that `mv` can:
 | `rmdir` | Remove an empty directory |
 | `rm -rf` | Forcefully remove a directory recursively |
 
-## Modifying the Command Line Prompt
-
-The `PS1` variable is the character string that is displayed as the prompt on the command line. Some system administrators require the user and the host system name to show up on the command line as in: `student@r9 $`.
-
-```
-$ echo $PS1
-\$
-$ PS1="\u@\h \$ "
-student@r9 $ echo $PS1
-\u@\h \$
-student@r9 $
-```
-
 ## Standard File Streams
 
 When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or `stdin`), standard output (standard out or `stdout`) and standard error (or `stderr`).
