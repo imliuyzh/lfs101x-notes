@@ -205,7 +205,7 @@ The list of commands is displayed with the most recent command appearing last in
 | - | - |
 | Up/Down arrow keys | Browse through previously executed commands |
 | `!!` ("bang-bang") | Execute the previous command |
-| CTRL-R | Intelligent search for the most recently used command |
+| CTRL-R | Search and use the most recently used command that matches |
 
 ### Executing Previous Commands
 | Syntax | Task |
