@@ -187,45 +187,33 @@ $ PS1=$OLD_PS1
 ```
 
 ## Recalling Previous Commands
-bash keeps track of previously entered commands and statements in a history buffer. You can recall previously used commands simply by using the Up and Down cursor keys. To view the list of previously executed commands, you can just type history at the command line.
+bash keeps track of previously entered commands and statements in a history buffer. To view the list of previously executed commands, you can just type `history` at the command line.
 
-The list of commands is displayed with the most recent command appearing last in the list. This information is stored in ~/.bash_history. If you have multiple terminals open, the commands typed in each session are not saved until the session terminates.
+The list of commands is displayed with the most recent command appearing last in the list. This information is stored in `~/.bash_history`. If you have multiple terminals open, the commands typed in each session are not saved until the session terminates.
 
 ![](./images/12.3.1.png)
 
 ### Using History Environment Variables
-Several associated environment variables can be used to get information about the history file.
-- HISTFILE: The location of the history file.
-- HISTFILESIZE: The maximum number of lines in the history file (default 500).
-- HISTSIZE: The maximum number of commands in the history file.
-- HISTCONTROL: How commands are stored.
-- HISTIGNORE: Which command lines can be unsaved.
+- `HISTFILE`: The location of the history file.
+- `HISTFILESIZE`: The maximum number of lines in the history file (default 500).
+- `HISTSIZE`: The maximum number of commands in the history file.
+- `HISTCONTROL`: How commands are stored.
+- `HISTIGNORE`: Which command lines can be unsaved.
 
 ### Finding and Using Previous Commands
 | Key | Usage |
 | - | - |
 | Up/Down arrow keys | Browse through the list of commands previously executed |
-| !! (Pronounced as bang-bang) | Execute the previous command |
-| CTRL-R | Search previously used commands |
-
-If you want to recall a command in the history list, but do not want to press the arrow key repeatedly, you can press CTRL-R to do a reverse intelligent search. As you start typing, the search goes back in reverse order to the first command that matches the letters you have typed. By typing more successive letters, you make the match more and more specific.
-
-```
-$ ^R                              # This all happens on 1 line
-(reverse-i-search)'s': sleep 1000 # Searched for 's'; matched "sleep"
-$ sleep 1000                      # Pressed Enter to execute the searched command
-$
-```
+| `!!` ("bang-bang") | Execute the previous command |
+| CTRL-R | Intelligent search for the most recently used command |
 
 ### Executing Previous Commands
 | Syntax | Task |
 | - | - |
-| ! | Start a history substitution |
-| !$ | Refer to the last argument in a line |
-| !n | Refer to the nth command line |
-| !string | Refer to the most recent command starting with string |
-
-All history substitutions start with !. When typing the command: ls -l /bin /etc /var, !$ will refer to /var, the last argument to the command.
+| `!` | Start a history substitution |
+| `!$` | Refer to the last argument in a line |
+| `!n` | Refer to the nth command line |
+| `!string` | Refer to the most recent command starting with string |
 
 ```
 $ history
@@ -238,19 +226,17 @@ $ history
   6. sleep 1000
   7. history
 
-$ !1                            # Execute command #1 above
+$ !1          # Execute command #1 above
 echo $SHELL
 /bin/bash
 
-$ !sl                           # Execute the command beginning with "sl"
+$ !sl         # Execute the command beginning with "sl"
 sleep 1000
 $
 ```
 
 ### Keyboard Shortcuts
-You can use keyboard shortcuts to perform different tasks quickly. The table lists some of these keyboard shortcuts and their uses. Note the case of the "hotkey" does not matter, e.g. doing CTRL-a is the same as doing CTRL-A.
-
-Shortcut | Task |
+| Shortcut | Task |
 | - | - |
 | CTRL-L | Clears the screen |
 | CTRL-S | Temporarily halt output to the terminal window |
@@ -266,17 +252,15 @@ Shortcut | Task |
 | Tab | Auto-completes files, directories, and binaries |
 
 ## File Ownership
-In Linux and other UNIX-based operating systems, every file is associated with a user who is the owner. Every file is also associated with a group (a subset of all users) which has an interest in the file and certain rights, or permissions: read, write, and execute.
+In Linux and other UNIX-based operating systems, every file is associated with a user who is the owner. Every file is also associated with a group which has an interest in the file and certain rights, or permissions: read, write, and execute.
 
 | Command | Usage |
 | - | - |
-| chown	| Used to change user ownership of a file or directory |
-| chgrp	| Used to change group ownership |
-| chmod	| Used to change the permissions on the file, which can be done separately for owner, group and the rest of the world (often named as other) |
+| `chown`	| Used to change user ownership of a file or directory |
+| `chgrp`	| Used to change group ownership |
+| `chmod`	| Used to change the permissions on the file, which can be done separately for owner, group and the rest of the world (often named as `other`) |
 
-### Example of chown
-
-![](./images/12.4.1.png)
+### Example of `chown`
 
 First, we create two empty files using touch. 
 
@@ -284,21 +268,21 @@ Notice it requires sudo to change the owner of file2 to root. The second chown c
 
 Finally, only the superuser can remove the files. 
 
-### Example of chgrp
+![](./images/12.4.1.png)
+
+### Example of `chgrp`
 
 ![](./images/12.4.2.png)
 
-### File Permission Modes and chmod
-Files have three kinds of permissions: read (r), write (w), execute (x). These are generally represented as in rwx. These permissions affect three groups of owners: user/owner (u), group (g), and others (o).
-
-As a result, you have the following three groups of three permissions:
+### File Permission Modes and `chmod`
+Files have three kinds of permissions: read (`r`), write (`w`), execute (`x`). These permissions affect three groups of owners: user/owner (`u`), group (`g`), and others (`o`):
 
 ```
 rwx: rwx: rwx
  u:   g:   o
 ```
 
-There are a number of different ways to use chmod. For instance, to give the owner and others execute permission and remove the group write permission:
+For instance, to give the owner and others execute permission and remove the group write permission:
 
 ```
 $ ls -l somefile
@@ -313,6 +297,6 @@ This kind of syntax can be difficult to type and remember, so one often uses a s
 - 2 if write permission is desired
 - 1 if execute permission is desired
 
-Thus, 7 means read/write/execute, 6 means read/write, and 5 means read/execute.
+Thus, 7 means read/write/execute, 6 means read/write, 5 means read/execute, and 3 means write/execute.
 
-When you apply this to the chmod command, you have to give three digits for each degree of freedom, such as in: `chmod 755 somefile`.
+When you apply this to the chmod command, you have to give three digits for each degree of freedom, such as in: `$ chmod 755 somefile`.
