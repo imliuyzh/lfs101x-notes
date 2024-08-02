@@ -173,13 +173,7 @@ $ export PS1='\u@\h:\w$ '
 student@example.com:~$
 ```
 
-To revert the changes:
-
-```
-student@example.com:~$ export PS1='$ '
-```
-
-An even better practice would be to save the old prompt first and then restore,  change it back:
+A good practice is to save the old prompt first and then restore,  change it back:
 
 ```
 $ OLD_PS1=$PS1
