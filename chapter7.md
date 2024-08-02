@@ -35,7 +35,7 @@ Virtual Terminals (VT) are console sessions that use the entire display and keyb
 
 One virtual terminal (usually VT 1 or VT 7) is reserved for the graphical environment, and text logins are enabled on the unused VTs. 
 
-To switch between VTs, press `CTRL-ALT-function key` for the VT. For example, press `CTRL-ALT-F6` for VT 6. If you are in a VT already and want to switch to another VT, you only have to press `ALT-function key`.
+To switch between VTs, press CTRL-ALT-function key for the VT. For example, press CTRL-ALT-F6 for VT 6. If you are in a VT already and want to switch to another VT, you only have to press ALT-function key.
 
 ## Turning Off the Graphical Desktop
 
