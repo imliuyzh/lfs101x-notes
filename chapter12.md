@@ -203,7 +203,7 @@ The list of commands is displayed with the most recent command appearing last in
 ### Finding and Using Previous Commands
 | Key | Usage |
 | - | - |
-| Up/Down arrow keys | Browse through the list of commands previously executed |
+| Up/Down arrow keys | Browse through previously executed commands |
 | `!!` ("bang-bang") | Execute the previous command |
 | CTRL-R | Intelligent search for the most recently used command |
 
