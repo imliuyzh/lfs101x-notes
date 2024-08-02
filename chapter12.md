@@ -126,17 +126,19 @@ $ SDIRS="s_0*" KROOT=/lib/modules/$(uname -r)/build make modules_install
 
 which feeds the values of the `SDIRS` and `KROOT` environment variables to the command `make modules_install`.
 
-## The HOME Variable
-HOME is an environment variable that represents the home (or login) directory of the user. cd without arguments will change the current working directory to the value of HOME. Note the tilde character (~) is often used as an abbreviation for $HOME. Thus, cd $HOME and cd ~ are completely equivalent statements.
+### The `HOME` Variable
+`HOME` is an environment variable that represents the home directory of the user. `cd` without arguments will change the current working directory to the value of `HOME`. Also, the tilde character (`~`) is often used as an abbreviation for `$HOME`.
 
-## The PATH Variable
-PATH is an ordered list of directories (the path) which is scanned when a command is given to find the appropriate program or script to run. Each directory in the path is separated by colons (:). A null (empty) directory name (or ./) indicates the current directory at any given time.
+### The `PATH` Variable
+`PATH` is an ordered list of directories which is scanned when a command is given to find the appropriate program or script to run. Each directory in the path is separated by colons (`:`). 
+
+A null (empty) directory name (or `./`) indicates the current directory at any given time.
 - `:path1:path2`
 - `path1::path2`
 
-In the first example, there is a null directory before the first colon (:). Similarly, there is a null directory between path1 and path2 in the next example.
+In the first example, there is a null directory before the first colon. Similarly, there is a null directory between `path1` and `path2` in the next example.
 
-To prefix a private bin directory to your path:
+To prefix a private `bin` directory to your path:
 
 ```
 $ export PATH=$HOME/bin:$PATH
@@ -144,20 +146,18 @@ $ echo $PATH
 /home/student/bin:/usr/local/bin:/usr/bin:/bin/usr
 ```
 
-![](./images/12.2.2.png)
-
-## The SHELL Variable
-The environment variable SHELL points to the user's default command shell (the program that is handling whatever you type in a command window, usually bash) and contains the full pathname to the shell:
+### The `SHELL` Variable
+The environment variable `SHELL` points to the full pathname of user's default command shell:
 
 ```
 $ echo $SHELL
 /bin/bash
 ```
 
-## The PS1 Variable and the Command Line Prompt
-Prompt Statement (PS) is used to customize your prompt string in your terminal windows to display the information you want. 
+### The `PS1` Variable
+Prompt Statement (PS) is used to customize your prompt string in your terminal windows to display the information you want. `PS1` is the primary prompt variable which controls what your command line prompt looks like.
 
-PS1 is the primary prompt variable which controls what your command line prompt looks like. The following special characters can be included in PS1:
+The following special characters can be included in `PS1`:
 - `\u` - User name
 - `\h` - Host name
 - `\w` - Current working directory
@@ -170,14 +170,13 @@ They must be surrounded in single quotes when they are used, as in the following
 $ echo $PS1
 $
 $ export PS1='\u@\h:\w$ '
-student@example.com:~$ # new prompt
+student@example.com:~$
 ```
 
 To revert the changes:
 
 ```
 student@example.com:~$ export PS1='$ '
-$
 ```
 
 An even better practice would be to save the old prompt first and then restore,  change it back:
@@ -185,7 +184,6 @@ An even better practice would be to save the old prompt first and then restore, 
 ```
 $ OLD_PS1=$PS1
 $ PS1=$OLD_PS1
-$
 ```
 
 ## Recalling Previous Commands
