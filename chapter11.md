@@ -83,18 +83,18 @@ Line mode commands require the ENTER key to be pressed after the command is type
 | Key | Usage |
 | - | - |
 | arrow keys | To move up, down, left and right |
-| `j` <br> `Enter` | To move one line down |
+| `j` <br> Enter | To move one line down |
 | `k` | To move one line up |
-| `h` <br> `Backspace` | To move one character left |
-| `l` <br> `Space` | To move one character right |
+| `h` <br> Backspace | To move one character left |
+| `l` <br> Space | To move one character right |
 | `0` | To move to beginning of line |
 | `$` | To move to end of line |
 | `w` | To move to beginning of next word |
 | `:0` <br> `1G` | To move to beginning of file |
 | `:n` <br> `nG` | To move to line `n` |
 | `:$` <br> `G` | To move to last line in file |
-| `CTRL-F` <br> `Page Down` | To move forward one page |
-| `CTRL-B` <br> `Page Up` | To move backward one page |
+| CTRL-F <br> Page Down | To move forward one page |
+| CTRL-B <br> Page Up | To move backward one page |
 | `^l` | To refresh and center screen |
 
 ### Searching for Text in vi
