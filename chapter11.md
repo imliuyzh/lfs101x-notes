@@ -3,7 +3,7 @@
 ## Creating Files Without Using an Editor
 If you want to create a file without using an editor, there are two standard ways to create one from the command line and fill it with content.
 
-The first is to use echo repeatedly:
+The first is to use `echo` repeatedly:
 
 ```
 $ echo line one > myfile
@@ -11,9 +11,9 @@ $ echo line two >> myfile
 $ echo line three >> myfile
 ```
 
-Note that while a single greater-than sign (>) will send the output of a command to a file (and obliterate any already existing version of that file!), two of them (>>) will append the new output to an existing file.
+Note that while a single greater-than sign (`>`) will send the output of a command to a file (and obliterate any already existing version of that file!), two of them (`>>`) will append the new output to an existing file.
 
-The second way is to use cat combined with redirection:
+The second way is to use `cat` combined with redirection:
 
 ```
 $ cat << EOF > myfile
@@ -24,7 +24,7 @@ $ cat << EOF > myfile
 $
 ```
 
-In this example, the string used to show the beginning and end of the process need not be EOF; it could be STOP or any other string not used in the content itself. Both techniques produce a file with the following lines in it:
+In this example, the string used to show the beginning and end of the process need not be `EOF`; it could be `STOP` or any other string not used in the content itself. Both techniques produce a file with the following lines in it:
 
 ```
 line one
@@ -53,7 +53,7 @@ gedit (pronounced 'g-edit') is a simple-to-use graphical editor that can only be
 ## vi
 Usually, the actual program installed on your system is vim, which stands for Vi IMproved and is aliased to the name vi. The name is pronounced as “vee-eye”. When using vi, all commands are entered through the keyboard. 
 
-Typing `vimtutor` launches a short but very comprehensive tutorial for those who want to learn their first vi commands. Even though it provides only an introduction and just seven lessons, it has enough material to make you a very proficient vi user.
+Typing `vimtutor` launches a short but very comprehensive tutorial for those who want to learn their first vi commands.
 
 ![](./images/11.2.1.png)
 
@@ -61,77 +61,77 @@ Typing `vimtutor` launches a short but very comprehensive tutorial for those who
 | Mode | Feature |
 | - | - |
 | Command | - By default, vi starts in Command mode. <br> - Each key is an editor command. <br> - Keyboard strokes are interpreted as commands that can modify file contents. |
-| Insert | - Type i to switch to Insert mode from Command mode. <br> - Used to enter (insert) text into a file. <br> - Indicated by an “? INSERT ?” indicator at the bottom of the screen. <br> - Press Esc to exit Insert mode and return to Command mode. |
-| Line | - Type : to switch to the Line mode from Command mode. <br> - Each key is an external command, including operations such as writing the file contents to disk or exiting. <br> - Press Esc to exit Line mode and return to Command mode. |
+| Insert | - Type `i` to switch to Insert mode from Command mode. <br> - Used to enter (insert) text into a file. <br> - Indicated by an `-- INSERT --` indicator at the bottom of the screen. <br> - Press Esc to exit Insert mode and return to Command mode. |
+| Line | - Type `:` to switch to the Line mode from Command mode. <br> - Each key is an external command, including operations such as writing the file contents to disk or exiting. <br> - Press Esc to exit Line mode and return to Command mode. |
 
 ### Working with Files in vi
 | Command | Usage |
 | - | - |
-| vi myfile | Start the editor and edit myfile |
-| vi -r myfile | Start and edit myfile in recovery mode from a system crash |
-| :r file2 | Read in file2 and insert at current position |
-| :w | Write to the file |
-| :w myfile | Write out to myfile |
-| :w! file2 | Overwrite file2 |
-| :x <br> :wq | Exit and write out modified file |
-| :q | Quit |
-| :q! | Quit even though modifications have not been saved |
+| `vi myfile` | Start the editor and edit `myfile` |
+| `vi -r myfile` | Start and edit `myfile` in recovery mode from a system crash |
+| `:r file2` | Read in `file2` and insert at current position |
+| `:w` | Write to the file |
+| `:w myfile` | Write out to `myfile` |
+| `:w! file2` | Overwrite `file2` |
+| `:x` <br> `:wq` | Exit and write out modified file |
+| `:q` | Quit |
+| `:q!` | Quit even though modifications have not been saved |
 
 ### Changing Cursor Positions in vi
-Line mode commands (those following :) require the ENTER key to be pressed after the command is typed.
+Line mode commands require the ENTER key to be pressed after the command is typed.
 
 | Key | Usage |
 | - | - |
 | arrow keys | To move up, down, left and right |
-| j <br> Enter | To move one line down |
-| k | To move one line up |
-| h <br> Backspace | To move one character left |
-| l <br> Space | To move one character right |
-| 0 | To move to beginning of line |
-| $ | To move to end of line |
-| w | To move to beginning of next word |
-| :0 <br> 1G | To move to beginning of file |
-| :n <br> nG | To move to line n |
-| :$ <br> G | To move to last line in file |
-| CTRL-F <br> Page Down | To move forward one page |
-| CTRL-B <br> Page Up | To move backward one page |
-| ^l | To refresh and center screen |
+| `j` <br> `Enter` | To move one line down |
+| `k` | To move one line up |
+| `h` <br> `Backspace` | To move one character left |
+| `l` <br> `Space` | To move one character right |
+| `0` | To move to beginning of line |
+| `$` | To move to end of line |
+| `w` | To move to beginning of next word |
+| `:0` <br> `1G` | To move to beginning of file |
+| `:n` <br> `nG` | To move to line `n` |
+| `:$` <br> `G` | To move to last line in file |
+| `CTRL-F` <br> `Page Down` | To move forward one page |
+| `CTRL-B` <br> `Page Up` | To move backward one page |
+| `^l` | To refresh and center screen |
 
 ### Searching for Text in vi
 | Command | Usage |
 | - | - |
-| /pattern | Search forward for pattern |
-| ?pattern | Search backward for pattern |
+| `/pattern` | Search forward for pattern |
+| `?pattern` | Search backward for pattern |
 
 | Key | Usage |
 | - | - |
-| n | Move to next occurrence of search pattern |
-| N | Move to previous occurrence of search pattern |
+| `n` | Move to next occurrence of search pattern |
+| `N` | Move to previous occurrence of search pattern |
 
 ### Working with Text in vi
 | Key | Usage |
 | - | - |
-| a | Append text after cursor; stop upon Escape key |
-| A | Append text at end of current line; stop upon Escape key |
-| i | Insert text before cursor; stop upon Escape key |
-| I | Insert text at beginning of current line; stop upon Escape key |
-| o | Start a new line below current line, insert text there; stop upon Escape key |
-| O | Start a new line above current line, insert text there; stop upon Escape key |
-| r | Replace character at current position |
-| R | Replace text starting with current position; stop upon Escape key |
-| x | Delete character at current position |
-| Nx | Delete N characters, starting at current position |
-| dw | Delete the word at the current position |
-| D | Delete the rest of the current line |
-| dd | Delete the current line |
-| Ndd <br> dNd | Delete N lines |
-| u | Undo the previous operation |
-| yy | Yank (copy) the current line and put it in buffer |
-| Nyy <br> yNy | Yank (copy) N lines and put it in buffer |
-| p | Paste at the current position the yanked line or lines from the buffer |
+| `a` | Append text after cursor; stop upon Escape key |
+| `A` | Append text at end of current line; stop upon Escape key |
+| `i` | Insert text before cursor; stop upon Escape key |
+| `I` | Insert text at beginning of current line; stop upon Escape key |
+| `o` | Start a new line below current line, insert text there; stop upon Escape key |
+| `O` | Start a new line above current line, insert text there; stop upon Escape key |
+| `r` | Replace character at current position |
+| `R` | Replace text starting with current position; stop upon Escape key |
+| `x` | Delete character at current position |
+| `Nx` | Delete N characters, starting at current position |
+| `dw` | Delete the word at the current position |
+| `D` | Delete the rest of the current line |
+| `dd` | Delete the current line |
+| `Ndd` <br> `dNd` | Delete N lines |
+| `u` | Undo the previous operation |
+| `yy` | Yank (copy) the current line and put it in buffer |
+| `Nyy` <br> `yNy` | Yank (copy) N lines and put it in buffer |
+| `p` | Paste at the current position the yanked line or lines from the buffer |
 
 ### Using External Commands in vi
-Typing ! executes a command from within vi. This technique is best suited for non-interactive commands, such as :! wc %. Typing this will run the wc (word count) command on the file; the character % represents the file currently being edited.
+Typing `!` executes a command from within vi. This technique is best suited for non-interactive commands, such as `:! wc %`. Typing this will run the `wc` (word count) command on the file; the character `%` represents the file currently being edited.
 
 ![](./images/11.2.2.png)
 
