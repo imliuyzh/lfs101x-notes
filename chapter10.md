@@ -3,7 +3,7 @@
 ## Introduction to Filesystems
 "Everything is a file" is an often repeated adage quoted by users of Linux. Whether you are dealing with normal data files and documents, or with devices such as sound cards and printers, this means interaction with them proceeds through the same Input/Output (I/O) operations you commonly use with files. 
 
-On many systems, the filesystem is structured like a tree. The tree is usually portrayed as inverted and starts at what is most often called the root directory, which marks the beginning of the hierarchical filesystem and is also sometimes referred to as the trunk and simply denoted by /. The root directory is not the same as the root user. The hierarchical filesystem also contains other elements in the path (directory names), which are separated by forward slashes (/), as in /usr/bin/emacs, where the last element is the actual file name.
+On many systems, the filesystem is structured like a tree. The tree is usually portrayed as inverted and starts at what is most often called the root directory, which marks the beginning of the hierarchical filesystem and is also sometimes referred to as the trunk and simply denoted by `/`. The root directory is not the same as the root user. The hierarchical filesystem also contains other elements in the path, which are separated by forward slashes (`/`), as in `/usr/bin/emacs`, where the last element is the actual file name.
 
 ## Filesystem Varieties
 Linux supports a number of native filesystem types, expressly created by Linux developers, such as:
@@ -12,13 +12,13 @@ Linux supports a number of native filesystem types, expressly created by Linux d
 - squashfs
 - btrfs
 
-It also offers implementations of filesystems used on other alien operating systems, such as those from:
+It also offers implementations of filesystems used on other operating systems:
 - Windows (ntfs, vfat, exfat)
 - SGI (xfs)
 - IBM (jfs)
 - MacOS (hfs, hfs+)
 
-Many older, legacy filesystems, such as FAT, are also supported.
+Many older filesystems, such as FAT, are also supported.
 
 It is often the case that more than one filesystem type is used on a machine, based on considerations such as the size of files, how often they are modified, what kind of hardware they sit on and what kind of access speed is needed, etc. The most advanced filesystem types in common use are the journaling varieties: ext4, xfs, btrfs, and jfs. These have many state-of-the-art features and high performance, and are not easy to corrupt accidentally.
 
