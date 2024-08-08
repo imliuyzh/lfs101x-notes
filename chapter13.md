@@ -117,12 +117,7 @@ The command/action in `awk` needs to be surrounded with apostrophes (or single-q
 
 `uniq` removes duplicate consecutive lines in a text file and is useful for simplifying the text display. Because `uniq` requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into `uniq`; if sort is used with the `-u` option, it can do all this in one step.
 
-To remove duplicate entries from multiple files at once, use the following command:
-
-```
-$ sort file1 file2 | uniq > file3
-$ sort -u file1 file2 > file3
-```
+To remove duplicate entries from multiple files at once, use `$ sort file1 file2 | uniq > file3` or `$ sort -u file1 file2 > file3`.
 
 To count the number of duplicate entries, use `$ uniq -c filename`.
 
