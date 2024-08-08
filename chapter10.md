@@ -224,26 +224,16 @@ These techniques vary in the efficiency of the compression and in how long they 
 | `unzip backup.zip` | Extracts all files in `backup.zip` and places them in the current directory. |
 
 ### Archiving and Compressing Data Using tar
-Historically, tar stood for "tape archive" and was used to archive files to a magnetic tape. It allows you to create or extract files from an archive file, often called a tarball. At the same time, you can optionally compress while creating the archive, and decompress while extracting its contents.
+Historically, `tar` stood for "tape archive" and was used to archive files to a magnetic tape. It produces an archive file often called a tarball.
 
 | Command | Usage |
 | - | - |
-| tar xvf mydir.tar | Extract all the files in mydir.tar into the mydir directory. |
-| tar zcvf mydir.tar.gz mydir | Create the archive and compress with gzip. |
-| tar jcvf mydir.tar.bz2 mydir | Create the archive and compress with bz2. |
-| tar Jcvf mydir.tar.xz mydir | Create the archive and compress with xz. |
-| tar xvf mydir.tar.gz | Extract all the files in mydir.tar.gz into the mydir directory. |
+| `tar xvf mydir.tar` | Extract all the files in `mydir.tar` into the `mydir` directory. |
+| `tar zcvf mydir.tar.gz mydir` | Create the archive and compress with `gzip`. |
+| `tar jcvf mydir.tar.bz2 mydir` | Create the archive and compress with `bz2`. |
+| `tar Jcvf mydir.tar.xz mydir` | Create the archive and compress with `xz`. |
 
-Use of a dash ("-") before options is often done, although it is usually unnecessary, as in `tar -xvf mydir.tar`.
-
-You can separate out the archiving and compression stages:
-
-```
-$ tar cvf mydir.tar mydir ; gzip mydir.tar
-$ gunzip mydir.tar.gz ; tar xvf mydir.tar
-```
-
-but this is slower and wastes space by creating an unneeded intermediary .tar file.
+Use of a dash ("`-`") before options is often done, although it is usually unnecessary, as in `tar -xvf mydir.tar`.
 
 ## Disk-to-Disk Copying with `dd`
 The `dd` program is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR), you might type `dd if=/dev/sda of=sda.mbr bs=512 count=1`.
