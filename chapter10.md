@@ -254,9 +254,9 @@ $ gunzip mydir.tar.gz ; tar xvf mydir.tar
 
 but this is slower and wastes space by creating an unneeded intermediary .tar file.
 
-## Disk-to-Disk Copying (dd)
-The dd program is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR) (the first 512-byte sector on the disk that contains a table describing the partitions on that disk), you might type `dd if=/dev/sda of=sda.mbr bs=512 count=1`.
+## Disk-to-Disk Copying with `dd`
+The `dd` program is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR), you might type `dd if=/dev/sda of=sda.mbr bs=512 count=1`.
 
-(*Do not experiment with this command*) `dd if=/dev/sda of=/dev/sdb` will make a copy of one disk onto another and delete everything that previously existed on the second disk. An exact copy of the first disk device is created on the second disk device.
+`dd if=/dev/sda of=/dev/sdb` will make a copy of one disk onto another and delete everything that previously existed on the second disk. An exact copy of the first disk device is created on the second disk device.
 
-Exactly what the name dd stands for is an often-argued item. "Data definition" is the most popular theory and has roots in early IBM history. Often, people joke that it means disk destroyer and other variants such as delete data!
+Exactly what the name `dd` stands for is an often-argued item. "Data definition" is the most popular theory and has roots in early IBM history. Often, people joke that it means disk destroyer and other variants such as delete data!
