@@ -176,10 +176,10 @@ Many modifications to source code and configuration files are distributed utiliz
 
 To apply a patch, you can do `$ patch -p1 < patchfile` or `$ patch originalfile patchfile`. The first usage is more common, as it is often used to apply changes to an entire directory tree, rather than just one file, as in the second example.
 
-## Using the file Utility
+## Using the `file` Utility
 In Linux, a file's extension does not, by default, categorize its nature the way it might in other operating systems. In Linux, most applications directly examine a file's contents to see what kind of object it is rather than relying on an extension. This is very different from the way Windows handles filenames, where a filename ending with .exe, for example, represents an executable binary file.
 
-The real nature of a file can be ascertained by using the file utility. For the file names given as arguments, it examines the contents and certain characteristics to determine whether the files are plain text, shared libraries, executable programs, scripts, or something else.
+The real nature of a file can be ascertained by using the `file` utility. For the file names given as arguments, it examines the contents and certain characteristics to determine whether the files are plain text, shared libraries, executable programs, scripts, or something else.
 
 ![](./images/10.3.1.png)
 
