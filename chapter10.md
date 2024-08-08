@@ -59,33 +59,33 @@ Sometimes, you may group users based on their department or function. You can th
 ## The `/bin` and `/sbin` Directories
 The `/bin` directory contains executable binaries, essential commands used to boot the system or in single-user mode, and essential commands required by all system users, such as `cat`, `cp`, `ls`, `mv`, `ps`, and `rm`. Likewise, the `/sbin` directory is intended for essential binaries related to system administration, such as `fsck` and `ip`. 
 
-Commands that are not essential (theoretically) for the system to boot or operate in single-user mode are placed in the `/usr/bin` and `/usr/sbin` directories. Historically, this was done so `/usr` could reside on a separate filesystem that could be mounted at a later stage of system startup or even over a network. However, nowadays most find this distinction to be obsolete. In fact, many distributions have been discovered to be unable to boot with this separation, as this modality had not been used or tested for a long time.
+Commands that are not essential (theoretically) for the system to boot or operate in single-user mode are placed in the `/usr/bin` and `/usr/sbin` directories. Historically, this was done so `/usr` could reside on a separate filesystem that could be mounted at a later stage of system startup or even over a network. However, many distributions have been discovered to be unable to boot with this separation.
 
 Thus, on most Linux distributions today, `/usr/bin` and `/bin` are actually just symbolically linked together, as are `/usr/sbin` and `/sbin`, so there are really just two directories, not four.
 
-## The /proc Filesystem
-Certain filesystems, like the one mounted at /proc, are called pseudo-filesystems because they have no actual permanent presence anywhere on the disk.
+## The `/proc` Filesystem
+Certain filesystems, like the one mounted at `/proc`, are called pseudo-filesystems because they have no actual permanent presence anywhere on the disk.
 
-The /proc filesystem contains virtual files (files that exist only in memory) that permit viewing constantly changing kernel data. /proc contains files and directories that mimic kernel structures and configuration information. It does not contain real files, but runtime system information, e.g. system memory, devices mounted, hardware configuration, etc.:
-- /proc/cpuinfo
-- /proc/interrupts
-- /proc/meminfo
-- /proc/mounts
-- /proc/partitions
-- /proc/version
+The `/proc` filesystem contains virtual files (files that exist only in memory) that permit viewing constantly changing kernel data. `/proc` contains files and directories that mimic kernel structures and configuration information. It does not contain real files, but runtime system information, e.g. system memory, devices mounted, hardware configuration, etc.:
+- `/proc/cpuinfo`
+- `/proc/interrupts`
+- `/proc/meminfo`
+- `/proc/mounts`
+- `/proc/partitions`
+- `/proc/version`
 
-/proc has subdirectories as well, including:
+`/proc` has subdirectories as well, including:
 
 - `/proc/<Process-ID-#>`
-- /proc/sys
+- `/proc/sys`
 
-## The /dev Directory
-The /dev directory contains device nodes, a type of pseudo-file used by most hardware and software devices, except for network devices. This directory is:
+## The `/dev` Directory
+The `/dev` directory contains device nodes, a type of pseudo-file used by most hardware and software devices, except for network devices. This directory is:
 - Empty on the disk partition when it is not mounted
 - Contains entries which are created by the udev system, which creates and manages device nodes on Linux, creating them dynamically when devices are found
-  - /dev/sda1 (first partition on the first hard disk)
-  - /dev/lp1 (second printer)
-  - /dev/random (a source of random numbers)
+  - `/dev/sda1` (first partition on the first hard disk)
+  - `/dev/lp1` (second printer)
+  - `/dev/random` (a source of random numbers)
 
 ![](./images/10.2.1.png)
 
