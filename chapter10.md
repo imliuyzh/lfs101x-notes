@@ -156,34 +156,25 @@ The `/usr` directory tree contains theoretically non-essential programs and scri
 | `/usr/local` | Data and programs specific to the local machine; subdirectories include bin, sbin, lib, share, include, etc. |
 | `/usr/bin` | This is the primary directory of executable programs and scripts |
 
-## Comparing Files with diff
-diff is used to compare files and directories. To compare two files, at the command prompt, type `diff [options] <filename1> <filename2>`. This often-used utility program has many useful options:
+## Comparing Files with `diff` and `diff3`
+`diff` is used to compare files and directories. To compare two files, at the command prompt, type `diff [options] <filename1> <filename2>`. This often-used utility program has many useful options:
 
 | Option | Usage |
 | - | - |
-| -c | Provides a listing of differences that include three lines of context before and after the lines differing in content |
-| -r | Used to recursively compare subdirectories, as well as the current directory |
-| -i | Ignore the case of letters |
-| -w | Ignore differences in spaces and tabs |
-| -q | Be quiet: only report if files are different without listing the differences |
+| `-c` | Provides a listing of differences that include three lines of context before and after the lines differing in content |
+| `-r` | Used to recursively compare subdirectories, as well as the current directory |
+| `-i` | Ignore the case of letters |
+| `-w` | Ignore differences in spaces and tabs |
+| `-q` | Be quiet: only report if files are different without listing the differences |
 
-diff is meant to be used for text files; for binary files, one can use cmp. 
+`diff` is meant to be used for text files; for binary files, use `cmp`. 
 
-If you prefer, there are multiple graphical interfaces to diff, including diffuse, vimdiff, and meld.
+You can compare three files at once using `diff3`, which uses one file as the reference basis for the other two: `$ diff3 <file1> <file2> <file3>`.
 
-## Using diff3 and patch
-You can compare three files at once using diff3, which uses one file as the reference basis for the other two: `$ diff3 <file1> <file2> <file3>`.
-
+### Using `patch`
 Many modifications to source code and configuration files are distributed utilizing patches. A patch file contains the deltas (changes) required to update an older version of a file to the new one. The patch files are actually produced by running diff with the correct options: `$ diff -Nur originalfile newfile > patchfile`.
 
-To apply a patch, you can just do either of the two methods below:
-
-```
-$ patch -p1 < patchfile
-$ patch originalfile patchfile
-```
-
-The first usage is more common, as it is often used to apply changes to an entire directory tree, rather than just one file, as in the second example.
+To apply a patch, you can do `$ patch -p1 < patchfile` or `$ patch originalfile patchfile`. The first usage is more common, as it is often used to apply changes to an entire directory tree, rather than just one file, as in the second example.
 
 ## Using the file Utility
 In Linux, a file's extension does not, by default, categorize its nature the way it might in other operating systems. In Linux, most applications directly examine a file's contents to see what kind of object it is rather than relying on an extension. This is very different from the way Windows handles filenames, where a filename ending with .exe, for example, represents an executable binary file.
