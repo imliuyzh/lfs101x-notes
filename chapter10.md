@@ -89,14 +89,12 @@ The `/dev` directory contains device nodes, a type of pseudo-file used by most h
 
 ![](./images/10.2.1.png)
 
-## The /var Directory
-The /var directory contains files that are expected to change in size and content as the system is running (var stands for variable):
-- System log files: /var/log
-- Packages and database files: /var/lib
-- Print queues: /var/spool
-- Temporary files: /var/tmp
-
-The /var directory may be put on its own filesystem so that growth of the files can be accommodated and any exploding file sizes do not fatally affect the system. Network services directories such as /var/ftp (the FTP service) and /var/www (the HTTP web service) are also found under /var.
+## The `/var` Directory
+The `/var` directory contains files that are expected to change in size and content as the system is running (var stands for variable):
+- System log files: `/var/log`
+- Packages and database files: `/var/lib`
+- Print queues: `/var/spool`
+- Temporary files: `/var/tmp`
 
 ## The /etc Directory
 The /etc directory is the home for system configuration files. It contains no binary programs, although there are some executable scripts. For example, /etc/resolv.conf tells the system where to go on the network to obtain host name to IP address mappings (DNS). Files like passwd, shadow and group for managing user accounts are found in the /etc directory. While some distributions have historically had their own extensive infrastructure under /etc, with the advent of systemd there is much more uniformity among distributions today.
