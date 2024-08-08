@@ -216,14 +216,14 @@ These techniques vary in the efficiency of the compression and in how long they 
 | `xz -dcf a.txt b.txt.xz > abcd.txt` | Decompresses a mix of compressed and uncompressed files to standard output, using a single command. |
 | `xz -d *.xz` | Decompresses the files compressed using `xz`. |
 
-### Handling Files Using zip
+### Handling Files Using `zip`
 | Command | Usage |
 | - | - |
 | `zip backup *` | Compresses all files in the current directory and places them in the `backup.zip`. |
 | `zip -r backup.zip ~` | Archives your login directory (`~`) and all files and directories under it in `backup.zip`. |
 | `unzip backup.zip` | Extracts all files in `backup.zip` and places them in the current directory. |
 
-### Archiving and Compressing Data Using tar
+### Archiving and Compressing Data Using `tar`
 Historically, `tar` stood for "tape archive" and was used to archive files to a magnetic tape. It produces an archive file often called a tarball.
 
 | Command | Usage |
