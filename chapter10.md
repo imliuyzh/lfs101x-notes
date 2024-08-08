@@ -50,18 +50,18 @@ The command `df -Th` will display information about mounted filesystems, includi
 ![](./images/10.1.4.png)
 
 ## Overview of User Home Directories
-Each user has a home directory, usually placed under /home. The /root ("slash-root") directory on modern Linux systems is no more than the home directory of the root user (or superuser or system administrator account).
+Each user has a home directory, usually placed under `/home`. The `/root` directory on modern Linux systems is no more than the home directory of the root user.
 
-On multi-user systems, the /home directory infrastructure may be mounted as a separate filesystem on its own partition or even exported (shared) remotely on a network through NFS.
+On multi-user systems, the `/home` directory infrastructure may be mounted as a separate filesystem on its own partition or even shared remotely on a network.
 
-Sometimes, you may group users based on their department or function. You can then create subdirectories under the /home directory for each of these groups. 
+Sometimes, you may group users based on their department or function. You can then create subdirectories under the `/home` directory for each of these groups. 
 
-## The /bin and /sbin Directories
-The /bin directory contains executable binaries, essential commands used to boot the system or in single-user mode, and essential commands required by all system users, such as cat, cp, ls, mv, ps, and rm. Likewise, the /sbin directory is intended for essential binaries related to system administration, such as fsck and ip. 
+## The `/bin` and `/sbin` Directories
+The `/bin` directory contains executable binaries, essential commands used to boot the system or in single-user mode, and essential commands required by all system users, such as `cat`, `cp`, `ls`, `mv`, `ps`, and `rm`. Likewise, the `/sbin` directory is intended for essential binaries related to system administration, such as `fsck` and `ip`. 
 
-Commands that are not essential (theoretically) for the system to boot or operate in single-user mode are placed in the /usr/bin and /usr/sbin directories. Historically, this was done so /usr could reside on a separate filesystem that could be mounted at a later stage of system startup or even over a network. However, nowadays most find this distinction to be obsolete. In fact, many distributions have been discovered to be unable to boot with this separation, as this modality had not been used or tested for a long time.
+Commands that are not essential (theoretically) for the system to boot or operate in single-user mode are placed in the `/usr/bin` and `/usr/sbin` directories. Historically, this was done so `/usr` could reside on a separate filesystem that could be mounted at a later stage of system startup or even over a network. However, nowadays most find this distinction to be obsolete. In fact, many distributions have been discovered to be unable to boot with this separation, as this modality had not been used or tested for a long time.
 
-Thus, on most Linux distributions today, /usr/bin and /bin are actually just symbolically linked together, as are /usr/sbin and /sbin, so there are really just two directories, not four.
+Thus, on most Linux distributions today, `/usr/bin` and `/bin` are actually just symbolically linked together, as are `/usr/sbin` and `/sbin`, so there are really just two directories, not four.
 
 ## The /proc Filesystem
 Certain filesystems, like the one mounted at /proc, are called pseudo-filesystems because they have no actual permanent presence anywhere on the disk.
