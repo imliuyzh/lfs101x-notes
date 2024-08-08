@@ -59,16 +59,16 @@ $ tail -15 somefile.log
 To continually monitor new output in a growing log file: `$ tail -f somefile.log`. This command will continuously display any new lines of output in `somefile.log` as soon as they appear.
 
 ## Viewing Compressed Files
-When working with compressed files, many standard commands cannot be used directly. For many commonly-used file and text manipulation programs, there is also a version especially designed to work directly with compressed files. These associated utilities often have the letter "z" prefixed to their name. 
+For many commonly-used file and text manipulation programs, there is also a version especially designed to work directly with compressed files.
 
 | Command | Description |
 | - | - |
-| zcat compressed-file.txt.gz | To view a compressed file |
-| zless somefile.gz <br> zmore somefile.gz | To page through a compressed file |
-| zgrep -i less somefile.gz | To search inside a compressed file |
-| zdiff file1.txt.gz file2.txt.gz | To compare two compressed files |
+| `zcat compressed-file.txt.gz` | To view a compressed file |
+| `zless somefile.gz` <br> `zmore somefile.gz` | To page through a compressed file |
+| `zgrep -i less somefile.gz` | To search inside a compressed file |
+| `zdiff file1.txt.gz file2.txt.gz` | To compare two compressed files |
 
-There are also equivalent utility programs for other compression methods besides gzip (e.g., xz or bzip2); we have xzcat, xzless, and xzdiff associated with xz and bzcat, bzless and bzdiff associated with bzip2.
+There are also equivalent utility programs for other compression methods besides `gzip`; we have `xzcat`, `xzless`, and `xzdiff` associated with `xz` and `bzcat`, `bzless` and `bzdiff` associated with `bzip2`.
 
 ## sed
 sed is a powerful text processing tool and is one of the oldest, earliest and most popular UNIX utilities. Its name is an abbreviation for stream editor. Data from an input source/file (or stream) is taken and moved to a working space. The entire list of operations/modifications is applied over the data in the working space and the final contents are moved to the standard output space (or stream).
