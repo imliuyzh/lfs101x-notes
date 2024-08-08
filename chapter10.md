@@ -1,6 +1,5 @@
 # File Operations
 
-## Introduction to Filesystems
 "Everything is a file" is an often repeated adage quoted by users of Linux. Whether you are dealing with normal data files and documents, or with devices such as sound cards and printers, this means interaction with them proceeds through the same Input/Output (I/O) operations you commonly use with files. 
 
 On many systems, the filesystem is structured like a tree. The tree is usually portrayed as inverted and starts at what is most often called the root directory, which marks the beginning of the hierarchical filesystem and is also sometimes referred to as the trunk and simply denoted by `/`. The root directory is not the same as the root user. The hierarchical filesystem also contains other elements in the path, which are separated by forward slashes (`/`), as in `/usr/bin/emacs`, where the last element is the actual file name.
@@ -49,7 +48,7 @@ The command `df -Th` will display information about mounted filesystems, includi
 
 ![](./images/10.1.4.png)
 
-## Overview of User Home Directories
+## User Home Directories
 Each user has a home directory, usually placed under `/home`. The `/root` directory on modern Linux systems is no more than the home directory of the root user.
 
 On multi-user systems, the `/home` directory infrastructure may be mounted as a separate filesystem on its own partition or even shared remotely on a network.
@@ -186,51 +185,43 @@ The real nature of a file can be ascertained by using the `file` utility. For th
 ## Compressing Data
 | Command | Usage |
 | - | - |
-| gzip | The most frequently used Linux compression utility |
-| bzip2 | Produces files significantly smaller than those produced by gzip |
-| xz | The most space-efficient compression utility used in Linux |
-| zip | Often required to examine and decompress archives from other operating systems |
+| `gzip` | The most frequently used Linux compression utility |
+| `bzip2` | Produces files significantly smaller than those produced by `gzip` |
+| `xz` | The most space-efficient compression utility used in Linux |
+| `zip` | Often required to examine and decompress archives from other operating systems |
 
-These techniques vary in the efficiency of the compression and in how long they take to compress; generally, the more efficient techniques take longer. Decompression time does not vary as much across different methods. 
+These techniques vary in the efficiency of the compression and in how long they take to compress; generally, the more efficient techniques take longer.
 
-### Compressing Data Using gzip
-gzip has historically been the most widely used Linux compression utility. 
-
+### Compressing Data Using `gzip`
 | Command | Usage |
 | - | - |
-| gzip * | Compresses all files in the current directory; each file is compressed and renamed with a .gz extension. |
-| gzip -r projectX | Compresses all files in the projectX directory, along with all files in all of the directories under projectX. |
-| gunzip foo | De-compresses foo found in foo.gz. Under the hood, the gunzip command is actually the same as gzip -d. |
+| `gzip *` | Compresses all files in the current directory; each file is compressed and renamed with a `.gz` extension. |
+| `gzip -r projectX` | Compresses all files in the `projectX` directory, along with all files in all of the directories under `projectX`. |
+| `gunzip foo` | De-compresses `foo` found in `foo.gz`. Under the hood, the `gunzip` command is actually the same as `gzip -d`. |
 
-### Compressing Data Using bzip2
-bzip2 has a syntax that is similar to gzip but it uses a different compression algorithm and produces significantly smaller files, at the price of taking a longer time to do its work. 
-
+### Compressing Data Using `bzip2`
 | Command | Usage |
 | - | - |
-| bzip2 * | Compresses all of the files in the current directory and replaces each file with a file renamed with a .bz2 extension. |
-| bunzip2 *.bz2 | Decompresses all of the files with an extension of .bz2 in the current directory. Under the hood, bunzip2 is the same as calling bzip2 -d. |
+| `bzip2 *` | Compresses all of the files in the current directory and replaces each file with a file renamed with a `.bz2` extension. |
+| `bunzip2 *.bz2` | Decompresses all of the files with an extension of `.bz2` in the current directory. Under the hood, `bunzip2` is the same as calling `bzip2 -d`. |
 
-*NOTE: bzip2 has lately become deprecated due to lack of maintenance and the superior compression ratios of xz which is actively maintained. While it should no longer be used for compressing files, you are likely to still need it to decompress files you encounter with the bz2 extension.*
+*NOTE: `bzip2` has lately become deprecated due to lack of maintenance and the superior compression ratios of `xz`. While it should no longer be used for compressing files, you are likely to still need it to decompress files you encounter with the `bz2` extension.*
 
-### Compressing Data Using xz
-xz is the most space-efficient compression utility frequently used in Linux and is the choice for distributing and storing archives of the Linux kernel. Once again, it trades a slower compression speed for an even higher compression ratio. It is gradually becoming the dominant compression method, especially for large files which may need to be downloaded from the Internet.
-
+### Compressing Data Using `xz`
 | Command | Usage |
 | - | - |
-| xz * | Compresses all of the files in the current directory and replaces each file with one with a .xz extension. |
-| xz foo | Compresses foo into foo.xz using the default compression level (-6), and removes foo if compression succeeds. |
-| xz -dk bar.xz | Decompresses bar.xz into bar and does not remove bar.xz even if decompression is successful. |
-| xz -dcf a.txt b.txt.xz > abcd.txt | Decompresses a mix of compressed and uncompressed files to standard output, using a single command. |
-| xz -d *.xz | Decompresses the files compressed using xz. |
+| `xz *` | Compresses all of the files in the current directory and replaces each file with one with a `.xz` extension. |
+| `xz foo` | Compresses `foo` into `foo.xz` using the default compression level (-6), and removes `foo` if compression succeeds. |
+| `xz -dk bar.xz` | Decompresses `bar.xz` into `bar` and does not remove `bar.xz` even if decompression is successful. |
+| `xz -dcf a.txt b.txt.xz > abcd.txt` | Decompresses a mix of compressed and uncompressed files to standard output, using a single command. |
+| `xz -d *.xz` | Decompresses the files compressed using `xz`. |
 
 ### Handling Files Using zip
-While, the zip program is rarely used to compress files in Linux, it may be needed to examine and decompress archives from other operating systems. It is a legacy program neither fast nor efficient.
-
 | Command | Usage |
 | - | - |
-| zip backup * | Compresses all files in the current directory and places them in the backup.zip. |
-| zip -r backup.zip ~ | Archives your login directory (~) and all files and directories under it in backup.zip. |
-| unzip backup.zip | Extracts all files in backup.zip and places them in the current directory. |
+| `zip backup *` | Compresses all files in the current directory and places them in the `backup.zip`. |
+| `zip -r backup.zip ~` | Archives your login directory (`~`) and all files and directories under it in `backup.zip`. |
+| `unzip backup.zip` | Extracts all files in `backup.zip` and places them in the current directory. |
 
 ### Archiving and Compressing Data Using tar
 Historically, tar stood for "tape archive" and was used to archive files to a magnetic tape. It allows you to create or extract files from an archive file, often called a tarball. At the same time, you can optionally compress while creating the archive, and decompress while extracting its contents.
