@@ -200,9 +200,7 @@ For example, suppose you have a file named city containing several lines of text
 | tr -s '\n' ' ' < file.txt | Join all the lines in a file into a single line |
 
 ## `tee`
-`tee` takes the output from any command, and, while sending it to standard output, it also saves it to a file. 
-
-For example, to list the contents of a directory on the screen and save the output to a file, type `$ ls -l | tee newfile`.
+`tee` takes the output from any command, and, while sending it to standard output, it also saves it to a file. For example, to list the contents of a directory on the screen and save the output to a file, type `$ ls -l | tee newfile`.
 
 ## `wc`
 `wc` (word count) counts the number of lines, words, and characters in a file or list of files. 
