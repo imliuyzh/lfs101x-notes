@@ -177,27 +177,27 @@ Consider the following sentence: `the quick brown fox jumped over the lazy dog`.
 
 For example, to search for the string my_string in a spreadsheet: `$ strings book1.xls | grep my_string`.
 
-## tr
-The tr utility is used to translate specified characters into other characters or to delete them. The general syntax is as follows:
+## `tr`
+The `tr` utility is used to translate specified characters into other characters or to delete them. The general syntax is as follows:
 
 ```
 $ tr [options] set1 [set2]
 ```
 
-The items in the square brackets are optional. tr requires at least one argument and accepts a maximum of two. The first, designated set1 in the example, lists the characters in the text to be replaced or removed. The second, set2, lists the characters that are to be substituted for the characters listed in the first argument. Sometimes these sets need to be surrounded by apostrophes (or single-quotes (')) in order to have the shell ignore that they mean something special to the shell. It is usually safe (and may be required) to use the single-quotes around each of the sets.
+The items in the square brackets are optional. `tr` requires at least one argument and accepts a maximum of two. The first, designated `set1` in the example, lists the characters in the text to be replaced or removed. The second, `set2`, lists the characters that are to be substituted for the characters listed in the first argument. Sometimes these sets need to be surrounded by apostrophes (or single-quotes (`'`)) in order to have the shell ignore that they mean something special to the shell. It is usually safe to use the single-quotes around each of the sets.
 
-For example, suppose you have a file named city containing several lines of text in mixed case. To translate all lower case characters to upper case, at the command prompt type `$ cat city | tr a-z A-Z`.
+For example, suppose you have a file named `city` containing several lines of text in mixed case. To translate all lower case characters to upper case, type `$ cat city | tr a-z A-Z`.
 
 | Command | Usage |
 | - | - |
-| tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ | Convert lower case to upper case |
-| tr '{}' '()' < inputfile > outputfile	| Translate braces into parenthesis |
-| echo "This is for testing" \| tr [:space:] '\t' | Translate white-space to tabs |
-| echo "This&nbsp;&nbsp;&nbsp;is&nbsp;&nbsp;&nbsp;for&emsp;testing" \| tr -s [:space:] | Squeeze repetition of characters using -s |
-| echo "the geek stuff" \| tr -d 't' | Delete specified characters using -d option |
-| echo "my username is 432234" \| tr -cd [:digit:] | Complement the sets using -c option |
-| tr -cd [:print:] < file.txt | Remove all non-printable character from a file |
-| tr -s '\n' ' ' < file.txt | Join all the lines in a file into a single line |
+| `tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ` | Convert lower case to upper case |
+| `tr '{}' '()' < inputfile > outputfile` | Translate braces into parenthesis |
+| `echo "This is for testing" \| tr [:space:] '\t'` | Translate white-space to tabs |
+| `echo "This&nbsp;&nbsp;&nbsp;is&nbsp;&nbsp;&nbsp;for&emsp;testing" \| tr -s [:space:]` | Squeeze repetition of characters using `-s` |
+| `echo "the geek stuff" \| tr -d 't'` | Delete specified characters using `-d` option |
+| `echo "my username is 432234" \| tr -cd [:digit:]` | Complement the sets using `-c` option |
+| `tr -cd [:print:] < file.txt` | Remove all non-printable character from a file |
+| `tr -s '\n' ' ' < file.txt` | Join all the lines in a file into a single line |
 
 ## `tee`
 `tee` takes the output from any command, and, while sending it to standard output, it also saves it to a file. For example, to list the contents of a directory on the screen and save the output to a file, type `$ ls -l | tee newfile`.
