@@ -239,4 +239,4 @@ Arithmetic expressions can be evaluated in the following three ways (spaces are 
     let x=( 1 + 2 ); echo $x
     ```
 
-In modern shell scripts, the use of `expr` is better replaced with `var=$((...))`.
+In modern shell scripts, the use of `expr` is better replaced with `x=$((...))`.
