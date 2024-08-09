@@ -241,3 +241,13 @@ The `dd` program is very useful for making copies of raw disk space. For example
 `dd if=/dev/sda of=/dev/sdb` will make a copy of one disk onto another and delete everything that previously existed on the second disk. An exact copy of the first disk device is created on the second disk device.
 
 Exactly what the name `dd` stands for is an often-argued item. "Data definition" is the most popular theory and has roots in early IBM history. Often, people joke that it means disk destroyer and other variants such as delete data!
+
+## Creating Temporary Files and Directories
+Temporary files (and directories) are meant to store data for a short time. Usually, these files disappear when the program using them terminates. The best practice is to create random and unpredictable filenames for temporary storage.
+
+The `XXXXXXXX` is replaced by `mktemp` with random characters to ensure the name of the temporary file cannot be easily predicted and is only known within your program. You have to have at least 3 Xs in the supplied template.
+
+| Command | Usage |
+| - | - |
+| `TEMP=$(mktemp /tmp/tempfile.XXXXXXXX)` | To create a temporary file |
+| `TEMPDIR=$(mktemp -d /tmp/tempdir.XXXXXXXX)` | To create a temporary directory |
