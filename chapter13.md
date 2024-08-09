@@ -123,7 +123,6 @@ The command/action in `awk` needs to be surrounded with apostrophes (or single-q
 | `sort <filename>` | Sort the lines in the specified file, according to the characters at the beginning of each line |
 | `cat file1 file2 \| sort` | Combine the two files, then sort the lines and display the output on the terminal |
 | `sort -r <filename>` | Sort the lines in reverse order |
-| `sort -k 3 <filename>` | Sort the lines by the 3rd field on each line instead of the beginning |
 
 `uniq` removes duplicate consecutive lines in a text file and is useful for simplifying the text display. Because `uniq` requires that the duplicate entries must be consecutive, one often runs sort first and then pipes the output into `uniq`; if sort is used with the `-u` option, it can do all this in one step.
 
@@ -132,9 +131,7 @@ To remove duplicate entries from multiple files at once, use `$ sort file1 file2
 To count the number of duplicate entries, use `$ uniq -c filename`.
 
 ## `paste`
-Suppose you have a file that contains the full name of all employees and another file that lists their phone numbers and Employee IDs. You want to create a new file that contains all the data listed in three columns: name, employee ID, and phone number. 
-
-`paste` can be used to create a single file containing all three columns. The different columns are identified based on delimiters. 
+Suppose you have a file that contains the full name of all employees and another file that lists their phone numbers and Employee IDs. You want to create a new file that contains all the data listed in three columns: name, employee ID, and phone number. `paste` can be used to create a single file containing all three columns. The different columns are identified based on delimiters. 
 
 `paste` accepts the following options:
 - `-d` delimiters specify a list of delimiters to be used instead of tabs for separating consecutive values on a single line. Each delimiter is used in turn; when the list has been exhausted, paste begins again at the first delimiter.
@@ -148,7 +145,11 @@ Suppose you have two files with some similar columns. You have saved employees' 
 To combine two files on a common field, enter `$ join file1 file2`.
 
 ## `split`
-`split` is used to break up a file into equal-sized segments for easier viewing and manipulation, and is generally used only on relatively large files. By default, `split` breaks up a file into 1000-line segments. The original file remains unchanged, and a set of new files with the same name plus an added prefix is created. By default, the x prefix is added. To split a file into segments, use the command `$ split infile`. To split a file into segments using a different prefix, use the command `$ split infile <Prefix>`.
+`split` is used to break up a file into equal-sized segments for easier viewing and manipulation, and is generally used only on relatively large files. By default, `split` breaks up a file into 1000-line segments. The original file remains unchanged, and a set of new files with the same name plus an added prefix is created. By default, the `x` prefix is added. 
+
+To split a file into segments, use the command `$ split infile`. 
+
+To split a file into segments using a different prefix, use the command `$ split infile <Prefix>`.
 
 ## `grep`
 `grep` is extensively used as a primary text searching tool. It scans files for specified patterns and can be used with regular expressions, as well as simple strings:
