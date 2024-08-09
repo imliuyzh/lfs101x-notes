@@ -26,7 +26,7 @@ $ bash hello.sh
 ```
 
 ## Interactive Example Using bash Scripts
-Create a file named getname.sh in your favorite editor with the following content:
+Create a file named `getname.sh` in your favorite editor with the following content:
 
 ```bash
 #!/bin/bash
@@ -34,10 +34,10 @@ echo "ENTER YOUR NAME"
 read name
 
 # Display variable input
-echo The name given was :$name
+echo The name given was: $name
 ```
 
-The user will be prompted to enter a value, which is then displayed on the screen. The value is stored in a temporary variable, `name`. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. 
+The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. 
 
 Once again, make it executable by doing `chmod +x getname.sh`.
 
@@ -144,38 +144,12 @@ Typing `export` with no arguments will give a list of all currently exported env
 ![](./images/15.2.3.png)
 
 ## Functions
-A function is a code block that implements a set of operations. Functions are useful for executing procedures multiple times, perhaps with varying input variables. Functions are also often called subroutines. Using functions in scripts requires two steps:
-- Declaring a function
-- Calling a function
-
-For example, the following function is named display:
-
-```bash
-display () {
-   echo "This is a sample function that just displays a string"
-}
-```
-
-The function can be as long as desired and have many statements. Once defined, the function can be called later as many times as necessary. In the full example shown in the figure, we are also showing an often-used refinement: how to pass an argument to the function. The first argument can be referred to as $1, the second as $2, etc.
+A function is a code block that implements a set of operations. They are also often called subroutines. 
 
 ![](./images/15.2.4.png)
 
 ## The if Statement
-When an if statement is used, the ensuing actions depend on the evaluation of specified conditions, such as:
-- Numerical or string comparisons
-- Return value of a command (0 for success)
-- File existence or permissions
-
-A general definition is:
-
-```
-if condition
-then
-       statements
-else
-       statements
-fi
-```
+When an if statement is used, the ensuing actions depend on the evaluation of specified conditions.
 
 In the following example, an if statement checks to see if a certain file exists, and if the file is found, it displays a message indicating success or failure:
 
@@ -188,104 +162,81 @@ else
 fi
 ```
 
-Notice the use of the square brackets ([]) to delineate the test condition. 
+Notice the use of the square brackets (`[]`) to delineate the test condition. 
 
-In modern scripts, you may see doubled brackets as in [[ -f /etc/passwd ]]. This is not an error. It is never wrong to do so and it avoids some subtle problems, such as referring to an empty environment variable without surrounding it in double quotes.
+In modern scripts, you may see doubled brackets as in `[[ -f /etc/passwd ]]`. This is not an error. It is never wrong to do so and it avoids some subtle problems, such as referring to an environment variable without surrounding it in double quotes.
 
 ## The elif Statement
-You can use the elif statement to perform more complicated tests, and take action appropriate actions. The basic syntax is:
-
-```
-if [ sometest ] ; then
-    echo Passed test1 
-elif [ someothertest ] ; then
-    echo Passed test2 
-fi
-```
+You can use the elif statement to perform more complicated tests, and take action appropriate actions.
 
 ![](./images/15.3.1.png)
 
 ## Testing for Files
-bash provides a set of file conditionals, that can be used with the if statement. You can use the if statement to test for file attributes, such as:
-- File or directory existence
-- Read or write permission
-- Executable permission.
+bash provides a set of file conditionals that can be used with the if statement.
 
 For example, in the following example:
 
-```
+```bash
 if [ -x /etc/passwd ] ; then
-  ACTION
+    echo "Executable"
 fi
 ```
 
-the if statement checks if the file /etc/passwd is executable, which it is not. Note the very common practice of putting then on the same line as the if statement.
-
-You can view the full list of file conditions with `man 1 test`.
+the if statement checks if the file `/etc/passwd` is executable, which it is not. Note the very common practice of putting `then` on the same line as the if statement.
 
 | Condition | Meaning |
 | - | - |
-| -e file | Checks if the file exists |
-| -d file | Checks if the file is a directory |
-| -f file | Checks if the file is a regular file (i.e., not a symbolic link, device node, directory, etc.) |
-| -s file | Checks if the file is of non-zero size |
-| -g file | Checks if the file has sgid set |
-| -u file | Checks if the file has suid set |
-| -r file | Checks if the file is readable |
-| -w file | Checks if the file is writable |
-| -x file | Checks if the file is executable |
+| `-e file` | Checks if the file exists |
+| `-d file` | Checks if the file is a directory |
+| `-f file` | Checks if the file is a regular file (i.e., not a symbolic link, device node, directory, etc.) |
+| `-s file` | Checks if the file is of non-zero size |
+| `-r file` | Checks if the file is readable |
+| `-w file` | Checks if the file is writable |
+| `-x file` | Checks if the file is executable |
 
-## Testing for Numbers
-| Operator | Meaning |
-| - | - |
-| -eq | Equal to |
-| -ne | Not equal to |
-| -gt | Greater than |
-| -lt | Less than |
-| -ge | Greater than or equal to |
-| -le | Less than or equal to |
+## Testing for Strings
+You can use the if statement to compare strings using the operator `==` (two equal signs):
+
+![](./images/15.3.2.png)
+
+Note that using one `=` sign will also work, but some consider it deprecated usage. 
 
 ## Boolean Expressions
 | Operator | Operation |
 | - | - |
-| && | AND |
-| \|\| | OR |
-| ! | NOT |
+| `&&` | AND |
+| `\|\|` | OR |
+| `!` | NOT |
 
-### Example of Testing of Strings
-You can use the if statement to compare strings using the operator == (two equal signs). The syntax is as follows:
-
-```
-if [ string1 == string2 ] ; then
-  ACTION
-fi
-```
-
-Note that using one = sign will also work, but some consider it deprecated usage. 
-
-![](./images/15.3.2.png)
-
-### Example of Testing for Numbers
+## Testing for Numbers
+| Operator | Meaning |
+| - | - |
+| `-eq` | Equal to |
+| `-ne` | Not equal to |
+| `-gt` | Greater than |
+| `-lt` | Less than |
+| `-ge` | Greater than or equal to |
+| `-le` | Less than or equal to |
 
 ![](./images/15.3.3.png)
 
 ## Arithmetic Expressions
 Arithmetic expressions can be evaluated in the following three ways (spaces are important!):
-- Using the expr utility
-  - expr is a standard but somewhat deprecated program
-    ```
+
+- `expr` is a standard but somewhat deprecated program
+    ```bash
     expr 8 + 8
     echo $(expr 8 + 8)
     ```
 
-  - Using the $((...)) syntax, the built-in shell format
-    ```
+- Using the `$((...))` syntax, the built-in shell format
+    ```bash
     echo $((x+1))
     ```
 
-  - Using the built-in shell command let
-    ```
+- Using the built-in shell command `let`
+    ```bash
     let x=( 1 + 2 ); echo $x
     ```
 
-In modern shell scripts, the use of expr is better replaced with var=$((...)).
+In modern shell scripts, the use of `expr` is better replaced with `var=$((...))`.
