@@ -58,17 +58,27 @@ $ tail -15 somefile.log
 
 To continually monitor new output in a growing log file: `$ tail -f somefile.log`. This command will continuously display any new lines of output in `somefile.log` as soon as they appear.
 
-## Viewing Compressed Files
-For many commonly-used file and text manipulation programs, there is also a version especially designed to work directly with compressed files.
+## Regular Expressions
+Regular expressions are text strings used for matching a specific pattern, or to search for a specific location, such as the start or end of a line or a word. Regular expressions can contain both normal characters or so-called meta-characters, such as `*` and `$`.
 
-| Command | Description |
+| Search Patterns | Usage |
 | - | - |
-| `zcat compressed-file.txt.gz` | To view a compressed file |
-| `zless somefile.gz` <br> `zmore somefile.gz` | To page through a compressed file |
-| `zgrep -i less somefile.gz` | To search inside a compressed file |
-| `zdiff file1.txt.gz file2.txt.gz` | To compare two compressed files |
+| `.(dot)` | Match any single character |
+| `a\|z` | Match `a` or `z` |
+| `$` | Match end of a line |
+| `^` | Match beginning of a line |
+| `*` | Match preceding item 0 or more times |
 
-There are also equivalent utility programs for other compression methods besides `gzip`; we have `xzcat`, `xzless`, and `xzdiff` associated with `xz` and `bzcat`, `bzless` and `bzdiff` associated with `bzip2`.
+Consider the following sentence: `the quick brown fox jumped over the lazy dog`.
+
+| Command | Result |
+| - | - |
+| `a..` | azy |
+| `b.\|j.` | br and ju |
+| `..$` | og |
+| `l.*` | lazy dog |
+| `l.*y` | lazy |
+| `the.*` | the quick brown fox jumped over the lazy dog |
 
 ## `sed`
 `sed` is a powerful text processing tool and is one of the oldest, earliest and most popular UNIX utilities. Its name is an abbreviation for stream editor. Data from an input source/file (or stream) is taken and moved to a working space. The entire list of operations/modifications is applied over the data in the working space and the final contents are moved to the standard output space (or stream).
@@ -140,28 +150,6 @@ To combine two files on a common field, enter `$ join file1 file2`.
 ## `split`
 `split` is used to break up a file into equal-sized segments for easier viewing and manipulation, and is generally used only on relatively large files. By default, `split` breaks up a file into 1000-line segments. The original file remains unchanged, and a set of new files with the same name plus an added prefix is created. By default, the x prefix is added. To split a file into segments, use the command `$ split infile`. To split a file into segments using a different prefix, use the command `$ split infile <Prefix>`.
 
-## Regular Expressions
-Regular expressions are text strings used for matching a specific pattern, or to search for a specific location, such as the start or end of a line or a word. Regular expressions can contain both normal characters or so-called meta-characters, such as `*` and `$`.
-
-| Search Patterns | Usage |
-| - | - |
-| `.(dot)` | Match any single character |
-| `a\|z` | Match `a` or `z` |
-| `$` | Match end of a line |
-| `^` | Match beginning of a line |
-| `*` | Match preceding item 0 or more times |
-
-Consider the following sentence: `the quick brown fox jumped over the lazy dog`.
-
-| Command | Result |
-| - | - |
-| `a..` | azy |
-| `b.\|j.` | br and ju |
-| `..$` | og |
-| `l.*` | lazy dog |
-| `l.*y` | lazy |
-| `the.*` | the quick brown fox jumped over the lazy dog |
-
 ## `grep`
 `grep` is extensively used as a primary text searching tool. It scans files for specified patterns and can be used with regular expressions, as well as simple strings:
 
@@ -215,3 +203,16 @@ For example, suppose you have a file named `city` containing several lines of te
 
 ## `cut`
 `cut` is used for manipulating column-based files and is designed to extract specific columns. The default column separator is the TAB character. A different delimiter can be given as a command option. For example, to display the third column delimited by a blank space, enter `$ ls -l | cut -d " " -f3`.
+
+## Viewing Compressed Files
+For many commonly-used file and text manipulation programs, there is also a version especially designed to work directly with compressed files.
+
+| Command | Description |
+| - | - |
+| `zcat compressed-file.txt.gz` | To view a compressed file |
+| `zless somefile.gz` <br> `zmore somefile.gz` | To page through a compressed file |
+| `zgrep -i less somefile.gz` | To search inside a compressed file |
+| `zdiff file1.txt.gz file2.txt.gz` | To compare two compressed files |
+
+There are also equivalent utility programs for other compression methods besides `gzip`; we have `xzcat`, `xzless`, and `xzdiff` associated with `xz` and `bzcat`, `bzless` and `bzdiff` associated with `bzip2`.
+
