@@ -73,12 +73,12 @@ Consider the following sentence: `the quick brown fox jumped over the lazy dog`.
 
 | Command | Result |
 | - | - |
-| `a..` | azy |
-| `b.\|j.` | br and ju |
-| `..$` | og |
-| `l.*` | lazy dog |
-| `l.*y` | lazy |
-| `the.*` | the quick brown fox jumped over the lazy dog |
+| `a..` | `azy` |
+| `b.\|j.` | `br` and `ju` |
+| `..$` | `og` |
+| `l.*` | `lazy dog` |
+| `l.*y` | `lazy` |
+| `the.*` | `the quick brown fox jumped over the lazy dog` |
 
 ## `sed`
 `sed` is a powerful text processing tool and is one of the oldest, earliest and most popular UNIX utilities. Its name is an abbreviation for stream editor. Data from an input source/file (or stream) is taken and moved to a working space. The entire list of operations/modifications is applied over the data in the working space and the final contents are moved to the standard output space (or stream).
