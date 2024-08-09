@@ -85,15 +85,7 @@ Most Linux distributions rely on a modern password encryption algorithm called S
 You can secure the boot process with a secure password to prevent someone from bypassing the user authentication step. Note that while using a bootloader password alone will not prevent a user from booting from an alternative boot media such as optical disks or pen drives. Thus, it should be used with a BIOS password for full protection.
 
 ## Hardware Vulnerability
-Your IT security policy should start with requirements on how to properly secure physical access to servers and workstations. When hardware is physically accessible, security can be compromised by:
-
-- Key logging
-- Network sniffing
-- Booting with a live or rescue disk
-- Remounting and modifying disk content
-
-The guidelines of security are:
-
+Your IT security policy should start with requirements on how to properly secure physical access to servers and workstations. When hardware is physically accessible, security can incidents can be avoided by:
 - Lock down workstations and servers
 - Protect your network links such that it cannot be accessed by people you do not trust
 - Protect your keyboards where passwords are entered to ensure the keyboards cannot be tampered with
