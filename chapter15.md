@@ -172,17 +172,17 @@ You can use the elif statement to perform more complicated tests, and take actio
 ![](./images/15.3.1.png)
 
 ## Testing for Files
-bash provides a set of file conditionals that can be used with the if statement.
-
-For example, in the following example:
+bash provides a set of file conditionals that can be used with the if statement. In the following example,
 
 ```bash
+# Note the very common practice of putting then on the same
+# line as the if statement.
 if [ -x /etc/passwd ] ; then
     echo "Executable"
 fi
 ```
 
-the if statement checks if the file `/etc/passwd` is executable, which it is not. Note the very common practice of putting `then` on the same line as the if statement.
+the if statement checks if the file `/etc/passwd` is executable, which it is not.
 
 | Condition | Meaning |
 | - | - |
