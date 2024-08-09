@@ -1,6 +1,5 @@
 # Network Operations
 
-## Introduction to Networking
 A network is a group of computers and computing devices connected together through communication channels, such as cables or wireless media. The connected devices are often termed nodes.
 
 Most organizations have both an internal network and an Internet connection for users to communicate with machines and people outside the organization. The Internet is the largest network in the world and can be called "the network of networks".
@@ -63,53 +62,51 @@ Each Class C network can support up to 256 (8-bits) unique hosts. The range of h
 
 ![](./images/14.1.5.png)
 
-## Network Configuration Files
-Network configuration files are essential to ensure that interfaces function correctly. They are located in the /etc directory tree. However, the exact files used have historically been dependent on the particular Linux distribution and version being used. For Debian family configurations, the basic network configuration files could be found under /etc/network/, while for Red Hat and SUSE family systems one needed to inspect /etc/sysconfig/network.
-
-Modern systems emphasize the use of Network Manager. While the graphical versions of Network Manager do look somewhat different in different distributions, the nmtui utility (shown in the screenshot) varies almost not at all, as does the even more sparse nmcli (command line interface) utility. If you are proficient in the use of the GUIs, by all means, use them. If you are working on a variety of systems, the lower level utilities may make life easier.
-
-Recent Ubuntu distributions include netplan, which is turned on by default, and supplants Network Manager. However, no other distribution has shown interest.
-
-![](./images/14.2.1.png)
-
 ## Network Interfaces
 Network interfaces are a connection channel between a device and a network. Physically, network interfaces can proceed through a network interface card (NIC) or can be more abstractly implemented as software. You can have multiple network interfaces operating at once. Specific interfaces can be activated or deactivated at any time.
 
-Information about a particular network interface or all network interfaces can be reported by the ip and ifconfig utilities, which you may have to run as the superuser, or at least, give the full path, i.e. /sbin/ifconfig, on some distributions. ip is newer than ifconfig and has far more capabilities, but its output is uglier to the human eye.
+Information about a particular network interface or all network interfaces can be reported by the `ip` and `ifconfig` utilities, which you may have to run as the superuser, or at least, give the full path, i.e. `/sbin/ifconfig`, on some distributions. `ip` is newer than `ifconfig` and has far more capabilities, but its output is uglier to the human eye.
 
 ![](./images/14.2.2.png)
 
-## The ip Utility
+## Network Configuration Files
+Network configuration files are essential to ensure that interfaces function correctly. They are located in the `/etc` directory tree. However, the exact files used have historically been dependent on the particular Linux distribution and version being used. For Debian family configurations, the basic network configuration files could be found under `/etc/network/`, while for Red Hat and SUSE family systems one needed to inspect `/etc/sysconfig/network`.
+
+Modern systems emphasize the use of Network Manager. While the graphical versions of Network Manager do look somewhat different in different distributions, the `nmtui` utility (shown in the screenshot) varies almost not at all, as does the even more sparse `nmcli` (command line interface) utility. 
+
+Recent Ubuntu distributions include `netplan`, which is turned on by default, and supplants Network Manager. However, no other distribution has shown interest.
+
+![](./images/14.2.1.png)
+
+## `ip`
 To view the IP address: `$ /sbin/ip addr show`.
 
 To view the routing information: `$ /sbin/ip route show`.
 
-![](./images/14.2.3.png)
-
-## ping
-ping is used to check whether or not a machine attached to the network can receive and send data; i.e. it confirms that the remote host is online and is responding.
+## `ping`
+`ping` is used to check whether or not a machine attached to the network can receive and send data; i.e. it confirms that the remote host is online and is responding.
 
 To check the status of the remote host, at the command prompt, type `ping <hostname>`.
 
-ping is frequently used for network testing and management; however, its usage can increase network load unacceptably. Hence, you can abort the execution of ping by typing CTRL-C, or by using the -c option, which limits the number of packets that ping will send before it quits. When execution stops, a summary is displayed. Some hosts refuse to answer ping requests.
+`ping` is frequently used for network testing and management; however, its usage can increase network load unacceptably. Hence, you can abort the execution of `ping` by typing CTRL-C, or by using the `-c` option, which limits the number of packets that `ping` will send before it quits. Some hosts refuse to answer ping requests.
 
 ![](./images/14.2.4.png)
 
-## route
+## `route`
 A network requires the connection of many nodes. Data moves from source to destination by passing through a series of routers and potentially across multiple networks. Servers maintain routing tables containing the addresses of each node in the network. The IP routing protocols enable routers to build up a forwarding table that correlates final destinations with the next hop addresses.
+
+One can use the `route` utility (or the newer `ip route` command) to view or change the IP routing table to add, delete, or modify specific (static) routes to specific hosts or networks.
 
 ![](./images/14.2.5.png)
 
-One can use the route utility (or the newer ip route command) to view or change the IP routing table to add, delete, or modify specific (static) routes to specific hosts or networks.
-
 | Task | Command | 
 | - | - |
-| Show current routing table | route –n <br> ip route |
-| Add static route | route add -net address <br> ip route add | 
-| Delete static route | route del -net address <br> ip route del |
+| Show current routing table | `route –n` <br> `ip route` |
+| Add static route | `route add -net address` <br> `ip route add` | 
+| Delete static route | `route del -net address` <br> `ip route del` |
 
-## traceroute
-traceroute is used to inspect the route which the data packet takes to reach the destination host, which makes it quite useful for troubleshooting network delays and errors.
+## `traceroute`
+`traceroute` is used to inspect the route which the data packet takes to reach the destination host, which makes it quite useful for troubleshooting network delays and errors.
 
 To print the route taken by the packet to reach the network host, at the command prompt, type `traceroute <address>`.
 
@@ -118,16 +115,16 @@ To print the route taken by the packet to reach the network host, at the command
 ## More Networking Tools
 | Tools | Description |
 | - | - |
-| ethtool | Queries network interfaces and can also set various parameters such as the speed |
-| netstat | Displays all active connections and routing tables; useful for monitoring performance and troubleshooting |
-| nmap | Scans open ports on a network; important for security analysis |
-| tcpdump | Dumps network traffic for analysis |
-| iptraf | Monitors network traffic in text mode |
-| mtr | Combines functionality of ping and traceroute and gives a continuously updated display |
-| dig | Tests DNS workings; a good replacement for host and nslookup |
+| `ethtool` | Queries network interfaces and can also set various parameters such as the speed |
+| `netstat` | Displays all active connections and routing tables; useful for monitoring performance and troubleshooting |
+| `nmap` | Scans open ports on a network; important for security analysis |
+| `tcpdump` | Dumps network traffic for analysis |
+| `iptraf` | Monitors network traffic in text mode |
+| `mtr` | Combines functionality of `ping` and `traceroute` and gives a continuously updated display |
+| `dig` | Tests DNS workings; a good replacement for `host` and `nslookup` |
 
-## wget
-wget is a command line utility that can capably handle the following types of downloads:
+## `wget`
+`wget` is a command line utility that can capably handle the following types of downloads:
 - Large file downloads
 - Recursive downloads, where a web page refers to other web pages and all are downloaded at once
 - Password-required downloads
@@ -135,19 +132,17 @@ wget is a command line utility that can capably handle the following types of do
 
 ![](./images/14.3.1.png)
 
-## curl
-Besides downloading, you may want to obtain information about a URL. curl can be used from the command line or a script to read such information. curl also allows you to save the contents of a web page to a file, as does wget.
+## `curl`
+Besides downloading, you may want to obtain information about a URL. `curl` can be used from the command line or a script to read such information. `curl` also allows you to save the contents of a web page to a file, as does `wget`.
 
-You can read a URL using `curl <URL>`. To get the contents of a web page and store it to a file called saved.html, type `curl -o saved.html <URL>`.
+You can read a URL using `curl <URL>`. To get the contents of a web page and store it to a file called `saved.html`, type `curl -o saved.html <URL>`.
 
 ![](./images/14.3.2.png)
 
 ## FTP (File Transfer Protocol)
 When you are connected to a network, you may need to transfer files from one machine to another. File Transfer Protocol (FTP) is a well-known and popular method for transferring files between computers using the Internet. This method is built on a client-server model. 
 
-FTP is one of the oldest methods of network data transfer, dating back to the early 1970s. The reason FTP has fallen into disfavor on modern systems is that it is intrinsically insecure; passwords are user credentials that can be transmitted without encryption and are thus prone to interception. Thus, it was removed in favor of using rsync and web browser https access for example. 
-
-![](./images/14.4.1.png)
+FTP is one of the oldest methods of network data transfer, dating back to the early 1970s. The reason FTP has fallen into disfavor on modern systems is that it is intrinsically insecure; passwords are user credentials that can be transmitted without encryption and are thus prone to interception.
 
 ## SSH
 Secure Shell (SSH) is a cryptographic network protocol used for secure data communication. It is also used for remote services and other secure services between devices on the network and is very useful for administering systems which are not easily available to physically work on, but to which you have remote access.
@@ -156,7 +151,7 @@ To login to a remote system using your same user name you can just type `ssh <so
 
 To run a command on a remote system via SSH, at the command prompt, you can type `ssh <some_system> <command>`.
 
-### scp
-We can also move files securely using Secure Copy (scp) between two networked hosts. scp uses the SSH protocol for transferring data.
+### `scp`
+We can also move files securely using Secure Copy (`scp`) between two networked hosts. `scp` uses the SSH protocol for transferring data.
 
-To copy a local file to a remote system, at the command prompt, type `scp <localfile> <user@remotesystem>:<remotefile>` and press Enter. You will receive a prompt for the remote password. You can also configure scp so that it does not prompt for a password for each transfer.
+To copy a local file to a remote system, at the command prompt, type `scp <localfile> <user@remotesystem>:<remotefile>` and press Enter. You will receive a prompt for the remote password. You can also configure `scp` so that it does not prompt for a password for each transfer.
