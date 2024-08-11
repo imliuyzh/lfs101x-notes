@@ -36,7 +36,7 @@ Thread ID (TID) | Thread ID number. This is the same as the PID for single-threa
 ## Terminating a Process
 To terminate a process, you can type `kill -SIGKILL <pid>` or `kill -9 <pid>`. Note you can only kill your own processes; those belonging to another user are off-limits unless you are root.
 
-The name kill is historical and somewhat misleading, it can be used to send any kind of signal to a process, not just a termination one.
+The name is historical and somewhat misleading, it can be used to send any kind of signal to a process, not just a termination one.
 
 ## User and Group IDs
 Many users can access simultaneously and each can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
