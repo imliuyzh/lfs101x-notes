@@ -82,7 +82,7 @@ In such cases, you can run the job in the background and free the shell for othe
 You can use CTRL-Z to suspend a foreground job (i.e., put it in background) and CTRL-C to terminate it. You can always use the `bg` command to run a suspended process in the background, or the `fg` command to run a background process in the foreground.
 
 ### Managing Jobs
-The jobs utility displays all jobs running in background. `jobs -l` provides the same information as jobs, and adds the PID of the background jobs. The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
+The jobs utility displays all jobs running in background. `jobs -l` provides the same information as `jobs`, and adds the PID of the background jobs. The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
 
 ## `ps`
 
