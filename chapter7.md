@@ -221,7 +221,7 @@ To get a shorter (and possibly more relevant) list, we can use the `grep` progra
 $ locate zip | grep bin
 ```
 
-which will list all the files and directories with both zip and bin in their name. 
+which will list all the files and directories with both `zip` and `bin` in their name. 
 
 The database is created by a related utility `updatedb`. Most Linux systems run this automatically once a day. However, you can update it at any time by just running `updatedb` from the command line as the root user.
 
