@@ -193,6 +193,8 @@ Typing `crontab -e` will open the crontab editor to edit existing jobs or to cre
 30 08 10 06 * /home/sysadmin/full-backup
 ```
 
+Cron jobs run in the background and constantly check the cron table, and the `/etc/cron.*/` and `/var/spool/cron/` directories. Each user has a unique crontab file in `/var/spool/cron/`. These cron files are not supposed to be edited directly. Use `crontab` to create, edit, install, uninstall, and list cron jobs. 
+
 ### `anacron`
 While `cron` has been used in UNIX-like operating systems for decades, modern Linux distributions have moved over to `anacron`. This was because `cron` implicitly assumed the machine was always running. However, If the machine was powered off, scheduled jobs would not run. `anacron` will run the necessary jobs in a controlled and staggered manner when the system is up and running.
 
