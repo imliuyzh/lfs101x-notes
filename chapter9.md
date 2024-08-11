@@ -84,7 +84,7 @@ You can use CTRL-Z to suspend a foreground job (i.e., put it in background) and 
 ### Managing Jobs
 The `jobs` utility displays all jobs running in background. `jobs -l` provides the same information as `jobs`, and adds the PID of the background jobs. The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
 
-The example below shows how can you turn a background job to foreground job with the job ID:
+The example below shows how to turn a background job into a foreground job with the job ID:
 
 ```
 fedora@fedora:~$ vim &
