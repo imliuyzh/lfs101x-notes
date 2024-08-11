@@ -73,7 +73,7 @@ When you first log into a system or open a terminal, the default directory shoul
 | --------- | -------- |
 | `pwd` | Displays the present working directory |
 | `cd ~` <br /> `cd` | Change to your home directory |
-| `cd ..` | Change to parent directory (..) |
+| `cd ..` | Change to parent directory (`..`) |
 | `cd -` | Change to previous working directory |
 
 ## Understanding Absolute and Relative Paths
