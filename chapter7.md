@@ -193,12 +193,6 @@ Usually, `stdin` is your keyboard, and `stdout` and `stderr` are printed on your
 
 In Linux, all open files are represented internally by what are called file descriptors. Simply put, these are represented by numbers starting at zero. `stdin` is file descriptor 0, `stdout` is file descriptor 1, and `stderr` is file descriptor 2. Typically, if other files are opened in addition to these three, which are opened by default, they will start at file descriptor 3 and increase from there.
 
-| Name | Symbolic Name | Value |
-| --------- | -------- | -------- |
-| standard input | `stdin` | 0 |
-| standard output | `stdout` | 1 |
-| standard error | `stderr` | 2 |
-
 ### I/O Redirection
 
 Through the command shell, we can redirect the three standard file streams so that we can get input from either a file or another command, and we can write output and errors to files or use them to provide input for subsequent commands.
