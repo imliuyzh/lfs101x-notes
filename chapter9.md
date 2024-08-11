@@ -39,9 +39,7 @@ To terminate a process, you can type `kill -SIGKILL <pid>` or `kill -9 <pid>`. N
 The name is historical and somewhat misleading, it can be used to send any kind of signal to a process, not just a termination one.
 
 ## User and Group IDs
-Many users can access simultaneously and each can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user.
-
-The user who determines the access rights for the users is identified by the Effective UID (EUID). 
+Many users can access simultaneously and each can run multiple processes. The operating system identifies the user who starts the process by the Real User ID (RUID) assigned to the user. The user who determines the access rights for the users is identified by the Effective UID (EUID). 
 
 Users can be organized into enumerated groups. Each group is identified by the Real Group ID (RGID). The access rights of the group are determined by the Effective Group ID (EGID). Each user can be a member of one or more groups.
 
