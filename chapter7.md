@@ -39,7 +39,7 @@ To switch between VTs, press CTRL-ALT-function key for the VT. For example, pres
 
 ## Turning Off the Graphical Desktop
 
-For the newer system-based distributions, you can stop the GUI desktop with the `telinit` command: `sudo telinit 3`. You can restart it (after logging into the console) with: `sudo telinit 5`.
+For the newer system-based distributions, you can stop the GUI desktop with the `telinit` command: `$ sudo telinit 3`. You can restart it (after logging into the console) with: `$ sudo telinit 5`.
 
 ## Rebooting and Shutting Down
 
