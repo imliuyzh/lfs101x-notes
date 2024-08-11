@@ -47,3 +47,18 @@ Red Hat Package Manager (RPM) is another package management system. It was devel
 The higher-level package manager differs between distributions. Red Hat family distributions historically use RHEL/CentOS, and Fedora uses dnf, while SUSE family distributions such as openSUSE also use RPM but use the zypper interface.
 
 ![](images/5.3.2.png)
+
+| Operation | rpm | deb |
+| --------- | -------- | -------- |
+| Install package | `rpm -i foo.rpm` | `dpkg --install foo.deb` |
+| Install package, dependencies | `dnf install foo` | `apt install foo` |
+| Remove package | `rpm -e foo.rpm` | `dpkg --remove foo.deb` |
+| Remove package, dependencies | `dnf remove foo` | `apt autoremove foo` |
+| Update package | `rpm -U foo.rpm` | `dpkg --install foo.deb` |
+| Update package, dependencies | `dnf update foo` | `apt install foo` |
+| Update entire system | `dnf update` | `apt dist-upgrade` |
+| Show all installed packages | `rpm -qa` <br> `dnf list installed` | `dpkg --list` |
+| Get information on package | `rpm -qil foo` | `dpkg --listfiles foo` |
+| Show packages named `foo` | `dnf list "foo"` | `apt-cache search foo` |
+| Show all available packages | `dnf list`  | `apt-cache dumpavail foo` |
+| What package is file part of? | `rpm -qf file` | `dpkg --search file` |

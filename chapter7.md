@@ -266,26 +266,3 @@ To find and remove all files that end with `.swp`: `$ find -name "*.swp" -exec r
 To find files based on time: `$ find / -ctime 3`. Here, `-ctime` is when the inode metadata last changed; it is often, but not necessarily, when the file was first created. You can also search for accessed/last read (`-atime`) or modified/last written (`-mtime`) times. The number is the number of days and can be expressed as either a number (`n`) that means exactly that value, `+n`, which means greater than that number, or `-n`, which means less than that number. There are similar options for times in minutes (as in `-cmin`, `-amin`, and `-mmin`).
 
 To find files based on sizes: `$ find / -size 0`. Note the size here is in 512-byte blocks, by default; you can also specify bytes (`c`), kilobytes (`k`), megabytes (`M`), gigabytes (`G`), etc. As with the time numbers above, file sizes can also be exact numbers (`n`), `+n` or `-n`. For example, to find files greater than 10 MB in size and running a command on those files: `$ find / -size +10M -exec command {} ';'`.
-
-## Package Management Systems on Linux
-
-The Advanced Packaging Tool (apt) is the underlying package management system that manages software on Debian-based systems. While it forms the backend for graphical package managers, such as the Ubuntu Software Center and synaptic, its native user interface is at the command line.
-
-dnf is the open source command-line package-management utility for the RPM-compatible Linux systems that belong to the Red Hat family. 
-
-zypper is the package management system for the SUSE/openSUSE family and is also based on RPM. zypper also allows you to manage repositories from the command line. zypper is fairly straightforward to use and closely resembles dnf.
-
-| Operation | rpm | deb |
-| --------- | -------- | -------- |
-| Install package | `rpm -i foo.rpm` | `dpkg --install foo.deb` |
-| Install package, dependencies | `dnf install foo` | `apt install foo` |
-| Remove package | `rpm -e foo.rpm` | `dpkg --remove foo.deb` |
-| Remove package, dependencies | `dnf remove foo` | `apt autoremove foo` |
-| Update package | `rpm -U foo.rpm` | `dpkg --install foo.deb` |
-| Update package, dependencies | `dnf update foo` | `apt install foo` |
-| Update entire system | `dnf update` | `apt dist-upgrade` |
-| Show all installed packages | `rpm -qa` <br> `dnf list installed` | `dpkg --list` |
-| Get information on package | `rpm -qil foo` | `dpkg --listfiles foo` |
-| Show packages named `foo` | `dnf list "foo"` | `apt-cache search foo` |
-| Show all available packages | `dnf list`  | `apt-cache dumpavail foo` |
-| What package is file part of? | `rpm -qf file` | `dpkg --search file` |
