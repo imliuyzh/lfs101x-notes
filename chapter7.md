@@ -39,7 +39,7 @@ To switch between VTs, press CTRL-ALT-function key for the VT. For example, pres
 
 ## Turning Off the Graphical Desktop
 
-Linux distributions can start and stop the graphical desktop in various ways. For the newer system-based distributions, you can stop the GUI desktop with the `telinit` command:
+For the newer system-based distributions, you can stop the GUI desktop with the `telinit` command:
 
 ```
 $ sudo telinit 3
