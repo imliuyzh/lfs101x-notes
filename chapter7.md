@@ -21,7 +21,7 @@ If your system does not already have `sudo` set up and enabled:
     #
     ```
 
-2. Now, you need to create a configuration file to enable your user account to use `sudo`. Typically, this file is created in the `/etc/sudoers.d/` directory with the name of the file the same as your username. For example, for this demo, let's say your username is student. You would then create the configuration file for student by doing this:
+2. Now, you need to create a configuration file to enable your user account to use `sudo`. Typically, this file is created in the `/etc/sudoers.d/` directory with the name of the file the same as your username. For example, for this demo, let's say your username is `student`. You would then create the configuration file for `student` by doing this:
 
     ```
     # echo "student ALL=(ALL) ALL" > /etc/sudoers.d/student
