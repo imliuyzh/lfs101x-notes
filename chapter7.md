@@ -187,7 +187,7 @@ Note that `mv` can:
 
 ## Standard File Streams
 
-When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (standard in or `stdin`), standard output (standard out or `stdout`) and standard error (or `stderr`).
+When commands are executed, by default there are three standard file streams (or descriptors) always open for use: standard input (`stdin`), standard output (`stdout`) and standard error (`stderr`).
 
 Usually, `stdin` is your keyboard, and `stdout` and `stderr` are printed on your terminal. `stderr` is often redirected to an error logging file, while `stdin` is supplied by directing input to come from a file or from the output of a previous command through a pipe. `stdout` is also often redirected into a file. Since `stderr` is where error messages (and warning) are written, usually nothing will go there.
 
