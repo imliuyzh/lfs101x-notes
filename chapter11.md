@@ -145,7 +145,7 @@ The emacs tutorial is a good place to start learning basic commands. It is avail
 ### Working with emacs
 | Key | Usage |
 | --- | ----- |
-| emacs myfile | Start emacs and edit myfile |
+| `emacs myfile` | Start emacs and edit `myfile` |
 | CTRL-x i | Insert prompted for file at current position |
 | CTRL-x s | Save all files |
 | CTRL-x CTRL-w | Write to the file giving a new name when prompted |
