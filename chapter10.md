@@ -147,12 +147,12 @@ The `/usr` directory tree contains theoretically non-essential programs and scri
 | Directory | Usage |
 | - | - |
 | `/usr/include` | Header files used to compile applications |
-| `/usr/lib` | Libraries for programs in /usr/bin and /usr/sbin |
-| `/usr/lib64` | 64-bit libraries for 64-bit programs in /usr/bin and /usr/sbin |
+| `/usr/lib` | Libraries for programs in `/usr/bin` and `/usr/sbin` |
+| `/usr/lib64` | 64-bit libraries for 64-bit programs in `/usr/bin` and `/usr/sbin` |
 | `/usr/sbin` | Non-essential system binaries, such as system daemons, and scripts |
 | `/usr/share` | Shared data used by applications, generally architecture-independent |
 | `/usr/src` | Source code, usually for the Linux kernel |
-| `/usr/local` | Data and programs specific to the local machine; subdirectories include bin, sbin, lib, share, include, etc. |
+| `/usr/local` | Data and programs specific to the local machine; subdirectories include `bin`, `sbin`, `lib`, `share`, `include`, etc. |
 | `/usr/bin` | This is the primary directory of executable programs and scripts |
 
 ## Comparing Files with `diff` and `diff3`
