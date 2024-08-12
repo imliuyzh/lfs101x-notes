@@ -71,7 +71,7 @@ rjsquirrel : rjsquirrel
 and then add the new group:
 
 ```
-$ sudo /usr/sbin/usermod -a -G anewgroup rjsquirrel`.
+$ sudo /usr/sbin/usermod -a -G anewgroup rjsquirrel
 
 $ groups rjsquirrel
 rjsquirrel: rjsquirrel anewgroup
