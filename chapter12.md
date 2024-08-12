@@ -256,9 +256,9 @@ In Linux and other UNIX-based operating systems, every file is associated with a
 
 ### Example of `chown`
 
-First, we create two empty files using touch. 
+First, we create two empty files using `touch`. 
 
-Notice it requires sudo to change the owner of file2 to root. The second chown command changes both owner and group at the same time!
+Notice it requires `sudo` to change the owner of `file2` to root. The second chown command changes both owner and group at the same time!
 
 Finally, only the superuser can remove the files. 
 
