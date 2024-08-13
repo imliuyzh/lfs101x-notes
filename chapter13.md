@@ -3,13 +3,6 @@
 ## `cat`
 `cat` is short for concatenate and is one of the most frequently used Linux command line utilities. It is often used to read and print files, as well as for simply viewing file contents. To view a file, use `$ cat <filename>`.
 
-The `tac` command (`cat` spelled backwards) prints the lines of a file in reverse order. Each line remains the same, but the order of lines is inverted:
-
-```
-$ tac file
-$ tac file1 file2 > newfile
-```
-
 | Command | Usage |
 | - | - |
 | `cat file1 file2` | Concatenate multiple files and display the output |
@@ -17,6 +10,8 @@ $ tac file1 file2 > newfile
 | `cat file >> existingfile` | Append a file to the end of an existing file |
 | `cat > file` | Any subsequent lines typed will go into the file until CTRL-D is typed |
 | `cat >> file` | Any subsequent lines are appended to the file until CTRL-D is typed |
+
+The `tac` command (`cat` spelled backwards) prints the lines of a file in reverse order. Each line remains the same, but the order of lines is inverted.
 
 ## `echo`
 `echo` simply displays text: `$ echo string`. 
