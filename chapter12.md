@@ -225,7 +225,6 @@ echo $SHELL
 
 $ !sl         # Execute the command beginning with "sl"
 sleep 1000
-$
 ```
 
 ### Keyboard Shortcuts
