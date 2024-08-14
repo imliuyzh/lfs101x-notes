@@ -126,7 +126,7 @@ To remove duplicate entries from multiple files at once, use `$ sort file1 file2
 To count the number of duplicate entries, use `$ uniq -c filename`.
 
 ## `paste`
-Suppose you have a file that contains the full name of all employees and another file that lists their phone numbers and Employee IDs. You want to create a new file that contains all the data listed in three columns: name, employee ID, and phone number. `paste` can be used to create a single file containing all three columns. The different columns are identified based on delimiters. 
+Suppose you have a file that contains the full name of all employees and another file that lists their phone numbers and IDs. You want to create a new file that contains all the data listed in three columns: name, employee ID, and phone number. `paste` can be used to create a single file containing all three columns. The different columns are identified based on delimiters. 
 
 `paste` accepts the following options:
 - `-d` delimiters specify a list of delimiters to be used instead of tabs for separating consecutive values on a single line. Each delimiter is used in turn; when the list has been exhausted, paste begins again at the first delimiter.
