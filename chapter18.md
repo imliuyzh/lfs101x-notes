@@ -76,7 +76,7 @@ Most Linux distributions rely on a modern password encryption algorithm called S
 
 ## Good Password Practices
 - Password aging is a method to ensure that users get prompts that remind them to create a new password after a specific period. It is implemented using `chage`, which configures the password expiry information for a user.
-- Force users to set strong passwords using Pluggable Authentication Modules (PAM). PAM can be configured to automatically verify that a password created or modified using the `passwd` utility is sufficiently strong.
+- Force users to set strong passwords using Pluggable Authentication Modules (PAM). PAM can be configured to automatically verify that a password created or modified is sufficiently strong using the `passwd` utility.
 - One can also install password cracking programs to detect weak password entries.
 
 ## Requiring Boot Loader Passwords
