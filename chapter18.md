@@ -28,9 +28,7 @@ For a safe working environment, it is advised to grant the minimum privileges po
 `root` is the most privileged account on a Linux/UNIX system. This account has the ability to carry out all facets of system administration, including adding accounts, changing user passwords, examining log files, installing software, etc. It has no security restrictions imposed upon it. When you are signed in as, or acting as `root`, the shell prompt displays `#`. This convention is intended to serve as a warning to you of the absolute power of this account.
 
 ## `sudo` Features
-`sudo` has the ability to keep track of unsuccessful attempts at gaining root access. Users' authorization for using `sudo` is based on configuration information stored in the `/etc/sudoers` file and in the `/etc/sudoers.d` directory.
-
-A message such as the following would appear in a system log file (usually `/var/log/secure`) when trying to execute `sudo` without successful authentication:
+`sudo` has the ability to keep track of unsuccessful attempts at gaining root access. A message such as the following would appear in a system log file (usually `/var/log/secure`) when trying to execute `sudo` without successful authentication:
 
 ```
 badperson : user NOT in sudoers ; TTY=pts/4 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/tail secure
