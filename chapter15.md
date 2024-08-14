@@ -225,18 +225,16 @@ Arithmetic expressions can be evaluated in the following three ways (spaces are 
 
 - `expr` is a standard but somewhat deprecated program
     ```bash
-    expr 8 + 8
     echo $(expr 8 + 8)
     ```
 
 - Using the `$((...))` syntax, the built-in shell format
-    ```bash
-    echo $((x+1))
-    ```
+  - In modern shell scripts, the use of `expr` is better replaced with `x=$((...))` 
+  ```bash
+  echo $((x+1))
+  ```
 
 - Using the built-in shell command `let`
     ```bash
     let x=( 1 + 2 ); echo $x
     ```
-
-In modern shell scripts, the use of `expr` is better replaced with `x=$((...))`.
