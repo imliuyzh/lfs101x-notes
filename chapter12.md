@@ -211,7 +211,6 @@ The list of commands is displayed with the most recent command appearing last in
 
 ```
 $ history
-
   1. echo $SHELL
   2. echo $HOME
   3. echo $PS1
