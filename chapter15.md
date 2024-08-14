@@ -62,8 +62,6 @@ The concatenation operator (`\`), the backslash character, is used to continue l
 ```
 $ sudo apt install autoconf automake bison build-essential \
   chrpath curl diffstat emacs flex gcc-multilib g++-multilib \ 
-  libsdl1.2-dev libtool lzop make mc patch \
-  screen socat sudo tar texinfo tofrodos u-boot-tools unzip \
   vim wget xterm zip
 ```
 
