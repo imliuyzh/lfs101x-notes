@@ -78,13 +78,6 @@ However, you may want to abort subsequent commands when an earlier one fails. Yo
 
 Likewise, the `||` (or) operator runs through multiple commands until something succeeds: `cat file1 || cat file2 || cat file3`. 
 
-## Output Redirection
-With shell commands and scripts you can send the output to a file. The process of diverting the output to a file is called output redirection. 
-
-The `>` character is used to write output to a file. For example, the following command sends the output of `free` to `/tmp/free.out`: `free > /tmp/free.out`.
-
-Two `>` characters (`>>`) will append output to a file if it exists, and act just like `>` if the file does not already exist.
-
 ## Input Redirection
 Just as the output can be redirected to a file, the input of a command can be read from a file. The process of reading input from a file is called input redirection and uses the `<` character.
 
