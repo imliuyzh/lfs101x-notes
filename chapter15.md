@@ -165,23 +165,18 @@ give_your_name() {
         echo "Forget it $name, you are not a Beatle"
     fi
 }
-```
 
-```
-$ give_your_name
-Give your name
-John
-Hello John
+# Give your name
+# Hello John
+echo "John" | give_your_name
 
-$ give_your_name
-Give your name
-George
-Hello George
+# Give your name
+# Hello George
+echo "George" | give_your_name
 
-$ give_your_name
-Give your name
-Jack 
-Forget it Jack, you are not a Beatle
+# Give your name
+# Hello Jack
+echo "Jack" | give_your_name
 ```
 
 ## Testing for Files
