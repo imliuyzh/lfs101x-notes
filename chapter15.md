@@ -131,6 +131,13 @@ showmess Debian
 showmess openSUSE
 ```
 
+## Boolean Expressions
+| Operator | Operation |
+| - | - |
+| `&&` | AND |
+| `\|\|` | OR |
+| `!` | NOT |
+
 ## The if Statement
 When an if statement is used, the ensuing actions depend on the evaluation of specified conditions.
 
@@ -235,13 +242,6 @@ echo "wing" | test_string
 ```
 
 Note that using one `=` sign will also work, but some consider it deprecated usage. 
-
-## Boolean Expressions
-| Operator | Operation |
-| - | - |
-| `&&` | AND |
-| `\|\|` | OR |
-| `!` | NOT |
 
 ## Testing for Numbers
 | Operator | Meaning |
