@@ -111,6 +111,3 @@ f() {
     esac
 }
 ```
-
-## Script Debug Mode
-You can run a bash script in debug mode either by doing `bash -x ./script_file`, or bracketing parts of the script with `set -x` and `set +x`.

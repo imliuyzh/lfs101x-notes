@@ -22,6 +22,8 @@ You can then run the script by typing `./hello.sh` or by doing:
 $ bash hello.sh
 ```
 
+> You can run a bash script in debug mode either by doing `bash -x ./script_file`, or bracketing parts of the script with `set -x` and `set +x`.
+
 ## Interactive Example Using bash Scripts
 Create a file named `getname.sh` in your favorite editor with the following content:
 
