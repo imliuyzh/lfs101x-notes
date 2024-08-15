@@ -113,17 +113,4 @@ f() {
 ```
 
 ## Script Debug Mode
-You can run a bash script in debug mode either by doing `bash -x ./script_file`, or bracketing parts of the script with `set -x` and `set +x`. The debug mode helps identify the error because: 
-- It traces and prefixes each command with the + character
-- It displays each command before executing it
-- It can debug only selected parts of a script (if desired) with:
-  ```
-  set -x    # turns on debugging
-  ...
-  set +x    # turns off debugging
-  ```
-
-## Discarding Output with `/dev/null`
-Certain commands are quite capable of spewing voluminous and overwhelming amounts of output. To avoid this, we can redirect the large output to a special file (a device node) called `/dev/null`. This pseudofile is also called the bit bucket or black hole.
-
-All data written to `/dev/null` is discarded. Furthermore, write operations never return failure conditions. Using the proper redirection operators, it can make the uninteresting output disappear from commands that would normally generate output to `stdout` and `stderr`: `ls -lR /tmp >& /dev/null`.
+You can run a bash script in debug mode either by doing `bash -x ./script_file`, or bracketing parts of the script with `set -x` and `set +x`.
