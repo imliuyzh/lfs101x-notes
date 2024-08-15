@@ -78,20 +78,6 @@ However, you may want to abort subsequent commands when an earlier one fails. Yo
 
 Likewise, the `||` (or) operator runs through multiple commands until something succeeds: `cat file1 || cat file2 || cat file3`. 
 
-## Input Redirection
-Just as the output can be redirected to a file, the input of a command can be read from a file. The process of reading input from a file is called input redirection and uses the `<` character.
-
-The following three commands (using `wc` to count the number of lines, words and characters in a file) are entirely equivalent and involve input redirection, and a command operating on the contents of a file:
-
-```bash
-# 51  128 3038
-# 51  128 3038 /etc/passwd
-#    51     128    3038
-wc < /etc/passwd
-wc /etc/passwd
-cat /etc/passwd | wc
-```
-
 ## Script Parameters
 Users often need to pass parameter values to a script:
 
