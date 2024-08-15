@@ -116,7 +116,20 @@ While child processes are allowed to modify the value of exported variables, the
 ## Functions
 A function is a code block that implements a set of operations. They are also often called subroutines. 
 
-![](./images/15.2.4.png)
+```bash
+showmess() {
+    echo "My favorite Linux distribution is: $1"
+}
+
+# My favorite Linux distribution is: Ubuntu
+# My favorite Linux distribution is: Fedora
+# My favorite Linux distribution is: Debian
+# My favorite Linux distribution is: openSUSE
+showmess Ubuntu
+showmess Fedora
+showmess Debian
+showmess openSUSE
+```
 
 ## The if Statement
 When an if statement is used, the ensuing actions depend on the evaluation of specified conditions.
