@@ -253,7 +253,24 @@ Note that using one `=` sign will also work, but some consider it deprecated usa
 | `-ge` | Greater than or equal to |
 | `-le` | Less than or equal to |
 
-![](./images/15.3.3.png)
+```bash
+check_age() {
+    AGE=$1
+    if [[ $AGE -ge 20 ]] && [[ $AGE -lt 30 ]]; then
+        echo "You are in your 20s"
+    elif [[ $AGE -ge 30 ]] && [[ $AGE -lt 40 ]]; then
+        echo "You are in your 30s"
+    elif [[ $AGE -ge 40 ]] && [[ $AGE -lt 50 ]]; then
+        echo "You are in your 40s"
+    else
+        echo "You are not in the proper range of 21-50"
+    fi
+}
+
+check_age 33    # You are in your 30s
+check_age 21    # You are in your 20s
+check_age 18    # You are not in the proper range of 21-50
+```
 
 ## Arithmetic Expressions
 Arithmetic expressions can be evaluated in the following three ways (spaces are important!):
