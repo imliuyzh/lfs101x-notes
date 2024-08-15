@@ -185,7 +185,7 @@ bash provides a set of file conditionals that can be used with the if statement.
 ```bash
 # Note the very common practice of putting then on the same
 # line as the if statement.
-if [ -x /etc/passwd ] ; then
+if [ -x /etc/passwd ]; then
     echo "Executable"
 fi
 ```
