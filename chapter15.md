@@ -35,7 +35,7 @@ read name
 echo "The name given was: ${name}"
 ```
 
-The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. However, the preferred approach is `"${name}"` because it is more robust in scenarios like spaces in the value.
+The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. However, the preferred approach is `"${name}"` because the previous one is much more prone to tricky scenarios like spaces in the value.
 
 ## Return Values
 All shell scripts generate a return value upon finishing execution. By convention, success is returned as zero, and failure is returned as any non-zero value. The return value is stored in the environment variable represented by `$?`:
@@ -115,9 +115,12 @@ While child processes are allowed to modify the value of exported variables, the
 ## Functions
 A function is a code block that implements a set of operations. They are also often called subroutines. 
 
+Note you should use the `local` operator when you want to define a local variable in functions. By default, variables in bash scripts are global variables.
+
 ```bash
 showmess() {
-    echo "My favorite Linux distribution is: $1"
+    local distribution=$1
+    echo "My favorite Linux distribution is: ${distribution}"
 }
 
 # My favorite Linux distribution is: Ubuntu
@@ -129,6 +132,8 @@ showmess Fedora
 showmess Debian
 showmess openSUSE
 ```
+
+> A constant variable is defined like `readonly var='val'` in bash. Constant variables can be used just like a regular variable except you cannot change their value after definition.
 
 ## Boolean Expressions
 | Operator | Operation |
@@ -254,12 +259,12 @@ Note that using one `=` sign will also work, but some consider it deprecated usa
 
 ```bash
 check_age() {
-    AGE=$1
-    if [[ $AGE -ge 20 ]] && [[ $AGE -lt 30 ]]; then
+    local age=$1
+    if [[ $age -ge 20 ]] && [[ $age -lt 30 ]]; then
         echo "You are in your 20s"
-    elif [[ $AGE -ge 30 ]] && [[ $AGE -lt 40 ]]; then
+    elif [[ $age -ge 30 ]] && [[ $age -lt 40 ]]; then
         echo "You are in your 30s"
-    elif [[ $AGE -ge 40 ]] && [[ $AGE -lt 50 ]]; then
+    elif [[ $age -ge 40 ]] && [[ $age -lt 50 ]]; then
         echo "You are in your 40s"
     else
         echo "You are not in the proper range of 21-50"
