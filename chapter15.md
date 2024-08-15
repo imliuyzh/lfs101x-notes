@@ -169,11 +169,11 @@ give_your_name() {
     read name
 
     if [[ "$name" == "John" ]]; then
-        echo "Hello John"
+        echo 'Hello John'
     elif [[ "$name" == "George" ]] || [[ "$name" == "Ringo" ]] || [[ "$name" == "Paul" ]]; then
-        echo "Hello $name"
+        echo "Hello ${name}"
     else
-        echo "Forget it $name, you are not a Beatle"
+        echo "Forget it ${name}, you are not a Beatle"
     fi
 }
 
@@ -195,7 +195,7 @@ bash provides a set of file conditionals that can be used with the if statement.
 
 ```bash
 if [ -x /etc/passwd ]; then
-    echo "Executable"
+    echo 'Executable'
 fi
 ```
 
@@ -226,7 +226,7 @@ test_string() {
     elif [[ "$choice" == "aisle" ]]; then
         echo "Aisle #29C"
     else
-        echo "\"$choice\" is not valid. Please try again."
+        echo "\"${choice}\" is not valid. Please try again."
     fi
 }
 
