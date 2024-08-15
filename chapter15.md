@@ -39,9 +39,7 @@ The user will be prompted to enter a value, which is then displayed on the scree
 Once again, make it executable by doing `chmod +x getname.sh`.
 
 ## Return Values
-All shell scripts generate a return value upon finishing execution, which can be explicitly set with the exit statement. Return values permit a process to monitor the exit state of another process. 
-
-As a script executes, one can check for a specific value or condition and return success or failure as the result. By convention, success is returned as zero, and failure is returned as any non-zero value. The return value is stored in the environment variable represented by `$?`:
+All shell scripts generate a return value upon finishing execution, which can be explicitly set with the exit statement. By convention, success is returned as zero, and failure is returned as any non-zero value. The return value is stored in the environment variable represented by `$?`:
 
 ```
 $ ls /etc/logrotate.conf
