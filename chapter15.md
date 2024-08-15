@@ -205,7 +205,34 @@ the if statement checks if the file `/etc/passwd` is executable, which it is not
 ## Testing for Strings
 You can use the if statement to compare strings using the operator `==` (two equal signs):
 
-![](./images/15.3.2.png)
+```bash
+test_string() {
+    echo "Please specify window, middle, or aisle for your seat."
+    read choice
+
+    if [[ "$choice" == "window" ]]; then
+        echo "Window #29A"
+    elif [[ "$choice" == "middle" ]]; then
+        echo "Middle #29B"
+    elif [[ "$choice" == "aisle" ]]; then
+        echo "Aisle #29C"
+    else
+        echo "\"$choice\" is not valid. Please try again."
+    fi
+}
+
+# Please specify window, middle, or aisle for your seat.
+# Middle #29B
+echo "middle" | test_string
+
+# Please specify window, middle, or aisle for your seat.
+# Window #29A
+echo "window" | test_string
+
+# Please specify window, middle, or aisle for your seat.
+# "wing" is not valid. Please try again.
+echo "wing" | test_string
+```
 
 Note that using one `=` sign will also work, but some consider it deprecated usage. 
 
