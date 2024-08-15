@@ -76,7 +76,7 @@ The `;` (semicolon) character is used to separate the commands and execute them 
 
 However, you may want to abort subsequent commands when an earlier one fails. You can do this using the `&&` (and) operator as in: `make && make install && make clean`.
 
-Other than previous methods, the `||` (or) operator proceeds multiple commands until something succeeds: `cat file1 || cat file2 || cat file3`. 
+Likewise, the `||` (or) operator runs through multiple commands until something succeeds: `cat file1 || cat file2 || cat file3`. 
 
 ## Output Redirection
 With shell commands and scripts you can send the output to a file. The process of diverting the output to a file is called output redirection. 
