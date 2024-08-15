@@ -7,12 +7,12 @@ A shell is simply a command line interpreter which provides the user interface f
 Linux provides a wide choice of shells; exactly what is available on the system is listed in the `/etc/shells` file.
 
 ## A Simple `bash` Script
-The first line of the script, `#!/bin/bash`, contains the full path of the command interpreter that is to be used on the file. The special two-character sequence, `#!`, is often called a shebang.
+The first line of the script, `#!/usr/bin/env bash`, gets the path of the command interpreter from the system environment. The special two-character sequence, `#!`, is often called a shebang.
 
 Save it as `hello.sh` and enter `chmod +x hello.sh` to make the file executable by all users:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 echo "Hello Linux Foundation Student"
 ```
 
@@ -26,7 +26,7 @@ $ bash hello.sh
 Create a file named `getname.sh` in your favorite editor with the following content:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 echo "ENTER YOUR NAME"
 read name
 
@@ -65,7 +65,7 @@ $ sudo apt install autoconf automake bison build-essential \
 Note that the backslash character has another meaning of interpreting next character literally:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 echo \$HOME # $HOME
 ``` 
 
