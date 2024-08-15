@@ -24,7 +24,15 @@ done
 
 In this case, `variable-name` and `list` are substituted by you as appropriate. As with other looping constructs, the statements that are repeated should be enclosed by `do` and `done`.
 
-![](./images/16.3.1.png)
+```bash
+f() {
+    local sum=0
+    for j in {1..10..1}; do
+        sum=$((sum+j))
+    done
+    echo "${sum}"
+}
+```
 
 ## The `while` Loop
 The `while` loop repeats a set of statements as long as the control command returns true:
@@ -38,9 +46,22 @@ done
 
 The set of commands that need to be repeated should be enclosed between `do` and `done`. Often, the condition is enclosed within square brackets (`[]`).
 
-Notice the integer overflow on the screenshot.
+Notice the integer overflow below:
 
-![](./images/16.3.2.png)
+```bash
+f() {
+    local n=$1 factorial=1 j=1
+    while [[ $j -le $n ]]; do
+        factorial=$((factorial*j))
+        j=$((j+1))
+    done
+    printf '(%d!) = %d\n' $n $factorial
+}
+
+f 6     # (6!) = 720
+f 20    # (20!) = 2432902008176640000
+f 21    # (21!) = -4249290049419214848
+```
 
 ## The `until` Loop
 The `until` loop repeats a set of statements as long as the control command is false:
@@ -54,9 +75,22 @@ done
 
 Similar to the while loop, the set of commands that need to be repeated should be enclosed between `do` and `done`. You can use any command or operator as the condition.
 
-Notice the integer overflow on the screenshot.
+Notice the integer overflow below:
 
-![](./images/16.3.3.png)
+```bash
+f() {
+    local n=$1 factorial=1 j=1
+    until [[ $j -gt $n ]]; do
+        factorial=$((factorial*j))
+        j=$((j+1))
+    done
+    printf '(%d!) = %d\n' $n $factorial
+}
+
+f 7     # (7!) = 5040
+f 20    # (20!) = 2432902008176640000
+f 21    # (21!) = -4249290049419214848
+```
 
 ## The `case` Statement
 Here is the basic structure of the `case` statement:
