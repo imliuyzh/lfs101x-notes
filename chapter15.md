@@ -72,11 +72,11 @@ echo \$HOME # $HOME
 ## Putting Multiple Commands on a Single Line
 Users sometimes need to combine several commands and statements and even conditionally execute them based on the behavior of operators used in between them. This method is called chaining of commands.
 
-There are several different ways to do this, depending on what you want to do. The `;` (semicolon) character is used to separate these commands and execute them sequentially, as if they had been typed on separate lines. Each ensuing command is executed whether or not the preceding one succeeded. Thus, the three commands in the following example will all execute, even if the ones preceding them fail: `make ; make install ; make clean`.
+The `;` (semicolon) character is used to separate the commands and execute them sequentially, as if they had been typed on separate lines. Each ensuing command is executed whether or not the preceding one succeeded. Thus, the three commands in the following example will all execute, even if the ones preceding them fail: `make ; make install ; make clean`.
 
 However, you may want to abort subsequent commands when an earlier one fails. You can do this using the `&&` (and) operator as in: `make && make install && make clean`.
 
-A final refinement is to use the `||` (or) operator: `cat file1 || cat file2 || cat file3`. In this case, you proceed until something succeeds and then you stop executing any further steps.
+Other than previous methods, the `||` (or) operator allows multiple commands to run until something succeeds: `cat file1 || cat file2 || cat file3`. 
 
 ## Output Redirection
 With shell commands and scripts you can send the output to a file. The process of diverting the output to a file is called output redirection. 
