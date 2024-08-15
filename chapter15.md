@@ -113,10 +113,6 @@ By default, the variables created within a script are available only to the subs
 
 While child processes are allowed to modify the value of exported variables, the parent will not see any changes; exported variables are not shared, they are only copied and inherited.
 
-Typing `export` with no arguments will give a list of all currently exported environment variables.
-
-![](./images/15.2.3.png)
-
 ## Functions
 A function is a code block that implements a set of operations. They are also often called subroutines. 
 
