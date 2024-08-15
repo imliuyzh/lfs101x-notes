@@ -152,7 +152,37 @@ In modern scripts, you may see doubled brackets as in `[[ -f /etc/passwd ]]`. Th
 ## The elif Statement
 You can use the elif statement to perform more complicated tests, and take action appropriate actions.
 
-![](./images/15.3.1.png)
+```bash
+give_your_name() {
+    echo "Give your name"
+    read name
+
+    if [[ "$name" == "John" ]]; then
+        echo "Hello John"
+    elif [[ "$name" == "George" ]] || [[ "$name" == "Ringo" ]] || [[ "$name" == "Paul" ]]; then
+        echo "Hello $name"
+    else
+        echo "Forget it $name, you are not a Beatle"
+    fi
+}
+```
+
+```
+$ give_your_name
+Give your name
+John
+Hello John
+
+$ give_your_name
+Give your name
+George
+Hello George
+
+$ give_your_name
+Give your name
+Jack 
+Forget it Jack, you are not a Beatle
+```
 
 ## Testing for Files
 bash provides a set of file conditionals that can be used with the if statement. In the following example,
