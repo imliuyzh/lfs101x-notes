@@ -145,3 +145,6 @@ The Linux kernel offers the `/dev/random` and `/dev/urandom` device nodes, which
 `/dev/random` is used where very high-quality randomness is required, such as a one-time pad or key generation, but it is relatively slow to provide values. `/dev/urandom` is faster and suitable (good enough) for most cryptographic purposes.
 
 Furthermore, when the entropy pool is empty, `/dev/random` is blocked and does not generate any number until additional environmental noise is gathered, whereas `/dev/urandom` reuses the internal pool to produce more pseudo-random bits.
+
+## Good Locations for Scripts
+The `~/bin` directory is a good place to put scripts intended for personal use. If we write a script that everyone on a system can use, we generally put it in `/usr/local/bin`. Scripts intended for use by the system administrator are often located in `/usr/local/sbin`.
