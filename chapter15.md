@@ -204,7 +204,7 @@ echo "Jack" | give_your_name
 bash provides a set of file conditionals that can be used with the if statement. In the following example,
 
 ```bash
-if [ -x /etc/passwd ]; then
+if [[ -x /etc/passwd ]]; then
     echo 'Executable'
 fi
 ```
@@ -268,11 +268,11 @@ Note that using one `=` sign will also work, but some consider it deprecated usa
 ```bash
 check_age() {
     local age=$1
-    if [[ $age -ge 20 ]] && [[ $age -lt 30 ]]; then
+    if [[ "$age" -ge 20 ]] && [[ "$age" -lt 30 ]]; then
         echo "You are in your 20s"
-    elif [[ $age -ge 30 ]] && [[ $age -lt 40 ]]; then
+    elif [[ "$age" -ge 30 ]] && [[ "$age" -lt 40 ]]; then
         echo "You are in your 30s"
-    elif [[ $age -ge 40 ]] && [[ $age -lt 50 ]]; then
+    elif [[ "$age" -ge 40 ]] && [[ "$age" -lt 50 ]]; then
         echo "You are in your 40s"
     else
         echo "You are not in the proper range of 21-50"
