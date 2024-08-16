@@ -7,7 +7,7 @@ A string variable contains a sequence of text characters. In most cases, we can 
 | - | - |
 | `[[ string1 > string2 ]]` <br> `[[ string1 < string2 ]]` | Compares the sorting order of `string1` and `string2` |
 | `[[ string1 == string2 ]]` | Compares the characters in `string1` with the characters in `string2` |
-| `myLen1=${#string1}` | Gets the length of `string1` in the variable `myLen1` |
+| `${#string1}` | Gets the length of `string1` |
 
 ## Parts of a String
 At times, you may not need to compare or use an entire string. To extract the first n characters of a string, we can specify `${string:0:n}`. Here, 0 is the offset in the string where the extraction needs to start, and `n` is the number of characters to be extracted. To extract all characters in a string after a dot (`.`), use the following expression: `${string#*.}`.
