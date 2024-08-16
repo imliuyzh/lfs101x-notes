@@ -110,7 +110,7 @@ Note that as soon as the expression matches a pattern successfully, the executio
 ```bash
 f() {
     read input
-    case $input in
+    case "$input" in
         "1") echo "11";;
         "2") echo "22";;
         "3") echo "33";;
