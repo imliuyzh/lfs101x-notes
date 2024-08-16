@@ -5,7 +5,7 @@ A string variable contains a sequence of text characters. In most cases, we can 
 
 | Operator | Meaning |
 | - | - |
-| `[[ string1 > string2 ]]` | Compares the sorting order of `string1` and `string2` |
+| `[[ string1 > string2 ]]` <br> `[[ string1 < string2 ]]` | Compares the sorting order of `string1` and `string2` |
 | `[[ string1 == string2 ]]` | Compares the characters in `string1` with the characters in `string2` |
 | `myLen1=${#string1}` | Saves the length of `string1` in the variable `myLen1` |
 
