@@ -80,13 +80,6 @@ However, you may want to abort subsequent commands when an earlier one fails. Yo
 Likewise, the `||` (or) operator runs through multiple commands until something succeeds: `cat file1 || cat file2 || cat file3`. 
 
 ## Script Parameters
-Users often need to pass parameter values to a script:
-
-```
-$ ./script.sh /tmp
-$ ./script.sh 100 200
-```
-
 Within a script, the parameter or an argument is represented with a `$` and a number or special character:
 | Parameter | Meaning |
 | - | - |
