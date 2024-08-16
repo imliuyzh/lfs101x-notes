@@ -96,7 +96,22 @@ Within a script, the parameter or an argument is represented with a `$` and a nu
 | `$@` | All parameters |
 | `$#` | Number of arguments |
 
-![](./images/15.2.1.png)
+```bash
+f() {
+    echo "The name of this program is: $0"
+    echo "The first argument passed from the command line is: $1"
+    echo "The second argument passed from the command line is: $2"
+    echo "The third argument passed from the command line is: $3"
+    echo "All of the arguments passed from the command line are: $@"
+}
+
+# The name of this program is: /bin/bash
+# The first argument passed from the command line is: one
+# The second argument passed from the command line is: two
+# The third argument passed from the command line is: three
+# All of the arguments passed from the command line are: one two three four five
+f one two three four five
+```
 
 ## Command Substitution
 At times, you may need to substitute the result of a command as a portion of another command. It can be done in two ways:
