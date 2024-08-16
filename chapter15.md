@@ -143,7 +143,7 @@ showmess Debian
 showmess openSUSE
 ```
 
-> A constant variable is defined like `readonly var='val'` in bash. Constant variables can be used just like a regular variable except you cannot change their value after definition.
+> A constant variable is defined like `readonly NAME='value'` in bash. Constant variables can be used just like a regular variable except you cannot change their value after definition.
 
 ## Boolean Expressions
 | Operator | Operation |
