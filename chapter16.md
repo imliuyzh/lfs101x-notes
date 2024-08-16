@@ -30,7 +30,7 @@ f() {
     for j in {1..10..1}; do
         sum=$((sum+j))
     done
-    echo "${sum}"
+    echo $sum
 }
 ```
 
