@@ -93,7 +93,7 @@ Within a script, the parameter or an argument is represented with a `$` and a nu
 | `$0` | Script name |
 | `$1` | First parameter |
 | `$2`, `$3`, etc. | Second, third parameter, etc. |
-| `$*` | All parameters |
+| `$@` | All parameters |
 | `$#` | Number of arguments |
 
 ![](./images/15.2.1.png)
