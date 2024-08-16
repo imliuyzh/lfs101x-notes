@@ -4,7 +4,7 @@ A shell is simply a command line interpreter which provides the user interface f
 
 `sh` was written by Steve Bourne at AT&T in 1977, and is often known as the Bourne Shell. `bash` is a product of the GNU project and was created in 1987. It was designed as a major upgrade of `sh`; the name stands for Bourne Again Shell. On all Linux systems `sh` is just a link to `bash`, but scripts which are invoked as `sh` will only work without the `bash` extensions. 
 
-Linux provides a wide choice of shells; exactly what is available on the system is listed in the `/etc/shells` file.
+Linux provides a wide choice of shells and they are listed in the `/etc/shells` file.
 
 ## A Simple `bash` Script
 The first line of the script, `#!/usr/bin/env bash`, gets the path of the command interpreter from the system environment. The special two-character sequence, `#!`, is often called a shebang.
