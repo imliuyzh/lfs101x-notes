@@ -5,7 +5,7 @@
 Linux provides a wide choice of shells and they are listed in the `/etc/shells` file.
 
 ## A Simple `bash` Script
-The first line of the script, `#!/usr/bin/env bash`, gets the path of the command interpreter from the system environment. The special two-character sequence, `#!`, is often called a shebang.
+The first line of the script, `#!/usr/bin/env bash`, gets the path to the command interpreter from the system environment. The special two-character sequence, `#!`, is often called a shebang.
 
 Save it as `hello.sh` and enter `chmod +x hello.sh` to make the file executable by all users:
 
@@ -35,7 +35,7 @@ read name
 echo "The name given was: ${name}"
 ```
 
-The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. However, the preferred approach is to use `"${name}"` for string interpolation because it is much less prone to problems in tricky scenarios like spaces in the value.
+The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. However, the preferred approach is to use `"${name}"` for string interpolation because it is much less prone to problems in scenarios like spaces in the value.
 
 ## Return Values
 All shell scripts generate a return value upon finishing execution. By convention, success is returned as zero, and failure is returned as any non-zero value. The return value is stored in the environment variable represented by `$?`:
@@ -51,7 +51,7 @@ $ echo $?
 In this example, the system is able to locate the file `/etc/logrotate.conf` and `ls` returns a value of 0 to indicate success. When run on a non-existing file, it returns 2.
 
 ## Splitting Long Commands Over Multiple Lines
-The concatenation operator (`\`), the backslash character, is used to continue long commands over several lines. It causes the shell to combine (concatenate) multiple lines and execute them as one single command. Here is an example of a command installing a long list of packages on a system using Debian package management:
+The concatenation operator (`\`), the backslash character, is used to continue long commands over several lines. It causes the shell to concatenate multiple lines and execute them as one single command. Here is an example of a command installing a long list of packages on a system using Debian package management:
 
 ```
 $ sudo apt install autoconf automake bison build-essential \
@@ -61,7 +61,7 @@ $ sudo apt install autoconf automake bison build-essential \
   vim wget xterm zip
 ```
 
-Note that the backslash character has another meaning of interpreting next character literally:
+Also, note that the backslash character has another meaning of interpreting next character literally:
 
 ```bash
 #!/usr/bin/env bash
@@ -78,7 +78,6 @@ However, you may want to abort subsequent commands when an earlier one fails. Yo
 Likewise, the `||` (or) operator runs through multiple commands until something succeeds: `cat file1 || cat file2 || cat file3`. 
 
 ## Script Parameters
-Within a script, the parameter or an argument is represented with a `$` and a number or special character:
 | Parameter | Meaning |
 | - | - |
 | `$0` | Script name |
