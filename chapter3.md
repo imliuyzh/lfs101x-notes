@@ -36,10 +36,6 @@ The `mount` program instructs the operating system that a filesystem is ready fo
 
 Near the end of the boot process, `init` starts a number of text-mode login prompts. These enable you to type your username, followed by your password, and to eventually get a command shell. However, if you are running a system with a graphical login interface, you will not see these at first. The terminals which run the command shells can be accessed using the ALT key plus a function key. Most distributions start six text terminals and one graphics terminal starting with F1 or F2. Within a graphical environment, switching to a text console requires pressing CTRL-ALT + the appropriate function key (with F7 or F1 leading to the GUI).
 
-### The Linux Kernel
-
-When the kernel is loaded in RAM, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system. The kernel also loads some necessary user space applications.
-
 ## `/sbin/init` and Services
 
 Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs `/sbin/init`. This then becomes the initial process, which then starts other processes to get the system running. Most other processes on the system trace their origin ultimately to `init`; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
@@ -49,8 +45,6 @@ Besides starting the system, `init` is responsible for keeping the system runnin
 Traditionally, this process startup was done using conventions that date back to the 1980s and the System V variety of UNIX. This serial process (called SysVinit) had the system pass through a sequence of runlevels containing collections of scripts that start and stop services. Each runlevel supported a different mode of running the system. Within each runlevel, individual services could be set to run, or to be shut down if running.
 
 However, all major distributions have moved away from this sequential method of system initialization, although they usually can emulate many System V utilities for compatibility purposes.
-
-![](images/3.2.2.png)
 
 ### Startup Alternatives
 
