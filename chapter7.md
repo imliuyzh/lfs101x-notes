@@ -202,9 +202,7 @@ Because `stderr` is not the same as `stdout`, error messages will still be seen 
 bash permits an easier syntax for the above: `$ do_something >& all-output-file`.
 
 #### Discarding Output with `/dev/null`
-Certain commands are quite capable of spewing voluminous and overwhelming amounts of output. To avoid this, we can redirect the large output to a special file (a device node) called `/dev/null`. This pseudofile is also called the bit bucket or black hole. All write operations to it never return failure conditions. 
-
-Using the proper redirection operators, it can make the uninteresting output disappear: `ls -lR /tmp >& /dev/null`.
+Certain commands are quite capable of spewing voluminous and overwhelming amounts of output. To avoid this, we can redirect the large output to a special file (a device node) called `/dev/null`. This pseudofile is also called the bit bucket or black hole. All write operations to it never return failure conditions. For example, `ls -lR /tmp >& /dev/null`.
 
 ### Pipes
 
