@@ -6,7 +6,7 @@ The man pages are the most often-used source of Linux documentation. They are pr
 
 ### `man`
 
-The `man` program searches, formats, and displays the information contained in the man page system. Because many topics have copious amounts of relevant information, output is piped through a pager program (such as `less`) to be viewed one page at a time. At the same time, the information is formatted for a good visual display.
+The `man` program searches, formats, and displays the information contained in the man page system. Because many topics have copious amounts of relevant information, output is piped through a pager program (such as `less`) to be viewed one page at a time.
 
 A given topic may have multiple pages associated with it and there is a default order determining which one is displayed when no options or section number is specified. To list all pages on the topic, use the `-f` option. To list all pages that discuss a specific topic (even if the specified subject is not present in the name), use the `–k` option.
 
