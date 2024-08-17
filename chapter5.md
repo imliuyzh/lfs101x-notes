@@ -44,7 +44,7 @@ For Debian-based systems, the higher-level package management system is the Adva
 
 Red Hat Package Manager (RPM) is another package management system. It was developed by Red Hat and adopted by a number of other distributions, including Fedora, CentOS, SUSE/openSUSE, Oracle Linux, and others.
 
-The higher-level package manager differs between distributions. Red Hat family distributions historically use RHEL/CentOS, and Fedora uses dnf, while SUSE family distributions such as openSUSE also use RPM but use the zypper interface.
+The higher-level package manager differs between distributions. Red Hat family distributions like RHEL, CentOS, and Fedora historically use dnf, while SUSE family distributions such as openSUSE also use RPM but use the zypper interface.
 
 ![](images/5.3.2.png)
 
