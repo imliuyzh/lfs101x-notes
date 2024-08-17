@@ -1,7 +1,5 @@
 # Command Line Operations
 
-A terminal emulator simulates a standalone terminal within a window on the desktop. It behaves essentially as if you were logging into the machine at a pure text terminal with no graphical interface.
-
 ## The Command Line
 
 Most input lines entered at the shell prompt have three basic elements: command, options, and arguments.
