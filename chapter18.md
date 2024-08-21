@@ -28,11 +28,10 @@ For a safe working environment, it is advised to grant the minimum privileges po
 `root` is the most privileged account on a Linux/UNIX system. This account has the ability to carry out all facets of system administration, including adding accounts, changing user passwords, examining log files, installing software, etc. It has no security restrictions imposed upon it. When you are signed in as, or acting as `root`, the shell prompt displays `#`. This convention is intended to serve as a warning to you of the absolute power of this account.
 
 ## `sudo` Features
-`sudo` has the ability to keep track of unsuccessful attempts at gaining root access. A message such as the following would appear in a system log file (usually `/var/log/secure`) when trying to execute `sudo` without successful authentication:
+`sudo` has the ability to keep track of unsuccessful attempts at gaining root access. By default, sudo commands and any failures are logged in `/var/log/auth.log` under the Debian distribution family, and in `/var/log/messages` and/or `/var/log/secure` on other systems. 
 
-```
-badperson : user NOT in sudoers ; TTY=pts/4 ; PWD=/var/log ; USER=root ; COMMAND=/usr/bin/tail secure
-```
+![](./images/18.2.2.png)
+![](./images/18.2.3.png)
 
 ## The sudoers File
 Whenever `sudo` is invoked, a trigger will look at `/etc/sudoers` and the files in `/etc/sudoers.d` to determine if the user has the right to use `sudo` and what the scope of their privilege is. Unknown user requests and requests to do operations not allowed to the user even with `sudo` are reported. The basic structure of entries in these files is: `who where = (as_whom) what`.
@@ -45,12 +44,6 @@ You should edit any of these configuration files by using `visudo`, which ensure
 # visudo /etc/sudoers
 # visudo -f /etc/sudoers.d/student
 ```
-
-## Command Logging
-By default, sudo commands and any failures are logged in `/var/log/auth.log` under the Debian distribution family, and in `/var/log/messages` and/or `/var/log/secure` on other systems. 
-
-![](./images/18.2.2.png)
-![](./images/18.2.3.png)
 
 ## Process Isolation
 Linux is considered to be more secure than many other operating systems because processes are naturally isolated from each other. More recent additional security mechanisms that limit risks even further include:
