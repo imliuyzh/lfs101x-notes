@@ -4,7 +4,7 @@
 
 Linux provides a wide choice of shells and they are listed in the `/etc/shells` file.
 
-## A Simple `bash` Script
+## A Simple bash Script
 The first line of the script, `#!/usr/bin/env bash`, gets the path to the command interpreter from the system environment. The special two-character sequence, `#!`, is often called a shebang.
 
 Save it as `hello.sh` and enter `chmod +x hello.sh` to make the file executable by all users:
