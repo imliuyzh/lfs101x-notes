@@ -69,7 +69,7 @@ Hard disks, for example, are represented as `/dev/sd*`. While a root user can re
 
 ![](./images/18.2.4.png)
 
-## How Passwords Are Stored
+## How Passwords are Stored
 Originally, encrypted passwords were stored in the `/etc/passwd` file, which was readable by everyone. This made it rather easy for passwords to be cracked. On modern systems, passwords are actually stored in an encrypted format in a secondary file named `/etc/shadow`. Only those with root access can read or modify this file.
 
 Most Linux distributions rely on a modern password encryption algorithm called SHA-512 (Secure Hashing Algorithm 512 bits), developed by the U.S. National Security Agency (NSA) to encrypt passwords.
