@@ -64,7 +64,6 @@ $ sudo apt install autoconf automake bison build-essential \
 Also, note that the backslash character has another meaning of interpreting next character literally:
 
 ```bash
-#!/usr/bin/env bash
 echo \$HOME # $HOME
 ``` 
 
