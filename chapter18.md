@@ -18,7 +18,7 @@ By default, Linux distinguishes between several account types in order to isolat
 
 A regular account user can perform some operations requiring special permissions; however, the system configuration must allow such abilities to be exercised.
 
-SUID (Set owner User ID upon execution) is a special kind of file permission given to a file. Use of SUID provides temporary permissions to a user to run a program with the permissions of the file owner (which may be `root`) instead of the permissions held by the user.
+SUID (Set owner User ID upon execution) is a special kind of file permission given to a file. Use of SUID provides temporary permissions to a user to run a program with the permissions of the file owner (which may be root) instead of the permissions held by the user.
 
 For a safe working environment, it is advised to grant the minimum privileges possible and necessary to accounts, and remove inactive accounts. The `last` utility, which shows the last time each user logged into the system, can be used to help identify potentially inactive accounts which are candidates for system removal.
 
