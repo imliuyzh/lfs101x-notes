@@ -10,7 +10,7 @@ A string variable contains a sequence of text characters. In most cases, we can 
 | `${#string1}` | Gets the length of `string1` |
 
 ## Parts of a String
-At times, you may not need to compare or use an entire string. To extract the first n characters of a string, we can specify `${string:0:n}`. Here, 0 is the offset in the string where the extraction needs to start, and `n` is the number of characters to be extracted. To extract all characters in a string after a dot (`.`), use the following expression: `${string#*.}`.
+At times, you may not need to compare or use an entire string. To extract the first `n` characters of a string, we can specify `${string:0:n}`. Here, 0 is the offset in the string where the extraction needs to start, and `n` is the number of characters to be extracted. To extract all characters in a string after a dot (`.`), use the following expression: `${string#*.}`.
 
 ## The `for` Loop
 The `for` loop operates on each element of a list of items. The syntax for the `for` loop is:
