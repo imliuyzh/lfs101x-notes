@@ -35,7 +35,7 @@ read name
 echo "The name given was: ${name}"    # echo "The name given was: $name"
 ```
 
-The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. However, it is preferred to place a pair of quotes around it, as like `"$name"`. The quotes prevent parsing issues when the value of a variable contains spaces. Without the quotation marks, the value can be incorrectly interpreted by the shell as a command followed by its arguments. Besides this, you can also use `"${name}"` to avoid the same problem.
+The user will be prompted to enter a value, which is then displayed on the screen. We can reference the value of a shell variable by using a `$` in front of the variable name, such as `$name`. However, it is preferred to place a pair of quotes around it, as in `"$name"`. The quotes prevent parsing issues when the value of a variable contains spaces. Without the quotation marks, the value can be incorrectly interpreted by the shell as a command followed by its arguments. Besides this, you can also use `"${name}"` to avoid the same problem.
 
 ## Return Values
 All shell scripts generate a return value upon finishing execution. By convention, success is returned as zero, and failure is returned as any non-zero value. The return value is stored in the environment variable represented by `$?`:
