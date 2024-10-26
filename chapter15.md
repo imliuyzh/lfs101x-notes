@@ -188,7 +188,7 @@ echo "John" | give_your_name
 
 # Give your name
 # Hello George
-echo "George" | give_your_name
+give_your_name <<< "George"
 
 # Give your name
 # Hello Jack
